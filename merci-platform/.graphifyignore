@@ -1,0 +1,21 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno
+.env
+.env.local
+.env.*
+
+# Carpetas de compilación/producción
+dist/
+build/
+out/
+
+# Logs
+*.log
+
+# Control de versiones
+.git/
+
+# Salidas de herramientas
+graphify-out/

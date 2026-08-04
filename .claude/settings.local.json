@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npx eslint *)",
+      "Read(//c/proyect/**)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(xargs grep -ln \"empresa.configurar\\\\|auditoria.ver\")",
+      "Bash(git fetch *)",
+      "Bash(echo \"--- exit code: $? ---\")",
+      "Bash(node --check src/modules/agentes/agentes.routes.js)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(chromium-cli --help)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //F //PID 27172)",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}

@@ -1,0 +1,942 @@
+{
+  "eslint.config.js": {
+    "mtime": 1784675593.5202365,
+    "ast_hash": "3aa4b57d7f08181d86bde52a4dcb7f22",
+    "semantic_hash": "3aa4b57d7f08181d86bde52a4dcb7f22"
+  },
+  "package.json": {
+    "mtime": 1784675593.5611012,
+    "ast_hash": "3f8da2610ffb91d4fbb68075a1a551c5",
+    "semantic_hash": "3f8da2610ffb91d4fbb68075a1a551c5"
+  },
+  "src/App.jsx": {
+    "mtime": 1784675593.6634166,
+    "ast_hash": "495fb87a300983e0defb602e061d5baf",
+    "semantic_hash": "495fb87a300983e0defb602e061d5baf"
+  },
+  "src/components/ConfirmModal.jsx": {
+    "mtime": 1784675594.0201905,
+    "ast_hash": "11d9017620a63a2355e445de2c763d10",
+    "semantic_hash": "11d9017620a63a2355e445de2c763d10"
+  },
+  "src/components/FormField.jsx": {
+    "mtime": 1784675594.0323527,
+    "ast_hash": "21e6987d2b7e1fac297960d40f2a2bc6",
+    "semantic_hash": "21e6987d2b7e1fac297960d40f2a2bc6"
+  },
+  "src/components/FormModal.jsx": {
+    "mtime": 1784675594.0438097,
+    "ast_hash": "46c9191419daff86586d38f95caf1ef9",
+    "semantic_hash": "46c9191419daff86586d38f95caf1ef9"
+  },
+  "src/components/InputField.jsx": {
+    "mtime": 1784675594.0438097,
+    "ast_hash": "1c0e5bb99f90d9f440ccadd7a719eddd",
+    "semantic_hash": "1c0e5bb99f90d9f440ccadd7a719eddd"
+  },
+  "src/components/LoginForm.jsx": {
+    "mtime": 1784675594.062153,
+    "ast_hash": "c941761fbe55bbb930b080071321b0a2",
+    "semantic_hash": "c941761fbe55bbb930b080071321b0a2"
+  },
+  "src/components/LoginMessages.jsx": {
+    "mtime": 1784675594.0738645,
+    "ast_hash": "74b15426fdb65aaa712e256a899c059c",
+    "semantic_hash": "74b15426fdb65aaa712e256a899c059c"
+  },
+  "src/components/Navigation/Header.jsx": {
+    "mtime": 1785035190.3312404,
+    "ast_hash": "59cf3555e38440fe59fc6d1bd02b1622",
+    "semantic_hash": ""
+  },
+  "src/components/Navigation/Rail.jsx": {
+    "mtime": 1784675594.1686945,
+    "ast_hash": "3f1a0c6558206328460b8f118d1efc0c",
+    "semantic_hash": "3f1a0c6558206328460b8f118d1efc0c"
+  },
+  "src/components/Navigation/Sidebar.jsx": {
+    "mtime": 1784675594.2071433,
+    "ast_hash": "cd13f57165242e71ef20f4481a43023f",
+    "semantic_hash": "cd13f57165242e71ef20f4481a43023f"
+  },
+  "src/components/Navigation/SidebarItem.jsx": {
+    "mtime": 1784675594.2181044,
+    "ast_hash": "937dfc3123210f4a7bfbe86a8f977a01",
+    "semantic_hash": "937dfc3123210f4a7bfbe86a8f977a01"
+  },
+  "src/components/Navigation/index.js": {
+    "mtime": 1784675594.2252781,
+    "ast_hash": "9ce27fdc38552e23565c6b1fc70fbc45",
+    "semantic_hash": "9ce27fdc38552e23565c6b1fc70fbc45"
+  },
+  "src/components/OrbAI.jsx": {
+    "mtime": 1784675594.0838518,
+    "ast_hash": "f337a4257da582ea6999858be187c4aa",
+    "semantic_hash": "f337a4257da582ea6999858be187c4aa"
+  },
+  "src/components/PanelDetalleUsuario.jsx": {
+    "mtime": 1784675594.093884,
+    "ast_hash": "cf8cf9761db730bcc8248cbfb77670c6",
+    "semantic_hash": "cf8cf9761db730bcc8248cbfb77670c6"
+  },
+  "src/components/StatCard.jsx": {
+    "mtime": 1784675594.1075418,
+    "ast_hash": "c04ee360fe2dd7ce4e99acc782f479d8",
+    "semantic_hash": "c04ee360fe2dd7ce4e99acc782f479d8"
+  },
+  "src/components/UserAvatar.jsx": {
+    "mtime": 1784675594.1075418,
+    "ast_hash": "4af701673aa0d6e15b97dacc7758a7ff",
+    "semantic_hash": "4af701673aa0d6e15b97dacc7758a7ff"
+  },
+  "src/context/AuthContext.jsx": {
+    "mtime": 1784675594.247994,
+    "ast_hash": "072892b1ad3121d42fe06d6e8482f64c",
+    "semantic_hash": "072892b1ad3121d42fe06d6e8482f64c"
+  },
+  "src/data/menuSections.js": {
+    "mtime": 1785042915.7059603,
+    "ast_hash": "57fc9ece673608175d3046ee5bf8e494",
+    "semantic_hash": ""
+  },
+  "src/hooks/useAuth.js": {
+    "mtime": 1784675594.2797906,
+    "ast_hash": "8c3c5b3bd413594e49475e24571b3797",
+    "semantic_hash": "8c3c5b3bd413594e49475e24571b3797"
+  },
+  "src/hooks/useSidebar.js": {
+    "mtime": 1784675594.2983425,
+    "ast_hash": "2245b23d6ecb86b37069535deefe6469",
+    "semantic_hash": "2245b23d6ecb86b37069535deefe6469"
+  },
+  "src/layouts/AppLayout.jsx": {
+    "mtime": 1784675594.3369699,
+    "ast_hash": "82c9a74ebe15ff16af8aaff7b8cd52a4",
+    "semantic_hash": "82c9a74ebe15ff16af8aaff7b8cd52a4"
+  },
+  "src/main.jsx": {
+    "mtime": 1784675593.6811092,
+    "ast_hash": "c5212dc96c9caf155925e4ebca549f30",
+    "semantic_hash": "c5212dc96c9caf155925e4ebca549f30"
+  },
+  "src/pages/AgentesVirtuales.jsx": {
+    "mtime": 1785035190.3409624,
+    "ast_hash": "0c42283a07d3cc4c9979306693883a5d",
+    "semantic_hash": ""
+  },
+  "src/pages/Auditoria.jsx": {
+    "mtime": 1785035237.4135745,
+    "ast_hash": "77660628e25f8c190c7051dc8b72f50c",
+    "semantic_hash": ""
+  },
+  "src/pages/BaseConocimiento.jsx": {
+    "mtime": 1785035190.349645,
+    "ast_hash": "954e2d449a633fba4eff6a45a0081bd9",
+    "semantic_hash": ""
+  },
+  "src/pages/Configuracion.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "a7d7453ebf381828691041c7b98a16c5",
+    "semantic_hash": ""
+  },
+  "src/pages/Dashboard.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "d60e937a03ca84bb4ac9c23c034f33bc",
+    "semantic_hash": ""
+  },
+  "src/pages/Departamentos.jsx": {
+    "mtime": 1784675594.4233403,
+    "ast_hash": "8ab39407da3f1576b2f3d5cb47824f67",
+    "semantic_hash": "8ab39407da3f1576b2f3d5cb47824f67"
+  },
+  "src/pages/Extensiones.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "11cbb7b880a43003de9d2a2569a18753",
+    "semantic_hash": ""
+  },
+  "src/pages/HistorialLlamadas.jsx": {
+    "mtime": 1785035461.8233588,
+    "ast_hash": "66de36c40d374091cc7da4d5dbd5eac0",
+    "semantic_hash": ""
+  },
+  "src/pages/Landing.jsx": {
+    "mtime": 1784675594.4547238,
+    "ast_hash": "94b3fc98276d8d8d2f57cf327465b166",
+    "semantic_hash": "94b3fc98276d8d8d2f57cf327465b166"
+  },
+  "src/pages/Login.jsx": {
+    "mtime": 1784675594.4703743,
+    "ast_hash": "9672b1d809d449136900d80ea18afab7",
+    "semantic_hash": "9672b1d809d449136900d80ea18afab7"
+  },
+  "src/pages/NotFoundPage.jsx": {
+    "mtime": 1784675594.4703743,
+    "ast_hash": "f8eff0eebb522bae9efd8dcff8c6cc64",
+    "semantic_hash": "f8eff0eebb522bae9efd8dcff8c6cc64"
+  },
+  "src/pages/PageStub.jsx": {
+    "mtime": 1784675594.486287,
+    "ast_hash": "f12d2741378fa9d5bb4a25da310eb400",
+    "semantic_hash": "f12d2741378fa9d5bb4a25da310eb400"
+  },
+  "src/pages/RolesYPermisos.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "6734d9cdcd05473594e1b8cab48ecc45",
+    "semantic_hash": ""
+  },
+  "src/pages/Sucursales.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "ebe59e398680d35493eb792e562fffbb",
+    "semantic_hash": ""
+  },
+  "src/pages/Usuarios.jsx": {
+    "mtime": 1784675594.5291753,
+    "ast_hash": "625437fc3f046695c2f4b0ee324121c9",
+    "semantic_hash": "625437fc3f046695c2f4b0ee324121c9"
+  },
+  "src/permissions/usePermissions.jsx": {
+    "mtime": 1784675594.5487788,
+    "ast_hash": "f4164425561b66e7062a65c12a196c1e",
+    "semantic_hash": "f4164425561b66e7062a65c12a196c1e"
+  },
+  "src/routes/AppRoutes.jsx": {
+    "mtime": 1785040403.0593317,
+    "ast_hash": "86e6d02724d35297295721db0947564b",
+    "semantic_hash": ""
+  },
+  "src/services/api.js": {
+    "mtime": 1784675594.580241,
+    "ast_hash": "a6bc69eaa060e1bef0bd6c1d8e13823c",
+    "semantic_hash": "a6bc69eaa060e1bef0bd6c1d8e13823c"
+  },
+  "src/services/usuarios.service.js": {
+    "mtime": 1784675594.6028075,
+    "ast_hash": "96efa0ddc79be7c5d4ee2ad25dfd6085",
+    "semantic_hash": "96efa0ddc79be7c5d4ee2ad25dfd6085"
+  },
+  "src/utils/avatarColor.js": {
+    "mtime": 1784675594.660053,
+    "ast_hash": "e26796a438b68bd53a688afeb2f58fe1",
+    "semantic_hash": "e26796a438b68bd53a688afeb2f58fe1"
+  },
+  "vite.config.js": {
+    "mtime": 1784675593.5728114,
+    "ast_hash": "28a1a7eb6324d1a044b02c75419035db",
+    "semantic_hash": "28a1a7eb6324d1a044b02c75419035db"
+  },
+  "README.md": {
+    "mtime": 1784675593.5045528,
+    "ast_hash": "a28dc4cb878325f3e9e5649f3e1469ac",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1784675593.537455,
+    "ast_hash": "54775df433f8128f6d3e79950e041f4e",
+    "semantic_hash": ""
+  },
+  "public/favicon.svg": {
+    "mtime": 1784675593.5942502,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": ""
+  },
+  "public/icons.svg": {
+    "mtime": 1784675593.6055377,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": ""
+  },
+  "public/logo-merci.svg": {
+    "mtime": 1784675593.6238747,
+    "ast_hash": "f23d7e3bb18f329d9cd2bc6dc46d4268",
+    "semantic_hash": ""
+  },
+  "public/logoM.png": {
+    "mtime": 1784675593.6316473,
+    "ast_hash": "5ed58327fad2ddcb886371855ad5bc43",
+    "semantic_hash": ""
+  },
+  "src/assets/hero.png": {
+    "mtime": 1784675593.7110534,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/activity.svg": {
+    "mtime": 1784675593.7758465,
+    "ast_hash": "fa212ba2198fcdfe1b80e60e8b9209a8",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/agent.svg": {
+    "mtime": 1784675593.7909875,
+    "ast_hash": "d9460621a3647aed22c5df8a2f4d84e0",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/auditoria.svg": {
+    "mtime": 1784675593.804752,
+    "ast_hash": "b2dcab343667dbc15a5ce7312908f3dc",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/book.svg": {
+    "mtime": 1784675593.8207588,
+    "ast_hash": "58f006a8e723c68388ab815eb7f1e3e0",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/building.svg": {
+    "mtime": 1784675593.8284924,
+    "ast_hash": "ef8fca5208d645728619e389e44c3ca9",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/dashboard.svg": {
+    "mtime": 1784675593.8524432,
+    "ast_hash": "6775a55d0bb3e383c76ee3700fb87747",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/depa_icon.svg": {
+    "mtime": 1784675593.8681562,
+    "ast_hash": "d67f41635dd7b561baeded7e0da52e8f",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/historial.svg": {
+    "mtime": 1784675593.8741796,
+    "ast_hash": "e466af09114be62ab587a99798f93d3e",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/phone.svg": {
+    "mtime": 1784675593.894246,
+    "ast_hash": "fc4fa37f6286227cd98e467ba9349b0a",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/phone_active.svg": {
+    "mtime": 1784675593.9060805,
+    "ast_hash": "8a9d992558b24d94d560ddfb453fdd28",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/roles.svg": {
+    "mtime": 1784675593.9257514,
+    "ast_hash": "cc1c4fe31ebe59baddc84b80cb642cd5",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/settings.svg": {
+    "mtime": 1784675593.931268,
+    "ast_hash": "4cf7f889a26a9f4b7fcb8236ab7f635f",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/sparks.svg": {
+    "mtime": 1784675593.9566162,
+    "ast_hash": "2eb5a4957c8c39a0a02b09f3f2e9b3c0",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/tickets.svg": {
+    "mtime": 1784675593.9646606,
+    "ast_hash": "bba13d6234e4a6e9a0aa1c4cfdbad360",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/user.svg": {
+    "mtime": 1784675593.9786365,
+    "ast_hash": "9ee8545fbc9b0d4ad09d3f7409c8016c",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/workflows.svg": {
+    "mtime": 1784675593.998411,
+    "ast_hash": "6ac4532fd7feb20b48e5e420e706127b",
+    "semantic_hash": ""
+  },
+  "src/assets/logo-merci.svg": {
+    "mtime": 1784675593.7110534,
+    "ast_hash": "f23d7e3bb18f329d9cd2bc6dc46d4268",
+    "semantic_hash": ""
+  },
+  "src/assets/react.svg": {
+    "mtime": 1784675593.7403836,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": ""
+  },
+  "src/assets/vite.svg": {
+    "mtime": 1784675593.748416,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": ""
+  },
+  "src/services/auditoria.service.js": {
+    "mtime": 1785035237.2464452,
+    "ast_hash": "f32631f89a87ed6a90c486a55334d2ac",
+    "semantic_hash": ""
+  },
+  "src/services/configuracion.service.js": {
+    "mtime": 1785035237.3464158,
+    "ast_hash": "c516a86bfd909f01add48b9c5557e9f5",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1785041970.951839,
+    "ast_hash": "e731a0bbcec9f3853cd7c96f212c2b08",
+    "semantic_hash": ""
+  },
+  "src/components/Header.jsx": {
+    "mtime": 1785035190.3312404,
+    "ast_hash": "72c7ecbab654a3794d49920fed4bf330",
+    "semantic_hash": ""
+  },
+  "src/components/ModalConfirmarEliminar.jsx": {
+    "mtime": 1785035190.3312404,
+    "ast_hash": "c8789875357ca13ab124c9b1b016a208",
+    "semantic_hash": ""
+  },
+  "src/components/ModalRol.jsx": {
+    "mtime": 1785035190.3312404,
+    "ast_hash": "cb54a612450801c5116e5c5950196546",
+    "semantic_hash": ""
+  },
+  "src/components/ModalSucursal.jsx": {
+    "mtime": 1785035190.3312404,
+    "ast_hash": "94cb700550efd913e8ef2da608372153",
+    "semantic_hash": ""
+  },
+  "src/layouts/MainLayout.jsx": {
+    "mtime": 1785035190.3409624,
+    "ast_hash": "febcfa2a0bfab5bbea820202571cbac7",
+    "semantic_hash": ""
+  },
+  "src/pages/Automatizaciones.jsx": {
+    "mtime": 1785035190.3485694,
+    "ast_hash": "a52574afbe178481f3d53df595fa5a02",
+    "semantic_hash": ""
+  },
+  "src/pages/CloudUCM.jsx": {
+    "mtime": 1785035190.3510916,
+    "ast_hash": "631fd06e80b84d885b5534d45526f2f1",
+    "semantic_hash": ""
+  },
+  "src/pages/PreguntasFrecuentes.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "6c4de90e3bd49b005e2eb679e2ef1d34",
+    "semantic_hash": ""
+  },
+  "src/pages/Reportes.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "6c3cc70916dd9b7ffeb6b48f151e345e",
+    "semantic_hash": ""
+  },
+  "src/pages/Workflows.jsx": {
+    "mtime": 1785035190.3518097,
+    "ast_hash": "38ef794034a1c46ee410e7c695e31239",
+    "semantic_hash": ""
+  },
+  "src/utils/rolColor.js": {
+    "mtime": 1785035190.3651304,
+    "ast_hash": "371104e91682375c49945e19ac69bd58",
+    "semantic_hash": ""
+  },
+  ".docs/informes/01-1.0-3-reconstruccion-historial-llamadas.md": {
+    "mtime": 1785035499.5409255,
+    "ast_hash": "e67fefe4ca52115a74cf854c7f7621cb",
+    "semantic_hash": ""
+  },
+  ".docs/informes/01-1.0-4-primer-commit-client.md": {
+    "mtime": 1785035283.3632648,
+    "ast_hash": "b511ad543c216c400c5e3f2ec7e9d687",
+    "semantic_hash": ""
+  },
+  ".docs/informes/01-1.2-guards-permiso-vistas.md": {
+    "mtime": 1785040478.5872476,
+    "ast_hash": "2f92a636412f2b1b45283505b236a84b",
+    "semantic_hash": ""
+  },
+  ".docs/informes/INFORME_SITUACION_ACTUAL.md": {
+    "mtime": 1785035237.503038,
+    "ast_hash": "5275dae7c26d77f629a0c4d0b41d2ed5",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/activos_ahora.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "2bcad0da5669e3170b65352cab58a8d9",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/asignar_extension.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "0ca2e2a9f4c1e2e78aa84f7c171dd38a",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/correo.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "c9ca28501790197681a5f7f91cd205ce",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/crear_departamento.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "70346a8e6e76388a7e1f4da685b87946",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/crear_sucursal.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "70346a8e6e76388a7e1f4da685b87946",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/departamentos.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "2b28b6cfcb7e2bc023f89274b121ba9b",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/editar_rol_boton.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "3ef2ec7229c077ec69e2cb957d0cc1d0",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/editar_usuario.svg": {
+    "mtime": 1785035190.2229097,
+    "ast_hash": "e96af4293dfb0addcc5b1aeb2f041cda",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/extensiones.svg": {
+    "mtime": 1785035190.23033,
+    "ast_hash": "dff86f92c60f1a1c27f58744ec0e5b13",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/gestionar_roles.svg": {
+    "mtime": 1785035190.2318723,
+    "ast_hash": "7a42025f170babc475cad478df11d19c",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/icono_buscar.svg": {
+    "mtime": 1785035190.2329977,
+    "ast_hash": "2f9a9b032453edb9f7fa807bf57cfbcc",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_atencion.svg": {
+    "mtime": 1785035190.2342708,
+    "ast_hash": "7ceed562e255818107fb1d8575b53dbb",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_auditoria.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "4fc2c89b89570cd7c7822d872d626777",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_conocimiento.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "7d01772b18b9d1d65e25bd21f4f07ac8",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_dashboard.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "0618b638e5bf2557426fd0aaa3703975",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_extensiones.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "a4843036a017e99ad5603d8e41c8db4f",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_ia.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "b2bcab163f2a0fe05b1c5a97e542c6fd",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_llamadas.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "d5a48c0324cf6351dab33cb94266c139",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_seguridad.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "562befb02ffe3a3095fb4b72ba0f2b87",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_tickets.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "664f155c975bbd9f53ff628607b5b950",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/modulo_workflows.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "08304d338a8a8b43f2a63d3f2df8f3a9",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/nuevo_rol.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "e66ccd6696dca03f754fdbc32a97bc2a",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/nuevo_usuario.svg": {
+    "mtime": 1785035190.235255,
+    "ast_hash": "5ae76caa9da404ee1d0a1b9d6d71d5ad",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/roles.svg": {
+    "mtime": 1785035190.247488,
+    "ast_hash": "f4ede4560ba39c27d31f112e4ffdeb65",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/seguridad.svg": {
+    "mtime": 1785035190.2485118,
+    "ast_hash": "4d0307184d6c0434785c7c2eb2cc849d",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/sucursales.svg": {
+    "mtime": 1785035190.2497969,
+    "ast_hash": "ebf86067828b7b95bd39f58c297a0a24",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/total_usuarios.svg": {
+    "mtime": 1785035190.2497969,
+    "ast_hash": "fad1d3e2e9005962d73243665805bb8d",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/ubicacion.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "0cd93f5328474316d7b96e30231d8b40",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/administracion/usuario_chiquito.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "cdec7b77c5c6817c71347d1e58fea4c7",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/alerta_eliminar.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "431557163357b7d63fbbe3abc6a4bc9f",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/boton_editar_crud.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "1fc666c88ff049b9279cc505537c567a",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/boton_eliminar_crud.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "749b396cfd1ea7385407f6edf7d78699",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/boton_ver_crud.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "1af9bb15d6ab3af48f5939ffd2de9424",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/cerrar.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "d0015babe2c803341d79345d20f17c96",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/cerrar_sesion.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "d229d44382a011cbce0b07eaba5a01f5",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/crear.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "47d1fd1b4bec5164bb62ec4f667ed154",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/guardar.svg": {
+    "mtime": 1785035190.252114,
+    "ast_hash": "5037dc9d78b64dca932fe79c06a98955",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/icono_basura_blanco.svg": {
+    "mtime": 1785035190.263679,
+    "ast_hash": "214a1caf23dfc68b26b6f57426ff2b40",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/icono_basura_rojo.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "145bf8edd43642339cf21b163a543028",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/globales/icono_editar_modal.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "1fc666c88ff049b9279cc505537c567a",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/FAQs.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "a19497fc263f7c9c4cae343fc162689c",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/agentes_virtuales.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "4c8b55ed80392e0675763635100b72e5",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/apagar_agente.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "089d01feedc679c2c09d592db46dbf33",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/crear_documento.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "55407b8d33ca4d87fd9b275205cd31da",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/crear_faq.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "1064670166aa0bc33ad78332f4f8cf8a",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/crear_regla.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "dcf63770308856fff11a37ebc0b94078",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/editar_agente.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "dea0a8c8c35103179ec74d97e1ef6525",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/editar_tipo.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "0779ca7a8e3afb51a94a4dbcb1321fb0",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/eliminar_agente.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "3e0773424ce4cc3a7b20cb00415b42ec",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/empleados_asignados.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "fad1d3e2e9005962d73243665805bb8d",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/extensiones_asignadas.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "60efa0f7ee16a87f2c02e386c9dd3755",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/informacion_del_negocio.svg": {
+    "mtime": 1785035190.2645957,
+    "ast_hash": "6da93f670c932dca22514c76b8cb7c8a",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/prompt_agente_virtual.svg": {
+    "mtime": 1785035190.2793775,
+    "ast_hash": "58ed09c24c4df7c0f3d68086580a8f09",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/reglas_activar.svg": {
+    "mtime": 1785035190.2808535,
+    "ast_hash": "218de3ff7c97ac981a4badd9c56bb7b8",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/reglas_pausar.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "e3ee9f14ceb35e278b4ad31b196d19a1",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/tipos_disponibles.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "c6c99c48f3388c1e46f286016e99c494",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/inteligencia_artificial/total_departamentos.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "195ccc93b5498b414b2c215e1354c30e",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/monitorizacion/llamadas_en_espera.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "478aba9671143b32a773548d81da0ce0",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/monitorizacion/llamadas_en_proceso.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "137985bd2472ff887fb8067ef6dd1c69",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/monitorizacion/llamadas_escaladas.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "18b4d5b226b05ee50a29afcf5788f007",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/monitorizacion/llamadas_transferidas.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "5049f465f32f18f4891ef4946f11eb02",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/monitorizacion/transferir.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "fb9f268da9ebd127f0997bbbb7e9e418",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/monitorizacion/transferir_llamada.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "deb375fcdcd3a3c3af000d910d766f78",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/crear_extension.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "70346a8e6e76388a7e1f4da685b87946",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/detalles_de_llamada.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "5615de6b4f867f154162c8e7438f86b1",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/exportar_csv.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "7f7470dd7f34522e3a960404cce17aad",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/extensiones_activas.svg": {
+    "mtime": 1785035190.281553,
+    "ast_hash": "27db8eff0f256a2f8727d1b27467e320",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/extensiones_en_llamada.svg": {
+    "mtime": 1785035190.2961485,
+    "ast_hash": "3f45c5e4a2abb264faf4e98d403078be",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/extensiones_suspendidas.svg": {
+    "mtime": 1785035190.2978244,
+    "ast_hash": "098f84681d4ab52cf04e4c5a2833f910",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/extensiones_totales.svg": {
+    "mtime": 1785035190.2994895,
+    "ast_hash": "195ccc93b5498b414b2c215e1354c30e",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/extensiones_vacia.svg": {
+    "mtime": 1785035190.3005345,
+    "ast_hash": "4ec416afb163ece63faa5dc11d7f90aa",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/historial_llamadas_vacia.svg": {
+    "mtime": 1785035190.3015816,
+    "ast_hash": "c2915b674564d6fa04139eda9d3574fc",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/tickets_abiertos.svg": {
+    "mtime": 1785035190.30274,
+    "ast_hash": "bb4bb56a2094cd2381afa184261309ed",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/tickets_criticos.svg": {
+    "mtime": 1785035190.3037975,
+    "ast_hash": "3159b3a5bb76e9e9dd2b1f8478e345de",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/tickets_en_proceso.svg": {
+    "mtime": 1785035190.304842,
+    "ast_hash": "3c4f2249c39d2d42a7d69786c2ad78c8",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/tickets_resueltos.svg": {
+    "mtime": 1785035190.3058827,
+    "ast_hash": "8ae2bd035436934b6ecb2347bba09a4e",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/operacion/tickets_vacia.svg": {
+    "mtime": 1785035190.3069303,
+    "ast_hash": "f2465fd5cde8c4c757d810d09ede3ac8",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/principal/agente_IA.svg": {
+    "mtime": 1785035190.307454,
+    "ast_hash": "d4e1d7c2b9282e3cadb968929ec7b9ba",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/principal/cerrar.svg": {
+    "mtime": 1785035190.307454,
+    "ast_hash": "d0015babe2c803341d79345d20f17c96",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/principal/dashboard_vacio.svg": {
+    "mtime": 1785035190.307454,
+    "ast_hash": "d5a0e37c6021cb8fa516c2ffaa6f8093",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/principal/llamadas_activas.svg": {
+    "mtime": 1785035190.307454,
+    "ast_hash": "fad1d3e2e9005962d73243665805bb8d",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/principal/llamadas_hoy.svg": {
+    "mtime": 1785035190.307454,
+    "ast_hash": "dff86f92c60f1a1c27f58744ec0e5b13",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/principal/resolucion_IA.svg": {
+    "mtime": 1785035190.3137457,
+    "ast_hash": "e8e022e06b3be0972ac3c8d3de79dfd0",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/principal/tiempo_promedio.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "f4ede4560ba39c27d31f112e4ffdeb65",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/auditoria_vacio.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "80d5c6878b1d0cb4a199441911e549d1",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/central_telefonica.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "a6a423ebb880565c77cdbade40aadfca",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/configuracion_ia.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "e8d44f58cd0c96a2b6c38a1bd983d93e",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/configurar_credenciales.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "388505efc4b5e137526f6e9d69ed6512",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/configurar_credenciales_pbx.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "5ae76caa9da404ee1d0a1b9d6d71d5ad",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/detalle_de_la_actividad.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "ec6842f135e9e91a8a5c96513bc6b920",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/eliminaciones.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "b32b369e289af86fb796758fdc6be9e5",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/exportar_csv.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "7f7470dd7f34522e3a960404cce17aad",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/icono_alerta.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "b81b7b36cfa9d23bcd178212ae0079c9",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/modificaciones.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "0843f0323578a07bcf1872de108e4151",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/proveedores_ia.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "8f083ace6858ce3e272596167821bdbd",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/total_eventos.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "0ed3411307b91f4f2827e01aed220340",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/usuarios_activos.svg": {
+    "mtime": 1785035190.3149292,
+    "ast_hash": "92aeb71368c2b200341338e6337e8e5c",
+    "semantic_hash": ""
+  },
+  "src/assets/iconos_vistas/sistema/ver_detalle.svg": {
+    "mtime": 1785035190.330749,
+    "ast_hash": "1af9bb15d6ab3af48f5939ffd2de9424",
+    "semantic_hash": ""
+  },
+  ".docs/informes/01-1.2-sucursales-permiso-menu.md": {
+    "mtime": 1785042966.235284,
+    "ast_hash": "ed4e8d1e73aac698f527e7d69f739069",
+    "semantic_hash": ""
+  }
+}

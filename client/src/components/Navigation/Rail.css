@@ -1,0 +1,107 @@
+.rail {
+  width: 56px;
+  background: var(--bg1);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 2px;
+  position: relative;
+}
+
+.rail-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.rail-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text2);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.rail-ico {
+  width: 15px !important;
+  height: 15px !important;
+  flex-shrink: 0;
+  display: block;
+}
+
+.rail-icon:hover {
+  background: var(--bg3);
+  color: var(--text2);
+}
+
+.rail-icon.active {
+  background: var(--glow);
+  color: var(--blue2);
+  border: 1px solid rgba(21, 94, 239, 0.28);
+}
+
+.rail-icon.active::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 18px;
+  background: var(--blue2);
+  border-radius: 3px 0 0 3px;
+  box-shadow: 0 0 8px var(--blue2);
+}
+
+.rail-sep {
+  width: 26px;
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+  flex-shrink: 0;
+}
+
+.rail-spacer {
+  flex: 1;
+}
+
+/* Tooltip: aparece a la derecha, left: 56px + 8px */
+.rail-tip {
+  position: absolute;
+  left: 64px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text2);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 200;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.rail-icon:hover .rail-tip,
+.rail-icon:focus-visible .rail-tip {
+  opacity: 1;
+}
+
+.rail-icon:focus-visible {
+  outline: 2px solid var(--blue2);
+  outline-offset: 2px;
+}

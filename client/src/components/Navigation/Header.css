@@ -1,0 +1,206 @@
+.topbar {
+  background: var(--bg1);
+  border-bottom: 1px solid var(--border);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.tb-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+  letter-spacing: 0.3px;
+}
+
+.tb-clock {
+  font-size: 10px;
+  color: var(--text3);
+  font-family: var(--font-mono);
+}
+
+.chip-live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  color: var(--success);
+  font-family: var(--font-mono);
+}
+
+.dot-live {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+}
+
+.tb-company {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text2);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* Contenedor del pill + dropdown — el :hover se evalúa sobre este elemento,
+   así que mientras el mouse esté sobre el pill O sobre el dropdown (aunque
+   esté posicionado absolute), el menú se mantiene abierto. */
+.tb-user-menu {
+  position: relative;
+}
+
+.tb-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 9px;
+  padding: 4px 12px 4px 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tb-user-pill:hover {
+  border-color: var(--border);
+}
+
+.tb-av {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tb-uname {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.tb-urole {
+  font-size: 8px;
+  color: var(--text3);
+  font-family: var(--font-mono);
+}
+
+/* Dropdown de "Cerrar sesión" — oculto por default, se revela con el hover
+   del contenedor padre (.tb-user-menu:hover). El padding-top de 8px (en vez
+   de un margin-top en .tb-user-dropdown-inner) es lo que mantiene el área
+   de hover continua entre el pill y la tarjeta visible: sin ese padding,
+   al mover el mouse hacia abajo habría un hueco "muerto" donde ni el pill
+   ni el dropdown están bajo el cursor, y el menú se cerraría antes de
+   poder hacer clic en "Cerrar sesión". */
+.tb-user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding-top: 8px;
+  width: 176px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 300;
+}
+
+.tb-user-menu:hover .tb-user-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tb-user-dropdown-inner {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+}
+
+.tb-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--danger, #EF4444);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.tb-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.tb-logout-ico {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.menu-btn {
+  display: none;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 9px;
+  color: var(--text2);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.menu-btn:hover {
+  background: var(--bg4);
+  color: var(--text);
+}
+
+@media (max-width: 880px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  .tb-company {
+    display: none;
+  }
+
+  .tb-uname,
+  .tb-urole {
+    display: none;
+  }
+
+  .tb-user-pill {
+    padding: 4px;
+  }
+}

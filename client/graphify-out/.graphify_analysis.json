@@ -1,0 +1,376 @@
+{
+  "communities": {
+    "0": [
+      "eslint",
+      "eslint_js",
+      "eslint_plugin_react_hooks",
+      "eslint_plugin_react_refresh",
+      "globals",
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_js",
+      "package_devdependencies_eslint_plugin_react_hooks",
+      "package_devdependencies_eslint_plugin_react_refresh",
+      "package_devdependencies_globals",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_vite",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_vite",
+      "package_devdependencies_vite_plugin_svgr",
+      "package_devdependencies_vitejs_plugin_react",
+      "tailwindcss",
+      "tailwindcss_vite",
+      "types_react",
+      "types_react_dom",
+      "vite",
+      "vite_plugin_svgr",
+      "vitejs_plugin_react"
+    ],
+    "1": [
+      "src_components_navigation_header",
+      "src_components_navigation_header_header",
+      "src_context_authcontext_authcontext",
+      "src_hooks_useauth",
+      "src_hooks_useauth_useauth",
+      "src_pages_auditoria",
+      "src_pages_auditoria_auditoria",
+      "src_pages_baseconocimiento",
+      "src_pages_baseconocimiento_baseconocimiento",
+      "src_pages_configuracion",
+      "src_pages_configuracion_configuracion",
+      "src_pages_historialllamadas",
+      "src_pages_historialllamadas_configuracion",
+      "src_pages_landing",
+      "src_pages_landing_feature",
+      "src_pages_landing_landing",
+      "src_pages_notfoundpage",
+      "src_pages_notfoundpage_notfoundpage",
+      "src_pages_pagestub",
+      "src_pages_pagestub_pagestub",
+      "src_pages_usuarios_modalcrearusuario",
+      "src_pages_usuarios_modaleditarusuario",
+      "src_routes_approutes",
+      "src_routes_approutes_rutaconpermiso",
+      "src_routes_approutes_rutaprotegida"
+    ],
+    "2": [
+      "lucide_react",
+      "package",
+      "package_dependencies",
+      "package_dependencies_lucide_react",
+      "package_dependencies_prop_types",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_react_router_dom",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview",
+      "package_type",
+      "package_version",
+      "prop_types",
+      "react",
+      "react_dom",
+      "react_router_dom"
+    ],
+    "3": [
+      "src_components_navigation_index",
+      "src_components_navigation_rail",
+      "src_components_navigation_rail_rail",
+      "src_components_navigation_sidebar",
+      "src_components_navigation_sidebar_ai_bar_heights",
+      "src_components_navigation_sidebar_sidebar",
+      "src_components_navigation_sidebaritem",
+      "src_components_navigation_sidebaritem_sidebaritem",
+      "src_data_menusections",
+      "src_data_menusections_menusections",
+      "src_hooks_usesidebar",
+      "src_hooks_usesidebar_usesidebar",
+      "src_layouts_applayout",
+      "src_layouts_applayout_applayout",
+      "src_layouts_applayout_iconmap",
+      "src_permissions_usepermissions",
+      "src_permissions_usepermissions_permissionscontext",
+      "src_permissions_usepermissions_permissionsprovider",
+      "src_permissions_usepermissions_usepermissions"
+    ],
+    "4": [
+      "src_pages_departamentos",
+      "src_pages_departamentos_departamentos",
+      "src_pages_departamentos_drawerdepartamento",
+      "src_pages_departamentos_formatfecha",
+      "src_pages_departamentos_infoitem",
+      "src_pages_departamentos_modalcreardepartamento",
+      "src_pages_departamentos_trashicon",
+      "src_pages_sucursales",
+      "src_pages_sucursales_campo",
+      "src_pages_sucursales_drawersucursal",
+      "src_pages_sucursales_formatfecha",
+      "src_pages_sucursales_infoitem",
+      "src_pages_sucursales_modalcrearsucursal",
+      "src_pages_sucursales_sucursales",
+      "src_services_usuarios_service",
+      "src_services_usuarios_service_departamentosservice",
+      "src_services_usuarios_service_sucursalesservice",
+      "src_services_usuarios_service_usuariosservice"
+    ],
+    "5": [
+      "src_components_confirmmodal",
+      "src_components_confirmmodal_confirmmodal",
+      "src_components_formfield",
+      "src_components_formfield_formfield",
+      "src_components_formmodal",
+      "src_components_formmodal_formmodal",
+      "src_components_paneldetalleusuario",
+      "src_components_paneldetalleusuario_colorestado",
+      "src_components_paneldetalleusuario_formatfecha",
+      "src_components_paneldetalleusuario_formatfechacorta",
+      "src_components_paneldetalleusuario_paneldetalleusuario",
+      "src_components_statcard",
+      "src_components_statcard_statcard",
+      "src_pages_usuarios",
+      "src_pages_usuarios_badgeestado",
+      "src_pages_usuarios_formatfecha",
+      "src_pages_usuarios_usuarios"
+    ],
+    "6": [
+      "src_components_inputfield",
+      "src_components_inputfield_inputfield",
+      "src_components_loginform",
+      "src_components_loginform_loginform",
+      "src_components_loginform_rationale_110",
+      "src_components_loginmessages",
+      "src_components_loginmessages_loginmessages",
+      "src_components_loginmessages_messages",
+      "src_components_orbai",
+      "src_components_orbai_orbai",
+      "src_pages_login",
+      "src_pages_login_login"
+    ],
+    "7": [
+      "src_app",
+      "src_app_app",
+      "src_context_authcontext",
+      "src_context_authcontext_authprovider",
+      "src_main",
+      "src_routes_approutes_approutes",
+      "src_services_api",
+      "src_services_api_api",
+      "src_services_api_renovartoken",
+      "src_services_api_request",
+      "src_services_api_tokenstorage"
+    ],
+    "8": [
+      "src_components_useravatar",
+      "src_components_useravatar_useravatar",
+      "src_utils_avatarcolor",
+      "src_utils_avatarcolor_adjustcolor",
+      "src_utils_avatarcolor_avatar_colors",
+      "src_utils_avatarcolor_getavatarcolor",
+      "src_utils_avatarcolor_getavatargradient",
+      "src_utils_avatarcolor_hextorgb",
+      "src_utils_avatarcolor_rgbtohex"
+    ],
+    "9": [
+      "src_pages_rolesypermisos",
+      "src_pages_rolesypermisos_campo",
+      "src_pages_rolesypermisos_drawerrol",
+      "src_pages_rolesypermisos_formatfechacorta",
+      "src_pages_rolesypermisos_infoitem",
+      "src_pages_rolesypermisos_modalcrearrol",
+      "src_pages_rolesypermisos_rolesypermisos",
+      "src_pages_rolesypermisos_trashicon",
+      "src_services_usuarios_service_rolesservice"
+    ],
+    "10": [
+      "src_pages_dashboard",
+      "src_pages_dashboard_agents",
+      "src_pages_dashboard_calls",
+      "src_pages_dashboard_dashboard",
+      "src_pages_dashboard_getbadge",
+      "src_pages_dashboard_kpis"
+    ],
+    "11": [
+      "src_pages_agentesvirtuales",
+      "src_pages_agentesvirtuales_agentes",
+      "src_pages_agentesvirtuales_agentesvirtuales",
+      "src_pages_agentesvirtuales_getestadoclass",
+      "src_pages_agentesvirtuales_infoitem"
+    ],
+    "12": [
+      "src_pages_extensiones",
+      "src_pages_extensiones_cardresumen",
+      "src_pages_extensiones_extensiones",
+      "src_pages_extensiones_getestadoclass",
+      "src_pages_extensiones_infoitem"
+    ],
+    "13": [
+      "eslint_config"
+    ],
+    "14": [
+      "vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08,
+    "1": 0.14,
+    "2": 0.09523809523809523,
+    "3": 0.1695906432748538,
+    "4": 0.1503267973856209,
+    "5": 0.18382352941176472,
+    "6": 0.22727272727272727,
+    "7": 0.2727272727272727,
+    "8": 0.3888888888888889,
+    "9": 0.2777777777777778,
+    "10": 0.4,
+    "11": 0.5,
+    "12": 0.5,
+    "13": 1.0,
+    "14": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_hooks_useauth_useauth",
+      "label": "useAuth()",
+      "degree": 20
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "src_pages_usuarios_usuarios",
+      "label": "Usuarios()",
+      "degree": 5
+    },
+    {
+      "id": "src_utils_avatarcolor_getavatargradient",
+      "label": "getAvatarGradient()",
+      "degree": 5
+    },
+    {
+      "id": "src_components_paneldetalleusuario_paneldetalleusuario",
+      "label": "PanelDetalleUsuario()",
+      "degree": 4
+    },
+    {
+      "id": "src_layouts_applayout_applayout",
+      "label": "AppLayout()",
+      "degree": 4
+    },
+    {
+      "id": "src_pages_departamentos_departamentos",
+      "label": "Departamentos()",
+      "degree": 4
+    },
+    {
+      "id": "src_services_usuarios_service_rolesservice",
+      "label": "rolesService",
+      "degree": 4
+    },
+    {
+      "id": "src_utils_avatarcolor_adjustcolor",
+      "label": "adjustColor()",
+      "degree": 4
+    },
+    {
+      "id": "src_components_navigation_header_header",
+      "label": "Header()",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "AppLayout()",
+      "target": "useAuth()",
+      "source_files": [
+        "src/layouts/AppLayout.jsx",
+        "src/hooks/useAuth.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "Departamentos()",
+      "target": "useAuth()",
+      "source_files": [
+        "src/pages/Departamentos.jsx",
+        "src/hooks/useAuth.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "Login()",
+      "target": "useAuth()",
+      "source_files": [
+        "src/pages/Login.jsx",
+        "src/hooks/useAuth.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "ModalCrearUsuario()",
+      "target": "useAuth()",
+      "source_files": [
+        "src/pages/Usuarios.jsx",
+        "src/hooks/useAuth.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `ModalCrearUsuario()` unexpectedly reaches hub `useAuth()`"
+    },
+    {
+      "source": "ModalEditarUsuario()",
+      "target": "useAuth()",
+      "source_files": [
+        "src/pages/Usuarios.jsx",
+        "src/hooks/useAuth.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `ModalEditarUsuario()` unexpectedly reaches hub `useAuth()`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `useAuth()` connect `AppRoutes.jsx` to `AppLayout.jsx`, `Departamentos.jsx`, `Usuarios.jsx`, `Login.jsx`?",
+      "why": "High betweenness centrality (0.063) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.046) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `name`, `private`, `version` to the rest of the system?",
+      "why": "35 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `devDependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `AppRoutes.jsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `package.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

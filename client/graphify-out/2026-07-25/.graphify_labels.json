@@ -1,0 +1,19 @@
+{
+  "0": "devDependencies",
+  "1": "AppRoutes.jsx",
+  "2": "package.json",
+  "3": "AppLayout.jsx",
+  "4": "Departamentos.jsx",
+  "5": "Usuarios.jsx",
+  "6": "Login.jsx",
+  "7": "AuthContext.jsx",
+  "8": "avatarColor.js",
+  "9": "RolesYPermisos.jsx",
+  "10": "Dashboard.jsx",
+  "11": "AgentesVirtuales.jsx",
+  "12": "Extensiones.jsx",
+  "13": "eslint.config.js",
+  "14": "vite.config.js",
+  "15": "MERCI — Frontend (contexto de proyecto para Claude Code)",
+  "16": "Auditoria.jsx"
+}

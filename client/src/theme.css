@@ -1,0 +1,81 @@
+/* src/theme.css
+    Variables globales de color/tipografía — SIN esto, todos los var(--algo)
+    en Rail.css / Sidebar.css / Header.css quedan indefinidos y el navegador
+    los ignora (por eso no se veía el azul). */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+:root {
+    --blue: #155EEF;
+    --blue2: #3B82F6;
+    --blue3: #93C5FD;
+    --cyan: #00D9FF;
+    --cyan2: #06B6D4;
+    --success: #10B981;
+    --warn: #F59E0B;
+    --danger: #EF4444;
+    --purple: #818CF8;
+
+    --font-head: 'Syne', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --bg0: #020C18;
+    --bg1: #040F1E;
+    --bg2: #061628;
+    --bg3: #0A1E38;
+    --bg4: #0D2647;
+    --border: #0D2647;
+    --border2: #1A3A5C;
+    --text: #DCE9FF;
+    --text2: #7A9EC4;
+    --text3: #2E5070;
+    --glow: rgba(21, 94, 239, 0.18);
+    --glow2: rgba(0, 217, 255, 0.10);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--bg0);
+    color: var(--text);
+    font-family: var(--font-head);
+    display: block;
+    place-items: initial;
+    min-width: 0;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+/* Fuerza a que TODOS los íconos (Rail + Sidebar) hereden el color del
+    contenedor (gris normal, azul cuando está .active), sin importar qué
+    color traiga pintado el SVG original por dentro.
+    - Un elemento con su PROPIO stroke (no "none") es una línea → coloreamos el trazo.
+    - Un elemento con su PROPIO fill (no "none") es un relleno sólido → coloreamos el relleno.
+    - Si un elemento no trae fill propio (lo hereda, ej. fill="none" del <svg> padre),
+    lo dejamos intacto para no rellenar de más íconos de contorno. */
+.rail-ico[stroke]:not([stroke='none']),
+.rail-ico [stroke]:not([stroke='none']),
+.nav-ico[stroke]:not([stroke='none']),
+.nav-ico [stroke]:not([stroke='none']) {
+    stroke: currentColor !important;
+}
+
+.rail-ico[fill]:not([fill='none']),
+.rail-ico [fill]:not([fill='none']),
+.nav-ico[fill]:not([fill='none']),
+.nav-ico [fill]:not([fill='none']) {
+    fill: currentColor !important;
+}

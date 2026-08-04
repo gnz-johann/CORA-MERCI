@@ -1,0 +1,84 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 56px 220px 1fr;
+  grid-template-rows: 100vh; /* FIX: fija el alto del row track del grid; sin esto la fila
+                                 se auto-dimensiona según el contenido y puede crecer más
+                                 allá de 100vh, empujando scroll hacia el <body>. */
+  height: 100vh;
+  overflow: hidden; /* FIX: red de seguridad — cualquier excedente residual se recorta
+                        aquí y nunca llega a generar scroll de página completa. */
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0; /* FIX: evita que .app-main fuerce la fila del grid más allá de 100vh */
+}
+
+.app-content {
+  flex: 1;
+  min-height: 0;   /* ← esto falta */
+  overflow-y: auto;
+  padding: 24px;
+  color: var(--text);
+}
+
+/* En escritorio el wrapper es invisible para el grid (display:contents)
+   y el Sidebar ocupa su columna normalmente. */
+.sidebar-wrap {
+  display: contents;
+}
+
+/* FIX: el hijo real del grid (por el display:contents del wrapper) es
+   .sidebar, no .sidebar-wrap — necesita su propio min-height:0 para que
+   su overflow:hidden interno funcione si el menú crece más allá de 100vh. */
+.sidebar-wrap > .sidebar {
+  min-height: 0;
+}
+
+/* FIX: Rail es hijo directo del grid (sin wrapper) — mismo bug de
+   min-height:auto que .app-main y .sidebar. */
+.rail {
+  min-height: 0;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+/* ── Responsive: < 880px ───────────────────────────────────────────────────
+   El Sidebar deja de ser columna fija y se desliza por encima como panel. */
+@media (max-width: 880px) {
+  .app-shell {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .sidebar-wrap {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 56px;
+    height: 100vh;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar-wrap.open {
+    transform: translateX(0);
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    left: 56px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    border: none;
+    padding: 0;
+    cursor: default;
+  }
+}

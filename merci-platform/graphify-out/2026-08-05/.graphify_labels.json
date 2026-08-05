@@ -56,13 +56,17 @@
   "54": "workflows.routes.js",
   "55": "llamadas.repository.js",
   "56": "sucursales.repository.js",
+  "57": "database.js",
+  "58": "workflows.repository.js",
   "59": "llamadas.controller.js",
   "60": "rateLimiter.middleware.js",
+  "61": "roles.repository.js",
   "62": "websocket.service.js",
   "63": "Fase 2 · Bloque 2.4 · Sección 2.4.1 — Módulo `auditoria` (Bina 4)",
   "64": "Fase 2 · Bloque 2.4 · Sección 2.4.2 — Módulo `configuracionIA` (Bina 4)",
   "65": "Fase 2 · Bloque 2.4 · Sección 2.4.3 — Cifrado real de `credenciales_ia`",
   "66": "Fase 3 · Bloque 3.2 — Seed de datos de prueba realistas",
   "67": "Fase 3 · Bloque 3.3 — Prueba de punta a punta contra Postgres local",
-  "68": "configuracionIA.routes.js"
+  "68": "configuracionIA.routes.js",
+  "69": "audit.service.js"
 }

@@ -549,8 +549,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_confirmmodal",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "confirmmodal.jsx"
     },
     {
@@ -560,8 +560,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_components_confirmmodal_confirmmodal",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "confirmmodal()"
     },
     {
@@ -571,8 +571,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_formfield",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "formfield.jsx"
     },
     {
@@ -582,8 +582,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_components_formfield_formfield",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "formfield()"
     },
     {
@@ -593,8 +593,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_formmodal",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "formmodal.jsx"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_components_formmodal_formmodal",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "formmodal()"
     },
     {
@@ -615,8 +615,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_header",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "components/header.jsx"
     },
     {
@@ -626,8 +626,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_components_header_header",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "header()"
     },
     {
@@ -692,8 +692,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_loginmessages",
-      "community": 6,
-      "community_name": "Login.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "loginmessages.jsx"
     },
     {
@@ -703,8 +703,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_components_loginmessages_messages",
-      "community": 6,
-      "community_name": "Login.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "messages"
     },
     {
@@ -714,8 +714,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_components_loginmessages_loginmessages",
-      "community": 6,
-      "community_name": "Login.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "loginmessages()"
     },
     {
@@ -791,8 +791,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_navigation_header",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "navigation/header.jsx"
     },
     {
@@ -802,8 +802,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_components_navigation_header_header",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "header()"
     },
     {
@@ -901,8 +901,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_orbai",
-      "community": 6,
-      "community_name": "Login.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "orbai.jsx"
     },
     {
@@ -912,8 +912,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_components_orbai_orbai",
-      "community": 6,
-      "community_name": "Login.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "orbai()"
     },
     {
@@ -923,8 +923,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_paneldetalleusuario",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "paneldetalleusuario.jsx"
     },
     {
@@ -934,8 +934,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_components_paneldetalleusuario_formatfecha",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "formatfecha()"
     },
     {
@@ -945,8 +945,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_components_paneldetalleusuario_formatfechacorta",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "formatfechacorta()"
     },
     {
@@ -956,8 +956,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_components_paneldetalleusuario_colorestado",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "colorestado"
     },
     {
@@ -967,8 +967,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_components_paneldetalleusuario_paneldetalleusuario",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "paneldetalleusuario()"
     },
     {
@@ -1055,8 +1055,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_data_menusections",
-      "community": 3,
-      "community_name": "AppLayout.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "menusections.js"
     },
     {
@@ -1066,8 +1066,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_data_menusections_menusections",
-      "community": 3,
-      "community_name": "AppLayout.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "menusections"
     },
     {
@@ -1077,8 +1077,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_useauth",
-      "community": 7,
-      "community_name": "AuthContext.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "useauth.js"
     },
     {
@@ -1088,8 +1088,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_hooks_useauth_useauth",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "useauth()"
     },
     {
@@ -1099,8 +1099,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_usesidebar",
-      "community": 3,
-      "community_name": "AppLayout.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "usesidebar.js"
     },
     {
@@ -1110,8 +1110,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_hooks_usesidebar_usesidebar",
-      "community": 3,
-      "community_name": "AppLayout.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "usesidebar()"
     },
     {
@@ -1121,8 +1121,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_layouts_applayout",
-      "community": 3,
-      "community_name": "AppLayout.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "applayout.jsx"
     },
     {
@@ -1132,8 +1132,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_layouts_applayout_iconmap",
-      "community": 3,
-      "community_name": "AppLayout.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "iconmap"
     },
     {
@@ -1143,8 +1143,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_layouts_applayout_applayout",
-      "community": 3,
-      "community_name": "AppLayout.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "applayout()"
     },
     {
@@ -1154,8 +1154,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_layouts_mainlayout",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "mainlayout.jsx"
     },
     {
@@ -1165,8 +1165,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_layouts_mainlayout_mainlayout",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "mainlayout()"
     },
     {
@@ -1231,8 +1231,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_auditoria",
-      "community": 16,
-      "community_name": "Auditoria.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "auditoria.jsx"
     },
     {
@@ -1242,8 +1242,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_auditoria_calculardiff",
-      "community": 16,
-      "community_name": "Auditoria.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "calculardiff()"
     },
     {
@@ -1253,8 +1253,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_pages_auditoria_formatfecha",
-      "community": 16,
-      "community_name": "Auditoria.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "formatfecha()"
     },
     {
@@ -1264,8 +1264,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_pages_auditoria_exportarcsv",
-      "community": 16,
-      "community_name": "Auditoria.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "exportarcsv()"
     },
     {
@@ -1275,8 +1275,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_pages_auditoria_auditoriaview",
-      "community": 16,
-      "community_name": "Auditoria.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "auditoriaview()"
     },
     {
@@ -1385,52 +1385,74 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_configuracion",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "configuracion.jsx"
     },
     {
-      "label": "mockConfigData",
+      "label": "DEFAULT_CONFIG_IA",
       "file_type": "code",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L20",
+      "source_location": "L24",
       "_origin": "ast",
-      "id": "src_pages_configuracion_mockconfigdata",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
-      "norm_label": "mockconfigdata"
+      "id": "src_pages_configuracion_default_config_ia",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
+      "norm_label": "default_config_ia"
+    },
+    {
+      "label": "mockConfigPBX",
+      "file_type": "code",
+      "source_file": "src/pages/Configuracion.jsx",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "src_pages_configuracion_mockconfigpbx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
+      "norm_label": "mockconfigpbx"
     },
     {
       "label": "catalogoVoces",
       "file_type": "code",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L38",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "src_pages_configuracion_catalogovoces",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "catalogovoces"
     },
     {
       "label": "catalogoAuth",
       "file_type": "code",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L39",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "src_pages_configuracion_catalogoauth",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "catalogoauth"
+    },
+    {
+      "label": "TIPOS_PROVEEDOR",
+      "file_type": "code",
+      "source_file": "src/pages/Configuracion.jsx",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "src_pages_configuracion_tipos_proveedor",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
+      "norm_label": "tipos_proveedor"
     },
     {
       "label": "ConfiguracionView()",
       "file_type": "code",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L41",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "src_pages_configuracion_configuracionview",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "configuracionview()"
     },
     {
@@ -1572,8 +1594,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_departamentos",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "departamentos.jsx"
     },
     {
@@ -1583,8 +1605,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_departamentos_formatfecha",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "formatfecha()"
     },
     {
@@ -1594,8 +1616,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_departamentos_trashicon",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "trashicon()"
     },
     {
@@ -1605,8 +1627,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_pages_departamentos_departamentos",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "departamentos()"
     },
     {
@@ -1616,8 +1638,8 @@
       "source_location": "L226",
       "_origin": "ast",
       "id": "src_pages_departamentos_drawerdepartamento",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "drawerdepartamento()"
     },
     {
@@ -1627,8 +1649,8 @@
       "source_location": "L385",
       "_origin": "ast",
       "id": "src_pages_departamentos_modalcreardepartamento",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "modalcreardepartamento()"
     },
     {
@@ -1638,8 +1660,8 @@
       "source_location": "L467",
       "_origin": "ast",
       "id": "src_pages_departamentos_infoitem",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "infoitem()"
     },
     {
@@ -1874,14 +1896,58 @@
       "norm_label": "feature()"
     },
     {
+      "label": "LlamadasActivas.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_llamadasactivas",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "llamadasactivas.jsx"
+    },
+    {
+      "label": "ESTADOS_ACTIVOS",
+      "file_type": "code",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "src_pages_llamadasactivas_estados_activos",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "estados_activos"
+    },
+    {
+      "label": "formatDuracion()",
+      "file_type": "code",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_pages_llamadasactivas_formatduracion",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "formatduracion()"
+    },
+    {
+      "label": "LlamadasActivasView()",
+      "file_type": "code",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_pages_llamadasactivas_llamadasactivasview",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "llamadasactivasview()"
+    },
+    {
       "label": "Login.jsx",
       "file_type": "code",
       "source_file": "src/pages/Login.jsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_login",
-      "community": 6,
-      "community_name": "Login.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "login.jsx"
     },
     {
@@ -1891,8 +1957,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_login_login",
-      "community": 6,
-      "community_name": "Login.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "login()"
     },
     {
@@ -1924,8 +1990,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_pagestub",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 30,
+      "community_name": "PageStub.jsx",
       "norm_label": "pagestub.jsx"
     },
     {
@@ -1935,8 +2001,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_pagestub_pagestub",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 30,
+      "community_name": "PageStub.jsx",
       "norm_label": "pagestub()"
     },
     {
@@ -2094,14 +2160,80 @@
       "norm_label": "sucursales()"
     },
     {
+      "label": "Tickets.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_tickets",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "tickets.jsx"
+    },
+    {
+      "label": "formatFecha()",
+      "file_type": "code",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "src_pages_tickets_formatfecha",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "formatfecha()"
+    },
+    {
+      "label": "badgeEstado()",
+      "file_type": "code",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_pages_tickets_badgeestado",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "badgeestado()"
+    },
+    {
+      "label": "badgePrioridad()",
+      "file_type": "code",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "src_pages_tickets_badgeprioridad",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "badgeprioridad()"
+    },
+    {
+      "label": "FORM_VACIO",
+      "file_type": "code",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "src_pages_tickets_form_vacio",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "form_vacio"
+    },
+    {
+      "label": "TicketsView()",
+      "file_type": "code",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "src_pages_tickets_ticketsview",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "ticketsview()"
+    },
+    {
       "label": "Usuarios.jsx",
       "file_type": "code",
       "source_file": "src/pages/Usuarios.jsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_usuarios",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "usuarios.jsx"
     },
     {
@@ -2111,8 +2243,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pages_usuarios_badgeestado",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "badgeestado()"
     },
     {
@@ -2122,8 +2254,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_pages_usuarios_formatfecha",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "formatfecha()"
     },
     {
@@ -2133,8 +2265,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_pages_usuarios_usuarios",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "usuarios()"
     },
     {
@@ -2144,8 +2276,8 @@
       "source_location": "L477",
       "_origin": "ast",
       "id": "src_pages_usuarios_modalcrearusuario",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "modalcrearusuario()"
     },
     {
@@ -2155,8 +2287,8 @@
       "source_location": "L533",
       "_origin": "ast",
       "id": "src_pages_usuarios_modaleditarusuario",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "modaleditarusuario()"
     },
     {
@@ -2166,8 +2298,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_workflows",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 29,
+      "community_name": "Workflows.jsx",
       "norm_label": "workflows.jsx"
     },
     {
@@ -2177,8 +2309,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_pages_workflows_initialrules",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 29,
+      "community_name": "Workflows.jsx",
       "norm_label": "initialrules"
     },
     {
@@ -2188,8 +2320,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_pages_workflows_initialconditions",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 29,
+      "community_name": "Workflows.jsx",
       "norm_label": "initialconditions"
     },
     {
@@ -2199,8 +2331,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_pages_workflows_initialactions",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 29,
+      "community_name": "Workflows.jsx",
       "norm_label": "initialactions"
     },
     {
@@ -2210,8 +2342,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "src_pages_workflows_merciworkflowsmodule",
-      "community": 10,
-      "community_name": "Dashboard.jsx",
+      "community": 29,
+      "community_name": "Workflows.jsx",
       "norm_label": "merciworkflowsmodule()"
     },
     {
@@ -2273,29 +2405,29 @@
       "label": "RutaProtegida()",
       "file_type": "code",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "src_routes_approutes_rutaprotegida",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "rutaprotegida()"
     },
     {
       "label": "RutaConPermiso()",
       "file_type": "code",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "src_routes_approutes_rutaconpermiso",
-      "community": 1,
-      "community_name": "AppRoutes.jsx",
+      "community": 10,
+      "community_name": "Dashboard.jsx",
       "norm_label": "rutaconpermiso()"
     },
     {
       "label": "AppRoutes()",
       "file_type": "code",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L66",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "src_routes_approutes_approutes",
       "community": 7,
@@ -2364,8 +2496,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_services_auditoria_service",
-      "community": 16,
-      "community_name": "Auditoria.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "auditoria.service.js"
     },
     {
@@ -2375,8 +2507,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_services_auditoria_service_auditoriaservice",
-      "community": 16,
-      "community_name": "Auditoria.jsx",
+      "community": 7,
+      "community_name": "AuthContext.jsx",
       "norm_label": "auditoriaservice"
     },
     {
@@ -2402,14 +2534,58 @@
       "norm_label": "configuracionservice"
     },
     {
+      "label": "llamadas.service.js",
+      "file_type": "code",
+      "source_file": "src/services/llamadas.service.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_services_llamadas_service",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "llamadas.service.js"
+    },
+    {
+      "label": "llamadasService",
+      "file_type": "code",
+      "source_file": "src/services/llamadas.service.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "src_services_llamadas_service_llamadasservice",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "llamadasservice"
+    },
+    {
+      "label": "tickets.service.js",
+      "file_type": "code",
+      "source_file": "src/services/tickets.service.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_services_tickets_service",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "tickets.service.js"
+    },
+    {
+      "label": "ticketsService",
+      "file_type": "code",
+      "source_file": "src/services/tickets.service.js",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "src_services_tickets_service_ticketsservice",
+      "community": 16,
+      "community_name": "Auditoria.jsx",
+      "norm_label": "ticketsservice"
+    },
+    {
       "label": "usuarios.service.js",
       "file_type": "code",
       "source_file": "src/services/usuarios.service.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_services_usuarios_service",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "usuarios.service.js"
     },
     {
@@ -2419,8 +2595,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_services_usuarios_service_usuariosservice",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "usuariosservice"
     },
     {
@@ -2430,8 +2606,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_services_usuarios_service_rolesservice",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "rolesservice"
     },
     {
@@ -2441,8 +2617,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_services_usuarios_service_sucursalesservice",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "sucursalesservice"
     },
     {
@@ -2452,8 +2628,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "src_services_usuarios_service_departamentosservice",
-      "community": 9,
-      "community_name": "RolesYPermisos.jsx",
+      "community": 4,
+      "community_name": "Departamentos.jsx",
       "norm_label": "departamentosservice"
     },
     {
@@ -2576,6 +2752,424 @@
       "community": 14,
       "community_name": "vite.config.js",
       "norm_label": "vite.config.js"
+    },
+    {
+      "label": "Plan_Estabilizacion_MERCI.md",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "plan_estabilizacion_merci.md"
+    },
+    {
+      "label": "MERCI \u2014 Plan de estabilizaci\u00f3n v2",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "merci \u2014 plan de estabilizacion v2"
+    },
+    {
+      "label": "Objetivo",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_objetivo",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "objetivo"
+    },
+    {
+      "label": "Reglas fijas (aplican a todo el plan, sin excepci\u00f3n)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_reglas_fijas_aplican_a_todo_el_plan_sin_excepci\u00f3n",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "reglas fijas (aplican a todo el plan, sin excepcion)"
+    },
+    {
+      "label": "Lo que YA est\u00e1 hecho (no repetir, no rehacer)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_lo_que_ya_est\u00e1_hecho_no_repetir_no_rehacer",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "lo que ya esta hecho (no repetir, no rehacer)"
+    },
+    {
+      "label": "Fase 0 \u2014 Diagn\u00f3stico \u2705",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_fase_0_diagn\u00f3stico",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "fase 0 \u2014 diagnostico \u2705"
+    },
+    {
+      "label": "Fase 1 \u2014 Estabilizaci\u00f3n \u2705",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_fase_1_estabilizaci\u00f3n",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "fase 1 \u2014 estabilizacion \u2705"
+    },
+    {
+      "label": "Fase 2, Bloque 2.4 \u2014 Bina 4 \u2705",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_fase_2_bloque_2_4_bina_4",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "fase 2, bloque 2.4 \u2014 bina 4 \u2705"
+    },
+    {
+      "label": "Fase 3, Bloques 3.1-3.3 parciales \u2705",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_fase_3_bloques_3_1_3_3_parciales",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "fase 3, bloques 3.1-3.3 parciales \u2705"
+    },
+    {
+      "label": "Lo que FALTA \u2014 organizado en dos l\u00edneas paralelas",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_lo_que_falta_organizado_en_dos_l\u00edneas_paralelas",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "lo que falta \u2014 organizado en dos lineas paralelas"
+    },
+    {
+      "label": "L\u00cdNEA A \u2014 Conectar y optimizar",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_l\u00ednea_a_conectar_y_optimizar",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "linea a \u2014 conectar y optimizar"
+    },
+    {
+      "label": "Estado real de cada p\u00e1gina del frontend (verificado el 26 de julio)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_estado_real_de_cada_p\u00e1gina_del_frontend_verificado_el_26_de_julio",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "estado real de cada pagina del frontend (verificado el 26 de julio)"
+    },
+    {
+      "label": "Bloque A.1 \u2014 Conectar p\u00e1ginas que ya tienen backend listo",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "bloque a.1 \u2014 conectar paginas que ya tienen backend listo"
+    },
+    {
+      "label": "Secci\u00f3n A.1.1 \u2014 `Configuracion.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_1_configuracion_jsx",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "seccion a.1.1 \u2014 `configuracion.jsx`"
+    },
+    {
+      "label": "Secci\u00f3n A.1.2 \u2014 `Auditoria.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L117",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_2_auditoria_jsx",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "seccion a.1.2 \u2014 `auditoria.jsx`"
+    },
+    {
+      "label": "Secci\u00f3n A.1.3 \u2014 `AgentesVirtuales.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_3_agentesvirtuales_jsx",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "seccion a.1.3 \u2014 `agentesvirtuales.jsx`"
+    },
+    {
+      "label": "Secci\u00f3n A.1.4 \u2014 `Extensiones.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L125",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_4_extensiones_jsx",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "seccion a.1.4 \u2014 `extensiones.jsx`"
+    },
+    {
+      "label": "Secci\u00f3n A.1.5 \u2014 `Workflows.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_5_workflows_jsx",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "seccion a.1.5 \u2014 `workflows.jsx`"
+    },
+    {
+      "label": "Secci\u00f3n A.1.6 \u2014 `HistorialLlamadas.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_6_historialllamadas_jsx",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "seccion a.1.6 \u2014 `historialllamadas.jsx`"
+    },
+    {
+      "label": "Secci\u00f3n A.1.7 \u2014 `Login.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L139",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_7_login_jsx",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "seccion a.1.7 \u2014 `login.jsx`"
+    },
+    {
+      "label": "Bloque A.2 \u2014 Optimizaci\u00f3n de c\u00f3digo",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L142",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_bloque_a_2_optimizaci\u00f3n_de_c\u00f3digo",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "bloque a.2 \u2014 optimizacion de codigo"
+    },
+    {
+      "label": "L\u00cdNEA B \u2014 Construir lo que no existe",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_l\u00ednea_b_construir_lo_que_no_existe",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "linea b \u2014 construir lo que no existe"
+    },
+    {
+      "label": "Bloque B.1 \u2014 Conocimiento IA (backend + frontend)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L160",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_bloque_b_1_conocimiento_ia_backend_frontend",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "bloque b.1 \u2014 conocimiento ia (backend + frontend)"
+    },
+    {
+      "label": "Secci\u00f3n B.1.1 \u2014 Documentos IA",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_1_documentos_ia",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.1.1 \u2014 documentos ia"
+    },
+    {
+      "label": "Secci\u00f3n B.1.2 \u2014 Informaci\u00f3n del negocio",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_2_informaci\u00f3n_del_negocio",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.1.2 \u2014 informacion del negocio"
+    },
+    {
+      "label": "Secci\u00f3n B.1.3 \u2014 FAQs",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_3_faqs",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.1.3 \u2014 faqs"
+    },
+    {
+      "label": "Secci\u00f3n B.1.4 \u2014 Productos",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L177",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_4_productos",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.1.4 \u2014 productos"
+    },
+    {
+      "label": "Secci\u00f3n B.1.5 \u2014 Conectar `BaseConocimiento.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L181",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_5_conectar_baseconocimiento_jsx",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.1.5 \u2014 conectar `baseconocimiento.jsx`"
+    },
+    {
+      "label": "Bloque B.2 \u2014 Dashboard (backend + frontend)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L185",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_bloque_b_2_dashboard_backend_frontend",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "bloque b.2 \u2014 dashboard (backend + frontend)"
+    },
+    {
+      "label": "Secci\u00f3n B.2.1 \u2014 `GET /api/dashboard/summary`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L189",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_2_1_get_api_dashboard_summary",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.2.1 \u2014 `get /api/dashboard/summary`"
+    },
+    {
+      "label": "Secci\u00f3n B.2.2 \u2014 Conectar `Dashboard.jsx`",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L193",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_2_2_conectar_dashboard_jsx",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.2.2 \u2014 conectar `dashboard.jsx`"
+    },
+    {
+      "label": "Bloque B.3 \u2014 Huecos pendientes de Bina 2 y 3 (los que no son m\u00f3dulos nuevos)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L196",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_bloque_b_3_huecos_pendientes_de_bina_2_y_3_los_que_no_son_m\u00f3dulos_nuevos",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "bloque b.3 \u2014 huecos pendientes de bina 2 y 3 (los que no son modulos nuevos)"
+    },
+    {
+      "label": "Secci\u00f3n B.3.1 \u2014 Historial de llamadas: export CSV + filtros faltantes",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L200",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_3_1_historial_de_llamadas_export_csv_filtros_faltantes",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.3.1 \u2014 historial de llamadas: export csv + filtros faltantes"
+    },
+    {
+      "label": "Secci\u00f3n B.3.2 \u2014 Workflows: tab \"Tipos disponibles\"",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_3_2_workflows_tab_tipos_disponibles",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.3.2 \u2014 workflows: tab \"tipos disponibles\""
+    },
+    {
+      "label": "Secci\u00f3n B.3.3 \u2014 `tickets.service.js` (c\u00f3digo muerto)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_secci\u00f3n_b_3_3_tickets_service_js_c\u00f3digo_muerto",
+      "community": 9,
+      "community_name": "RolesYPermisos.jsx",
+      "norm_label": "seccion b.3.3 \u2014 `tickets.service.js` (codigo muerto)"
+    },
+    {
+      "label": "Bloqueadores activos (resolver en paralelo, no esperar)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L215",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_bloqueadores_activos_resolver_en_paralelo_no_esperar",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "bloqueadores activos (resolver en paralelo, no esperar)"
+    },
+    {
+      "label": "Decisiones pendientes del equipo (no resolver sin confirmar)",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L226",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_decisiones_pendientes_del_equipo_no_resolver_sin_confirmar",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "decisiones pendientes del equipo (no resolver sin confirmar)"
+    },
+    {
+      "label": "Orden recomendado de ejecuci\u00f3n",
+      "file_type": "document",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L235",
+      "_origin": "ast",
+      "id": "docs_plan_estabilizacion_merci_orden_recomendado_de_ejecuci\u00f3n",
+      "community": 1,
+      "community_name": "AppRoutes.jsx",
+      "norm_label": "orden recomendado de ejecucion"
     },
     {
       "label": "01-1.0-3-reconstruccion-historial-llamadas.md",
@@ -2930,6 +3524,303 @@
       "norm_label": "pertenece a otra bina?"
     },
     {
+      "label": "A-A.1.1-conecta-configuracion-ia.md",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "a-a.1.1-conecta-configuracion-ia.md"
+    },
+    {
+      "label": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "linea a \u00b7 seccion a.1.1 \u2014 conecta `configuracion.jsx` a `get/put /configuracion/empresa` y `get /configuracion/proveedores-ia`"
+    },
+    {
+      "label": "Qu\u00e9 se hizo",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia_qu\u00e9_se_hizo",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "que se hizo"
+    },
+    {
+      "label": "Por qu\u00e9",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia_por_qu\u00e9",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "por que"
+    },
+    {
+      "label": "C\u00f3mo",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia_c\u00f3mo",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "como"
+    },
+    {
+      "label": "Archivos tocados",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia_archivos_tocados",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "archivos tocados"
+    },
+    {
+      "label": "Pendiente / riesgos",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia_pendiente_riesgos",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "pendiente / riesgos"
+    },
+    {
+      "label": "Pertenece a otra bina?",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_1_conecta_configuracion_ia_pertenece_a_otra_bina",
+      "community": 27,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.1 \u2014 Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
+      "norm_label": "pertenece a otra bina?"
+    },
+    {
+      "label": "A-A.1.2-conecta-auditoria.md",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "a-a.1.2-conecta-auditoria.md"
+    },
+    {
+      "label": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "linea a \u00b7 seccion a.1.2 \u2014 ajusta `auditoria.jsx` a la forma real del backend"
+    },
+    {
+      "label": "Qu\u00e9 se hizo",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria_qu\u00e9_se_hizo",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "que se hizo"
+    },
+    {
+      "label": "Por qu\u00e9",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria_por_qu\u00e9",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "por que"
+    },
+    {
+      "label": "C\u00f3mo",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria_c\u00f3mo",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "como"
+    },
+    {
+      "label": "Archivos tocados",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria_archivos_tocados",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "archivos tocados"
+    },
+    {
+      "label": "Pendiente / riesgos",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria_pendiente_riesgos",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "pendiente / riesgos"
+    },
+    {
+      "label": "Pertenece a otra bina?",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "docs_informes_a_a_1_2_conecta_auditoria_pertenece_a_otra_bina",
+      "community": 28,
+      "community_name": "L\u00ednea A \u00b7 Secci\u00f3n A.1.2 \u2014 Ajusta `Auditoria.jsx` a la forma real del backend",
+      "norm_label": "pertenece a otra bina?"
+    },
+    {
+      "label": "A-tickets-y-llamadas-activas.md",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "a-tickets-y-llamadas-activas.md"
+    },
+    {
+      "label": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "linea a \u2014 tickets y llamadas activas: de `pagestub` a datos reales"
+    },
+    {
+      "label": "Qu\u00e9 se hizo",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_qu\u00e9_se_hizo",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "que se hizo"
+    },
+    {
+      "label": "Por qu\u00e9",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_por_qu\u00e9",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "por que"
+    },
+    {
+      "label": "C\u00f3mo",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_c\u00f3mo",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "como"
+    },
+    {
+      "label": "Tickets",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_tickets",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "tickets"
+    },
+    {
+      "label": "Llamadas Activas \u2014 evaluaci\u00f3n de viabilidad (pedida expl\u00edcitamente antes de construir)",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_llamadas_activas_evaluaci\u00f3n_de_viabilidad_pedida_expl\u00edcitamente_antes_de_construir",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "llamadas activas \u2014 evaluacion de viabilidad (pedida explicitamente antes de construir)"
+    },
+    {
+      "label": "Verificaci\u00f3n",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_verificaci\u00f3n",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "verificacion"
+    },
+    {
+      "label": "Archivos tocados",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_archivos_tocados",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "archivos tocados"
+    },
+    {
+      "label": "Pendiente / riesgos",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_pendiente_riesgos",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "pendiente / riesgos"
+    },
+    {
+      "label": "Pertenece a otra bina?",
+      "file_type": "document",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "docs_informes_a_tickets_y_llamadas_activas_pertenece_a_otra_bina",
+      "community": 26,
+      "community_name": "L\u00ednea A \u2014 Tickets y Llamadas Activas: de `PageStub` a datos reales",
+      "norm_label": "pertenece a otra bina?"
+    },
+    {
       "label": "INFORME_SITUACION_ACTUAL.md",
       "file_type": "document",
       "source_file": ".docs/informes/INFORME_SITUACION_ACTUAL.md",
@@ -3139,10 +4030,21 @@
       "norm_label": "quienes somos en este repo"
     },
     {
+      "label": "Avance del plan (resumen \u2014 detalle completo en `Plan_Estabilizacion_MERCI.md`)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "claude_avance_del_plan_resumen_detalle_completo_en_plan_estabilizacion_merci_md",
+      "community": 15,
+      "community_name": "MERCI \u2014 Frontend (contexto de proyecto para Claude Code)",
+      "norm_label": "avance del plan (resumen \u2014 detalle completo en `plan_estabilizacion_merci.md`)"
+    },
+    {
       "label": "Estado actual \u2014 rama activa y remotos (importante, no es lo habitual)",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L10",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "claude_estado_actual_rama_activa_y_remotos_importante_no_es_lo_habitual",
       "community": 15,
@@ -3153,7 +4055,7 @@
       "label": "Convenciones ya establecidas en el c\u00f3digo real (no asumir, ya verificado)",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L66",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "claude_convenciones_ya_establecidas_en_el_c\u00f3digo_real_no_asumir_ya_verificado",
       "community": 15,
@@ -3164,7 +4066,7 @@
       "label": "Reglas del proyecto (de \"Asignaci\u00f3n de m\u00f3dulos\")",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L83",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "claude_reglas_del_proyecto_de_asignaci\u00f3n_de_m\u00f3dulos",
       "community": 15,
@@ -3175,7 +4077,7 @@
       "label": "Estilo al trabajar",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L88",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "claude_estilo_al_trabajar",
       "community": 15,
@@ -4668,6 +5570,30 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas",
+      "target": "src_components_statcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_components_statcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/Usuarios.jsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -4697,6 +5623,30 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_historialllamadas",
+      "target": "src_components_statcard_statcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas",
+      "target": "src_components_statcard_statcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
       "target": "src_components_statcard_statcard",
       "confidence_score": 1.0
     },
@@ -5132,7 +6082,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_routes_approutes_rutaconpermiso",
@@ -5144,7 +6094,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_routes_approutes_rutaprotegida",
@@ -5421,7 +6371,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Auditoria.jsx",
-      "source_location": "L142",
+      "source_location": "L167",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_auditoria_auditoriaview",
@@ -5433,7 +6383,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Auditoria.jsx",
-      "source_location": "L271",
+      "source_location": "L296",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_auditoria_auditoriaview",
@@ -5457,7 +6407,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Auditoria.jsx",
-      "source_location": "L124",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_auditoria_auditoriaview",
@@ -5570,7 +6520,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L39",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_configuracion",
@@ -5581,7 +6531,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L38",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_configuracion",
@@ -5592,7 +6542,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L41",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_configuracion",
@@ -5603,11 +6553,57 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Configuracion.jsx",
-      "source_location": "L20",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_configuracion",
-      "target": "src_pages_configuracion_mockconfigdata",
+      "target": "src_pages_configuracion_default_config_ia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Configuracion.jsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_configuracion",
+      "target": "src_pages_configuracion_mockconfigpbx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Configuracion.jsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_configuracion",
+      "target": "src_pages_configuracion_tipos_proveedor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Configuracion.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_configuracion",
+      "target": "src_services_configuracion_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Configuracion.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_configuracion",
+      "target": "src_services_configuracion_service_configuracionservice",
       "confidence_score": 1.0
     },
     {
@@ -6286,6 +7282,111 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas",
+      "target": "src_pages_llamadasactivas_estados_activos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas",
+      "target": "src_pages_llamadasactivas_formatduracion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas",
+      "target": "src_pages_llamadasactivas_llamadasactivasview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas",
+      "target": "src_services_llamadas_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas",
+      "target": "src_services_llamadas_service_llamadasservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/routes/AppRoutes.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_routes_approutes",
+      "target": "src_pages_llamadasactivas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas_llamadasactivasview",
+      "target": "src_pages_llamadasactivas_estados_activos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/LlamadasActivas.jsx",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_llamadasactivas_llamadasactivasview",
+      "target": "src_pages_llamadasactivas_formatduracion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/routes/AppRoutes.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_routes_approutes",
+      "target": "src_pages_llamadasactivas_llamadasactivasview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/Login.jsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -6334,7 +7435,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_routes_approutes",
@@ -6346,7 +7447,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_routes_approutes",
@@ -6361,30 +7462,6 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_pagestub",
-      "target": "src_pages_pagestub_pagestub",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_routes_approutes",
-      "target": "src_pages_pagestub",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_routes_approutes",
       "target": "src_pages_pagestub_pagestub",
       "confidence_score": 1.0
     },
@@ -6669,6 +7746,169 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_pages_tickets_badgeestado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_pages_tickets_badgeprioridad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_pages_tickets_form_vacio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_pages_tickets_formatfecha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_pages_tickets_ticketsview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_services_tickets_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_services_tickets_service_ticketsservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_services_usuarios_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets",
+      "target": "src_services_usuarios_service_usuariosservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/routes/AppRoutes.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_routes_approutes",
+      "target": "src_pages_tickets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L265",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets_ticketsview",
+      "target": "src_pages_tickets_formatfecha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L254",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets_ticketsview",
+      "target": "src_pages_tickets_badgeestado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Tickets.jsx",
+      "source_location": "L260",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_tickets_ticketsview",
+      "target": "src_pages_tickets_badgeprioridad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/routes/AppRoutes.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_routes_approutes",
+      "target": "src_pages_tickets_ticketsview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/Usuarios.jsx",
       "source_location": "L20",
       "weight": 1.0,
@@ -6934,7 +8174,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_routes_approutes",
@@ -6945,7 +8185,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_routes_approutes",
@@ -6956,7 +8196,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/routes/AppRoutes.jsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_routes_approutes",
@@ -7035,6 +8275,30 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/services/llamadas.service.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_services_llamadas_service",
+      "target": "src_services_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/services/tickets.service.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_services_tickets_service",
+      "target": "src_services_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/services/usuarios.service.js",
       "source_location": "L1",
       "weight": 1.0,
@@ -7083,6 +8347,30 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/services/llamadas.service.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_services_llamadas_service",
+      "target": "src_services_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/services/tickets.service.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_services_tickets_service",
+      "target": "src_services_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/services/usuarios.service.js",
       "source_location": "L1",
       "weight": 1.0,
@@ -7111,6 +8399,28 @@
       "_origin": "ast",
       "source": "src_services_configuracion_service",
       "target": "src_services_configuracion_service_configuracionservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/services/llamadas.service.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_services_llamadas_service",
+      "target": "src_services_llamadas_service_llamadasservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/services/tickets.service.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_services_tickets_service",
+      "target": "src_services_tickets_service_ticketsservice",
       "confidence_score": 1.0
     },
     {
@@ -7291,6 +8601,413 @@
       "_origin": "ast",
       "source": "src_utils_rolcolor",
       "target": "src_utils_rolcolor_rol_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci",
+      "target": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L215",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_bloqueadores_activos_resolver_en_paralelo_no_esperar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_decisiones_pendientes_del_equipo_no_resolver_sin_confirmar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_lo_que_falta_organizado_en_dos_l\u00edneas_paralelas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_lo_que_ya_est\u00e1_hecho_no_repetir_no_rehacer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_l\u00ednea_a_conectar_y_optimizar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_l\u00ednea_b_construir_lo_que_no_existe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_objetivo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L235",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_orden_recomendado_de_ejecuci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_merci_plan_de_estabilizaci\u00f3n_v2",
+      "target": "docs_plan_estabilizacion_merci_reglas_fijas_aplican_a_todo_el_plan_sin_excepci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_lo_que_ya_est\u00e1_hecho_no_repetir_no_rehacer",
+      "target": "docs_plan_estabilizacion_merci_fase_0_diagn\u00f3stico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_lo_que_ya_est\u00e1_hecho_no_repetir_no_rehacer",
+      "target": "docs_plan_estabilizacion_merci_fase_1_estabilizaci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_lo_que_ya_est\u00e1_hecho_no_repetir_no_rehacer",
+      "target": "docs_plan_estabilizacion_merci_fase_2_bloque_2_4_bina_4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_lo_que_ya_est\u00e1_hecho_no_repetir_no_rehacer",
+      "target": "docs_plan_estabilizacion_merci_fase_3_bloques_3_1_3_3_parciales",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_l\u00ednea_a_conectar_y_optimizar",
+      "target": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L142",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_l\u00ednea_a_conectar_y_optimizar",
+      "target": "docs_plan_estabilizacion_merci_bloque_a_2_optimizaci\u00f3n_de_c\u00f3digo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_l\u00ednea_a_conectar_y_optimizar",
+      "target": "docs_plan_estabilizacion_merci_estado_real_de_cada_p\u00e1gina_del_frontend_verificado_el_26_de_julio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_1_configuracion_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_2_auditoria_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_3_agentesvirtuales_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_4_extensiones_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_5_workflows_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L134",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_6_historialllamadas_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_a_1_conectar_p\u00e1ginas_que_ya_tienen_backend_listo",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_a_1_7_login_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L160",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_l\u00ednea_b_construir_lo_que_no_existe",
+      "target": "docs_plan_estabilizacion_merci_bloque_b_1_conocimiento_ia_backend_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L185",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_l\u00ednea_b_construir_lo_que_no_existe",
+      "target": "docs_plan_estabilizacion_merci_bloque_b_2_dashboard_backend_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L196",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_l\u00ednea_b_construir_lo_que_no_existe",
+      "target": "docs_plan_estabilizacion_merci_bloque_b_3_huecos_pendientes_de_bina_2_y_3_los_que_no_son_m\u00f3dulos_nuevos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_1_conocimiento_ia_backend_frontend",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_1_documentos_ia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L170",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_1_conocimiento_ia_backend_frontend",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_2_informaci\u00f3n_del_negocio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L173",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_1_conocimiento_ia_backend_frontend",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_3_faqs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L177",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_1_conocimiento_ia_backend_frontend",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_4_productos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L181",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_1_conocimiento_ia_backend_frontend",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_1_5_conectar_baseconocimiento_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L189",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_2_dashboard_backend_frontend",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_2_1_get_api_dashboard_summary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L193",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_2_dashboard_backend_frontend",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_2_2_conectar_dashboard_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L200",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_3_huecos_pendientes_de_bina_2_y_3_los_que_no_son_m\u00f3dulos_nuevos",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_3_1_historial_de_llamadas_export_csv_filtros_faltantes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L205",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_3_huecos_pendientes_de_bina_2_y_3_los_que_no_son_m\u00f3dulos_nuevos",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_3_2_workflows_tab_tipos_disponibles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/Plan_Estabilizacion_MERCI.md",
+      "source_location": "L210",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_plan_estabilizacion_merci_bloque_b_3_huecos_pendientes_de_bina_2_y_3_los_que_no_son_m\u00f3dulos_nuevos",
+      "target": "docs_plan_estabilizacion_merci_secci\u00f3n_b_3_3_tickets_service_js_c\u00f3digo_muerto",
       "confidence_score": 1.0
     },
     {
@@ -7604,6 +9321,270 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_1_conecta_configuracion_ia",
+      "target": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "target": "docs_informes_a_a_1_1_conecta_configuracion_ia_archivos_tocados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "target": "docs_informes_a_a_1_1_conecta_configuracion_ia_c\u00f3mo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "target": "docs_informes_a_a_1_1_conecta_configuracion_ia_pendiente_riesgos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "target": "docs_informes_a_a_1_1_conecta_configuracion_ia_pertenece_a_otra_bina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "target": "docs_informes_a_a_1_1_conecta_configuracion_ia_por_qu\u00e9",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.1-conecta-configuracion-ia.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_1_conecta_configuracion_ia_l\u00ednea_a_secci\u00f3n_a_1_1_conecta_configuracion_jsx_a_get_put_configuracion_empresa_y_get_configuracion_proveedores_ia",
+      "target": "docs_informes_a_a_1_1_conecta_configuracion_ia_qu\u00e9_se_hizo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_2_conecta_auditoria",
+      "target": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "target": "docs_informes_a_a_1_2_conecta_auditoria_archivos_tocados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "target": "docs_informes_a_a_1_2_conecta_auditoria_c\u00f3mo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "target": "docs_informes_a_a_1_2_conecta_auditoria_pendiente_riesgos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "target": "docs_informes_a_a_1_2_conecta_auditoria_pertenece_a_otra_bina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "target": "docs_informes_a_a_1_2_conecta_auditoria_por_qu\u00e9",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-A.1.2-conecta-auditoria.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_a_1_2_conecta_auditoria_l\u00ednea_a_secci\u00f3n_a_1_2_ajusta_auditoria_jsx_a_la_forma_real_del_backend",
+      "target": "docs_informes_a_a_1_2_conecta_auditoria_qu\u00e9_se_hizo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_archivos_tocados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_c\u00f3mo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_pendiente_riesgos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_pertenece_a_otra_bina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_por_qu\u00e9",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_l\u00ednea_a_tickets_y_llamadas_activas_de_pagestub_a_datos_reales",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_qu\u00e9_se_hizo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_c\u00f3mo",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_llamadas_activas_evaluaci\u00f3n_de_viabilidad_pedida_expl\u00edcitamente_antes_de_construir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_c\u00f3mo",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_tickets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".docs/informes/A-tickets-y-llamadas-activas.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_informes_a_tickets_y_llamadas_activas_c\u00f3mo",
+      "target": "docs_informes_a_tickets_y_llamadas_activas_verificaci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": ".docs/informes/INFORME_SITUACION_ACTUAL.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -7781,7 +9762,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
-      "source_location": "L66",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_merci_frontend_contexto_de_proyecto_para_claude_code",
+      "target": "claude_avance_del_plan_resumen_detalle_completo_en_plan_estabilizacion_merci_md",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_merci_frontend_contexto_de_proyecto_para_claude_code",
@@ -7792,7 +9784,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
-      "source_location": "L10",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_merci_frontend_contexto_de_proyecto_para_claude_code",
@@ -7803,7 +9795,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
-      "source_location": "L88",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_merci_frontend_contexto_de_proyecto_para_claude_code",
@@ -7825,7 +9817,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
-      "source_location": "L83",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_merci_frontend_contexto_de_proyecto_para_claude_code",
@@ -7867,5 +9859,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3d47e6c8be840985288278d5857dbe640f167419"
+  "built_at_commit": "40f97a1ab1719975c97ba887112031b6fbdf8eee"
 }

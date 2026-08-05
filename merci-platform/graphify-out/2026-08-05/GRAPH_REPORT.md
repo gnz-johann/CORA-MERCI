@@ -1,16 +1,16 @@
-# Graph Report - merci-platform  (2026-08-05)
+# Graph Report - merci-platform  (2026-07-26)
 
 ## Corpus Check
-- 126 files · ~71,645 words
+- 125 files · ~68,652 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1028 nodes · 1289 edges · 66 communities (59 shown, 7 thin omitted)
-- Extraction: 79% EXTRACTED · 21% INFERRED · 0% AMBIGUOUS · INFERRED: 274 edges (avg confidence: 0.5)
+- 989 nodes · 1249 edges · 70 communities (62 shown, 8 thin omitted)
+- Extraction: 78% EXTRACTED · 22% INFERRED · 0% AMBIGUOUS · INFERRED: 272 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `40f97a1a`
+- Built from commit: `10896748`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -71,8 +71,11 @@
 - workflows.routes.js
 - llamadas.repository.js
 - sucursales.repository.js
+- database.js
+- workflows.repository.js
 - llamadas.controller.js
 - rateLimiter.middleware.js
+- roles.repository.js
 - websocket.service.js
 - Fase 2 · Bloque 2.4 · Sección 2.4.1 — Módulo `auditoria` (Bina 4)
 - Fase 2 · Bloque 2.4 · Sección 2.4.2 — Módulo `configuracionIA` (Bina 4)
@@ -80,20 +83,23 @@
 - Fase 3 · Bloque 3.2 — Seed de datos de prueba realistas
 - Fase 3 · Bloque 3.3 — Prueba de punta a punta contra Postgres local
 - configuracionIA.routes.js
+- audit.service.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `requirePermission()` - 12 edges
 2. `INFORME_SITUACION_ACTUAL — Fase 0 del Plan de Estabilización MERCI` - 11 edges
 3. `CloudUCMProvider` - 10 edges
-4. `MERCI — Plan de estabilización v2` - 10 edges
-5. `Bloque A.1 — Conectar páginas que ya tienen backend listo` - 8 edges
-6. `MERCI — Backend (contexto de proyecto para Claude Code)` - 8 edges
-7. `scripts` - 7 edges
-8. `NotFoundError` - 7 edges
-9. `login()` - 7 edges
-10. `AIProviderFactory` - 7 edges
+4. `MERCI — Backend (contexto de proyecto para Claude Code)` - 8 edges
+5. `scripts` - 7 edges
+6. `NotFoundError` - 7 edges
+7. `login()` - 7 edges
+8. `AIProviderFactory` - 7 edges
+9. `IPBXProvider` - 7 edges
+10. `emit()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `login()` --calls--> `comparePassword()`  [EXTRACTED]
+  src/modules/auth/auth.service.js → src/core/utils/password.util.js
 - `logout()` --calls--> `hashRefreshToken()`  [EXTRACTED]
   src/modules/auth/auth.service.js → src/core/utils/token.util.js
 - `emit()` --calls--> `getIO()`  [EXTRACTED]
@@ -102,21 +108,15 @@
   src/modules/usuarios/usuarios.service.js → src/core/utils/password.util.js
 - `crear()` --calls--> `hashPassword()`  [EXTRACTED]
   src/modules/usuarios/usuarios.service.js → src/core/utils/password.util.js
-- `login()` --calls--> `comparePassword()`  [EXTRACTED]
-  src/modules/auth/auth.service.js → src/core/utils/password.util.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (66 total, 7 thin omitted)
-
-### Community 0 - "database.js"
-Cohesion: 0.05
-Nodes (37): Bloque A.1 — Conectar páginas que ya tienen backend listo, Bloque A.2 — Optimización de código, Bloque B.1 — Conocimiento IA (backend + frontend), Bloque B.2 — Dashboard (backend + frontend), Bloque B.3 — Huecos pendientes de Bina 2 y 3 (los que no son módulos nuevos), Bloqueadores activos (resolver en paralelo, no esperar), Decisiones pendientes del equipo (no resolver sin confirmar), Estado real de cada página del frontend (verificado el 26 de julio) (+29 more)
+## Communities (70 total, 8 thin omitted)
 
 ### Community 1 - "roles.service.js"
-Cohesion: 0.06
-Nodes (12): prisma, permisosRepository, rolesService, prisma, AppError, audit, formatearRol(), listar() (+4 more)
+Cohesion: 0.14
+Nodes (3): prisma, permisosRepository, rolesService
 
 ### Community 2 - "dependencies"
 Cohesion: 0.06
@@ -124,15 +124,15 @@ Nodes (35): axios, bcrypt, cors, dotenv, @elevenlabs/elevenlabs-js, express, exp
 
 ### Community 3 - "usuarios.service.js"
 Cohesion: 0.08
-Nodes (34): bcrypt, comparePassword(), hashPassword(), crypto, env, generarAccessToken(), generarRefreshToken(), hashRefreshToken() (+26 more)
+Nodes (17): bcrypt, comparePassword(), hashPassword(), usuariosService, AppError, audit, cambiarPassword(), crear() (+9 more)
 
 ### Community 4 - "empresas.service.js"
 Cohesion: 0.07
 Nodes (14): empresasService, crearRolesDefault(), PERMISOS_EXCLUIDOS_ADMIN_GENERAL, PERMISOS_EXCLUIDOS_ADMIN_SUCURSAL, prisma, AppError, audit, cambiarStatus() (+6 more)
 
 ### Community 5 - "agentes.controller.js"
-Cohesion: 0.09
-Nodes (8): promptsService, prisma, authenticate, express, promptsController, router, agentesRepository, promptsRepository
+Cohesion: 0.07
+Nodes (9): prisma, promptsService, prisma, authenticate, express, promptsController, router, agentesRepository (+1 more)
 
 ### Community 6 - "app.js"
 Cohesion: 0.17
@@ -151,8 +151,8 @@ Cohesion: 0.07
 Nodes (26): AIProviderFactory, _cicloSondeo(), CONFIG, _construirHistorial(), iniciar(), _liberarJobsHuerfanos(), _manejarFalloJob(), _marcarCompletado() (+18 more)
 
 ### Community 10 - "llamadas.service.js"
-Cohesion: 0.15
-Nodes (7): AppError, cloudUCM, CloudUCMProvider, llamadasRepository, NotFoundError, prisma, websocketService
+Cohesion: 0.08
+Nodes (11): llamadasService, prisma, SELECT_DETALLE, SELECT_LISTADO, AppError, cloudUCM, CloudUCMProvider, llamadasRepository (+3 more)
 
 ### Community 11 - "CloudUCMProvider.js"
 Cohesion: 0.11
@@ -177,8 +177,8 @@ Cohesion: 0.09
 Nodes (22): nodemon, author, description, devDependencies, nodemon, prisma, keywords, license (+14 more)
 
 ### Community 15 - "auth.service.js"
-Cohesion: 0.04
-Nodes (17): adapter, env, prisma, { PrismaClient }, { PrismaPg }, prisma, prisma, prisma (+9 more)
+Cohesion: 0.08
+Nodes (19): crypto, env, generarAccessToken(), generarRefreshToken(), hashRefreshToken(), jwt, verificarRefreshToken(), prisma (+11 more)
 
 ### Community 16 - "pbx.service.js"
 Cohesion: 0.11
@@ -206,7 +206,7 @@ Nodes (16): cifrar(), crypto, descifrar(), env, obtenerClave(), configuracionIAS
 
 ### Community 22 - "usuarios.repository.js"
 Cohesion: 0.13
-Nodes (17): auditoriaService, CSV_HEADERS, exportar(), filaCSV(), generarCSV(), ACCION_A_CRUDA, ACCION_A_ESPANOL, armarWhere() (+9 more)
+Nodes (16): auditoriaService, CSV_HEADERS, exportar(), filaCSV(), generarCSV(), ACCION_A_CRUDA, ACCION_A_ESPANOL, armarWhere() (+8 more)
 
 ### Community 23 - "index.routes.js"
 Cohesion: 0.11
@@ -217,16 +217,16 @@ Cohesion: 0.16
 Nodes (8): AppError, ForbiddenError, { ForbiddenError }, authenticate, empresasController, express, { ForbiddenError }, router
 
 ### Community 25 - "departamentos.service.js"
-Cohesion: 0.13
-Nodes (7): AppError, AppError, NotFoundError, AppError, audit, departamentosRepository, { NotFoundError }
+Cohesion: 0.20
+Nodes (4): AppError, audit, departamentosRepository, { NotFoundError }
 
 ### Community 26 - "ttsProceso.job.js"
 Cohesion: 0.14
 Nodes (12): envSchema, parsed, { z }, env, initSocket(), { Server }, app, env (+4 more)
 
 ### Community 27 - "sucursales.service.js"
-Cohesion: 0.15
-Nodes (5): AppError, audit, { NotFoundError }, sucursalesRepository, prisma
+Cohesion: 0.20
+Nodes (4): AppError, audit, { NotFoundError }, sucursalesRepository
 
 ### Community 28 - "permission.middleware.js"
 Cohesion: 0.29
@@ -242,7 +242,7 @@ Nodes (4): GoogleSTTProvider, ISTTProvider, speech, ISTTProvider
 
 ### Community 31 - "auth.middleware.js"
 Cohesion: 0.22
-Nodes (8): Bloque 2.4 (nuestro módulo) — ✅ completo, ver "Cerrado en esta rama" arriba, Convenciones ya verificadas en el código real, Estado actual — rama activa y avance del plan, Estilo al trabajar, MERCI — Backend (contexto de proyecto para Claude Code), Quiénes somos en este repo, Reglas del proyecto (de "Asignación de módulos"), Zonas restringidas — NUNCA modificar sin avisar explícitamente
+Nodes (8): Convenciones ya verificadas en el código real, Estado actual — rama activa, Estilo al trabajar, Lo que hay que construir (Bloque 2.4 del plan — nuestro módulo, sigue sin empezar), MERCI — Backend (contexto de proyecto para Claude Code), Quiénes somos en este repo, Reglas del proyecto (de "Asignación de módulos"), Zonas restringidas — NUNCA modificar sin avisar explícitamente
 
 ### Community 32 - "test-login-post.js"
 Cohesion: 0.29
@@ -253,16 +253,16 @@ Cohesion: 0.29
 Nodes (6): authenticate, express, pbxController, { requirePermission }, router, setTenant
 
 ### Community 34 - "departamentos.repository.js"
-Cohesion: 0.06
-Nodes (14): agentesService, CONTEXTO, empresasService, main(), obtenerIdCatalogo(), prisma, sucursalesService, usuariosService (+6 more)
+Cohesion: 0.09
+Nodes (13): agentesService, CONTEXTO, empresasService, main(), obtenerIdCatalogo(), prisma, sucursalesService, usuariosService (+5 more)
 
 ### Community 35 - "departamentos.routes.js"
 Cohesion: 0.29
 Nodes (6): authenticate, departamentosController, express, { requirePermission }, router, setTenant
 
 ### Community 36 - "extensiones.routes.js"
-Cohesion: 0.20
-Nodes (8): { ForbiddenError }, requirePermission(), auditoriaController, authenticate, express, { requirePermission }, router, setTenant
+Cohesion: 0.12
+Nodes (14): { ForbiddenError }, requirePermission(), auditoriaController, authenticate, express, { requirePermission }, router, setTenant (+6 more)
 
 ### Community 37 - "llamadas.routes.js"
 Cohesion: 0.29
@@ -275,6 +275,10 @@ Nodes (6): authenticate, express, { requirePermission }, rolesController, router
 ### Community 41 - "sucursales.routes.js"
 Cohesion: 0.29
 Nodes (6): authenticate, express, { requirePermission }, router, setTenant, sucursalesController
+
+### Community 42 - "AppError.js"
+Cohesion: 0.29
+Nodes (3): AppError, AppError, NotFoundError
 
 ### Community 43 - "test-challenge.js"
 Cohesion: 0.40
@@ -305,12 +309,24 @@ Cohesion: 0.25
 Nodes (7): Archivos tocados, Cómo, Fase 1 · Bloque 1.0 · Sección 1.0.5 — Tickets sin `authenticate`/`setTenant`, Pendiente / riesgos, Pertenece a otra bina?, Por qué, Qué se hizo
 
 ### Community 53 - "prompts.service.js"
-Cohesion: 0.15
-Nodes (9): UnauthorizedError, env, jwt, prisma, { UnauthorizedError }, authenticate, express, router (+1 more)
+Cohesion: 0.25
+Nodes (5): UnauthorizedError, env, jwt, prisma, { UnauthorizedError }
 
 ### Community 54 - "workflows.routes.js"
-Cohesion: 0.29
-Nodes (6): authenticate, express, extensionesController, { requirePermission }, router, setTenant
+Cohesion: 0.22
+Nodes (7): prisma, workflowsController, workflowsService, authenticate, express, router, workflowsController
+
+### Community 55 - "llamadas.repository.js"
+Cohesion: 0.18
+Nodes (8): AppError, audit, formatearRol(), listar(), { NotFoundError }, obtenerPorId(), permisosRepository, rolesRepository
+
+### Community 57 - "database.js"
+Cohesion: 0.33
+Nodes (5): adapter, env, prisma, { PrismaClient }, { PrismaPg }
+
+### Community 58 - "workflows.repository.js"
+Cohesion: 0.33
+Nodes (4): prisma, workflowsRepository, workflowsRepository, workflowsService
 
 ### Community 59 - "llamadas.controller.js"
 Cohesion: 0.18
@@ -349,24 +365,24 @@ Cohesion: 0.29
 Nodes (6): authenticate, configuracionIAController, express, { requirePermission }, router, setTenant
 
 ## Knowledge Gaps
-- **470 isolated node(s):** `name`, `version`, `description`, `main`, `dev` (+465 more)
+- **441 isolated node(s):** `name`, `version`, `description`, `main`, `dev` (+436 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _470 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `database.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
+  _441 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `roles.service.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.05689900426742532 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
 - **Should `usuarios.service.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.07751937984496124 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0773109243697479 - nodes in this community are weakly interconnected._
 - **Should `empresas.service.js` be split into smaller, more focused modules?**
   _Cohesion score 0.0677361853832442 - nodes in this community are weakly interconnected._
 - **Should `agentes.controller.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
+- **Should `callOrchestrator.service.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.08817204301075268 - nodes in this community are weakly interconnected._

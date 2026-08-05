@@ -125,8 +125,8 @@
     "semantic_hash": ""
   },
   "src/pages/Auditoria.jsx": {
-    "mtime": 1785689108.1781666,
-    "ast_hash": "c78436fc34aaec0465316d7b945b48e2",
+    "mtime": 1785035237.4135745,
+    "ast_hash": "77660628e25f8c190c7051dc8b72f50c",
     "semantic_hash": ""
   },
   "src/pages/BaseConocimiento.jsx": {
@@ -135,8 +135,8 @@
     "semantic_hash": ""
   },
   "src/pages/Configuracion.jsx": {
-    "mtime": 1785206570.7960887,
-    "ast_hash": "c1ce0af7e676e76ae988fdd9f11e8a12",
+    "mtime": 1785035190.3518097,
+    "ast_hash": "a7d7453ebf381828691041c7b98a16c5",
     "semantic_hash": ""
   },
   "src/pages/Dashboard.jsx": {
@@ -200,8 +200,8 @@
     "semantic_hash": "f4164425561b66e7062a65c12a196c1e"
   },
   "src/routes/AppRoutes.jsx": {
-    "mtime": 1785691478.8168254,
-    "ast_hash": "04efea2499d7a7a43f850abfc2f8324e",
+    "mtime": 1785040403.0593317,
+    "ast_hash": "86e6d02724d35297295721db0947564b",
     "semantic_hash": ""
   },
   "src/services/api.js": {
@@ -365,8 +365,8 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1785208493.1133473,
-    "ast_hash": "e051e8f4b587bac2fc6d269b6f51d55a",
+    "mtime": 1785041970.951839,
+    "ast_hash": "e731a0bbcec9f3853cd7c96f212c2b08",
     "semantic_hash": ""
   },
   "src/components/Header.jsx": {
@@ -937,46 +937,6 @@
   ".docs/informes/01-1.2-sucursales-permiso-menu.md": {
     "mtime": 1785042966.235284,
     "ast_hash": "ed4e8d1e73aac698f527e7d69f739069",
-    "semantic_hash": ""
-  },
-  "src/pages/LlamadasActivas.jsx": {
-    "mtime": 1785691509.6432123,
-    "ast_hash": "21837ed5ddb9ecb7688f921fe497c170",
-    "semantic_hash": ""
-  },
-  "src/pages/Tickets.jsx": {
-    "mtime": 1785691414.8458126,
-    "ast_hash": "a1e979651e53bb379467ff3156c6e0ca",
-    "semantic_hash": ""
-  },
-  "src/services/llamadas.service.js": {
-    "mtime": 1785691328.6160252,
-    "ast_hash": "5e7d249248b84a6f53203b05ea9b0c4d",
-    "semantic_hash": ""
-  },
-  "src/services/tickets.service.js": {
-    "mtime": 1785691320.2170656,
-    "ast_hash": "e67091a2029852b3f60f2d5c9f421bf8",
-    "semantic_hash": ""
-  },
-  ".docs/Plan_Estabilizacion_MERCI.md": {
-    "mtime": 1785208314.4550486,
-    "ast_hash": "e75290b29025d0c2b059664d60aec847",
-    "semantic_hash": ""
-  },
-  ".docs/informes/A-A.1.1-conecta-configuracion-ia.md": {
-    "mtime": 1785206853.22827,
-    "ast_hash": "ab6bf4b280c2cc0aa8fa7431e0fe4c00",
-    "semantic_hash": ""
-  },
-  ".docs/informes/A-A.1.2-conecta-auditoria.md": {
-    "mtime": 1785209065.063449,
-    "ast_hash": "9963bd96909aa726e7648c335c8721f3",
-    "semantic_hash": ""
-  },
-  ".docs/informes/A-tickets-y-llamadas-activas.md": {
-    "mtime": 1785691697.5337858,
-    "ast_hash": "29d5ec26b93fcbf236d5ec766d7d87b6",
     "semantic_hash": ""
   }
 }

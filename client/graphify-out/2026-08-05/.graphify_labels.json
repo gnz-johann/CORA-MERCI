@@ -24,10 +24,5 @@
   "22": "CloudUCM.jsx",
   "23": "PreguntasFrecuentes.jsx",
   "24": "Reportes.jsx",
-  "25": "Fase 1 · Bloque 1.2 — Permiso incorrecto de `Sucursales` en `menuSections.js`",
-  "26": "Línea A — Tickets y Llamadas Activas: de `PageStub` a datos reales",
-  "27": "Línea A · Sección A.1.1 — Conecta `Configuracion.jsx` a `GET/PUT /configuracion/empresa` y `GET /configuracion/proveedores-ia`",
-  "28": "Línea A · Sección A.1.2 — Ajusta `Auditoria.jsx` a la forma real del backend",
-  "29": "Workflows.jsx",
-  "30": "PageStub.jsx"
+  "25": "Fase 1 · Bloque 1.2 — Permiso incorrecto de `Sucursales` en `menuSections.js`"
 }

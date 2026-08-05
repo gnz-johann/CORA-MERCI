@@ -505,8 +505,8 @@
     "semantic_hash": "bc71567d14a4ed05d6f93a879e359aa6"
   },
   "CLAUDE.md": {
-    "mtime": 1785208516.1460009,
-    "ast_hash": "e3937f5152d4a8c4992468a091bc8f30",
+    "mtime": 1785041922.8959868,
+    "ast_hash": "6fb210d358376b60bedd13aa6f23d559",
     "semantic_hash": ""
   },
   "src/modules/tickets/tickets.controller.js": {
@@ -565,8 +565,8 @@
     "semantic_hash": ""
   },
   "src/modules/auditoria/auditoria.repository.js": {
-    "mtime": 1785688491.3669903,
-    "ast_hash": "56555941009eeb68dd13aaf78c3dde01",
+    "mtime": 1785113465.041924,
+    "ast_hash": "db133d9aa6a77e1b52302734abd615fe",
     "semantic_hash": ""
   },
   "src/modules/auditoria/auditoria.routes.js": {
@@ -622,11 +622,6 @@
   ".docs/informes/03-3.3-prueba-e2e-postgres.md": {
     "mtime": 1785118441.0471356,
     "ast_hash": "b4b7d08fbcf04803f8c48bc1e036f9db",
-    "semantic_hash": ""
-  },
-  ".docs/Plan_Estabilizacion_MERCI.md": {
-    "mtime": 1785208314.4940765,
-    "ast_hash": "e75290b29025d0c2b059664d60aec847",
     "semantic_hash": ""
   }
 }

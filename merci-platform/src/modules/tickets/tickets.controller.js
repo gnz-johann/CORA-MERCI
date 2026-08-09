@@ -3,7 +3,8 @@ const {
   obtenerTicketPorIdBD,
   crearTicketBD,
   actualizarTicketBD,
-  eliminarTicketBD
+  eliminarTicketBD,
+  obtenerCatalogosBD
 } = require('./tickets.repository');
 
 const obtenerTickets = async (req, res) => {
@@ -72,7 +73,14 @@ const agregarComentario = async (req, res) => {
 };
 
 const obtenerCatalogos = async (req, res) => {
-  res.json({ ok: true, mensaje: 'Pendiente lógica catálogos' });
+  try {
+    // Catálogos globales (no llevan empresa_id) — mismos para todas las
+    // empresas, no hace falta req.empresaId aquí.
+    const catalogos = await obtenerCatalogosBD();
+    res.json({ ok: true, mensaje: 'Catálogos obtenidos', data: catalogos });
+  } catch (error) {
+    res.status(500).json({ ok: false, mensaje: error.message });
+  }
 };
 
 module.exports = {

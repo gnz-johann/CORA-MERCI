@@ -38,13 +38,16 @@ function badgePrioridad(nombre) {
 }
 
 const FORM_VACIO = { titulo: '', descripcion: '', estadoTicketId: '', prioridadTicketId: '', usuarioResponsableId: '' };
+const CATALOGOS_VACIOS = { estados: [], prioridades: [] };
 
 export default function TicketsView() {
   const [tickets, setTickets] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
+  const [catalogos, setCatalogos] = useState(CATALOGOS_VACIOS);
   const [cargando, setCargando] = useState(true);
   const [errorCarga, setErrorCarga] = useState('');
   const [guardando, setGuardando] = useState(false);
+  const [editando, setEditando] = useState(false);
 
   const [filtroEstado, setFiltroEstado] = useState('');
   const [filtroPrioridad, setFiltroPrioridad] = useState('');
@@ -53,18 +56,24 @@ export default function TicketsView() {
   const [isModalCrearOpen, setIsModalCrearOpen] = useState(false);
   const [form, setForm] = useState(FORM_VACIO);
   const [selectedTicket, setSelectedTicket] = useState(null);
+  const [editForm, setEditForm] = useState({ estadoTicketId: '', prioridadTicketId: '', usuarioResponsableId: '' });
   const [toast, setToast] = useState({ show: false, type: '', message: '' });
 
   const cargarDatos = useCallback(async () => {
     setCargando(true);
     setErrorCarga('');
     try {
-      const [resTickets, resUsuarios] = await Promise.all([
+      const [resTickets, resUsuarios, resCatalogos] = await Promise.all([
         ticketsService.listar(),
         usuariosService.listar(),
+        ticketsService.catalogos(),
       ]);
       setTickets(resTickets.data ?? []);
       setUsuarios(resUsuarios.data?.usuarios ?? []);
+      setCatalogos({
+        estados: resCatalogos.data?.estados ?? [],
+        prioridades: resCatalogos.data?.prioridades ?? [],
+      });
     } catch (err) {
       setErrorCarga(err.message || 'No se pudo cargar Tickets desde el servidor.');
       setTickets([]);
@@ -75,21 +84,12 @@ export default function TicketsView() {
 
   useEffect(() => { cargarDatos(); }, [cargarDatos]);
 
-  // El backend (GET /tickets/catalogos) todavía es un stub sin datos reales —
-  // el catálogo disponible para crear/filtrar se arma con lo que ya trae la
-  // lista de tickets. Solo cubre estados/prioridades que ya tenga al menos un
-  // ticket existente (ver informe A.1.3).
-  const estadosDisponibles = useMemo(() => {
-    const mapa = new Map();
-    tickets.forEach((t) => { if (t.catalogo_estado_ticket) mapa.set(t.catalogo_estado_ticket.id, t.catalogo_estado_ticket.nombre); });
-    return [...mapa.entries()].map(([id, nombre]) => ({ id, nombre }));
-  }, [tickets]);
-
-  const prioridadesDisponibles = useMemo(() => {
-    const mapa = new Map();
-    tickets.forEach((t) => { if (t.catalogo_prioridad_ticket) mapa.set(t.catalogo_prioridad_ticket.id, t.catalogo_prioridad_ticket.nombre); });
-    return [...mapa.entries()].map(([id, nombre]) => ({ id, nombre }));
-  }, [tickets]);
+  // Catálogo real de GET /tickets/catalogos — ya no se deriva de los tickets
+  // cargados (antes cubría solo estados/prioridades que ya tuviera algún
+  // ticket existente; ahora trae siempre las 6 opciones de estado y las 4 de
+  // prioridad, las use o no todavía algún ticket).
+  const estadosDisponibles = catalogos.estados;
+  const prioridadesDisponibles = catalogos.prioridades;
 
   const ticketsFiltrados = useMemo(() => {
     return tickets.filter((t) => {
@@ -108,6 +108,33 @@ export default function TicketsView() {
   const showToast = (type, message) => {
     setToast({ show: true, type, message });
     setTimeout(() => setToast({ show: false, type: '', message: '' }), 3000);
+  };
+
+  const abrirDetalle = (t) => {
+    setSelectedTicket(t);
+    setEditForm({
+      estadoTicketId: t.catalogo_estado_ticket?.id || '',
+      prioridadTicketId: t.catalogo_prioridad_ticket?.id || '',
+      usuarioResponsableId: t.usuario_responsable_id || '',
+    });
+  };
+
+  const handleGuardarEdicion = async () => {
+    setEditando(true);
+    try {
+      await ticketsService.editar(selectedTicket.id, {
+        estado_ticket_id: editForm.estadoTicketId || undefined,
+        prioridad_ticket_id: editForm.prioridadTicketId || undefined,
+        usuario_responsable_id: editForm.usuarioResponsableId || undefined,
+      });
+      showToast('success', 'Ticket actualizado correctamente.');
+      setSelectedTicket(null);
+      cargarDatos();
+    } catch (err) {
+      showToast('error', err.message || 'No se pudo actualizar el ticket.');
+    } finally {
+      setEditando(false);
+    }
   };
 
   const handleCrearTicket = async (e) => {
@@ -265,7 +292,7 @@ export default function TicketsView() {
                   <td className="px-6 py-4"><span className="text-xs font-mono text-[#7A9EC4]">{formatFecha(t.fecha_creacion)}</span></td>
                   <td className="px-6 py-4 text-center">
                     <button
-                      onClick={() => setSelectedTicket(t)}
+                      onClick={() => abrirDetalle(t)}
                       className="p-2 bg-[#061628] hover:bg-[#0D2647] border border-[#1A3A5C] rounded-lg transition-colors text-[#7A9EC4] hover:text-white inline-flex"
                     >
                       <Eye className="w-4 h-4" />
@@ -347,12 +374,6 @@ export default function TicketsView() {
                   {usuarios.map((u) => <option key={u.usuarioId} value={u.usuarioId}>{u.nombre}</option>)}
                 </select>
               </div>
-              {estadosDisponibles.length < 6 && (
-                <p className="text-[11px] text-[#2E5070] font-mono leading-relaxed">
-                  El catálogo completo de estados/prioridades todavía no lo expone el backend
-                  (endpoint pendiente) — solo aparecen aquí los que ya usa algún ticket existente.
-                </p>
-              )}
             </div>
             <div className="flex items-center justify-end gap-3 p-6 border-t border-[#0D2647] bg-[#040F1E]">
               <button type="button" onClick={() => setIsModalCrearOpen(false)} className="px-6 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-colors text-[#7A9EC4] hover:text-white bg-transparent border border-[#1A3A5C] hover:bg-[#0D2647]">
@@ -378,17 +399,42 @@ export default function TicketsView() {
             </div>
             <div className="p-6 space-y-4">
               <p className="text-sm text-[#DCE9FF]">{selectedTicket.descripcion || 'Sin descripción.'}</p>
-              <div className="grid grid-cols-[110px_1fr] gap-y-3 text-sm">
-                <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Estado</span>
-                <span className={`inline-flex w-fit items-center gap-1.5 px-3 py-1 rounded-full border text-[11px] font-medium ${badgeEstado(selectedTicket.catalogo_estado_ticket?.nombre)}`}>
-                  {selectedTicket.catalogo_estado_ticket?.nombre ?? 'Sin estado'}
-                </span>
-                <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Prioridad</span>
-                <span className={`inline-flex w-fit items-center gap-1.5 px-3 py-1 rounded-full border text-[11px] font-medium ${badgePrioridad(selectedTicket.catalogo_prioridad_ticket?.nombre)}`}>
-                  {selectedTicket.catalogo_prioridad_ticket?.nombre ?? '—'}
-                </span>
-                <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Responsable</span>
-                <span className="text-[#DCE9FF]">{selectedTicket.usuarios?.nombre ?? '— Sin asignar —'}</span>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-[#7A9EC4] mb-1.5 uppercase tracking-wider">Estado</label>
+                  <select
+                    value={editForm.estadoTicketId}
+                    onChange={(e) => setEditForm({ ...editForm, estadoTicketId: e.target.value })}
+                    className="w-full bg-[#0A1E38] border border-[#1A3A5C] rounded-lg px-3 py-2.5 text-sm text-[#DCE9FF] focus:outline-none focus:border-[#155EEF]"
+                  >
+                    <option value="">Sin definir</option>
+                    {estadosDisponibles.map((e) => <option key={e.id} value={e.id}>{e.nombre}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#7A9EC4] mb-1.5 uppercase tracking-wider">Prioridad</label>
+                  <select
+                    value={editForm.prioridadTicketId}
+                    onChange={(e) => setEditForm({ ...editForm, prioridadTicketId: e.target.value })}
+                    className="w-full bg-[#0A1E38] border border-[#1A3A5C] rounded-lg px-3 py-2.5 text-sm text-[#DCE9FF] focus:outline-none focus:border-[#155EEF]"
+                  >
+                    <option value="">Sin definir</option>
+                    {prioridadesDisponibles.map((p) => <option key={p.id} value={p.id}>{p.nombre}</option>)}
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-[#7A9EC4] mb-1.5 uppercase tracking-wider">Responsable</label>
+                <select
+                  value={editForm.usuarioResponsableId}
+                  onChange={(e) => setEditForm({ ...editForm, usuarioResponsableId: e.target.value })}
+                  className="w-full bg-[#0A1E38] border border-[#1A3A5C] rounded-lg px-3 py-2.5 text-sm text-[#DCE9FF] focus:outline-none focus:border-[#155EEF]"
+                >
+                  <option value="">Sin asignar</option>
+                  {usuarios.map((u) => <option key={u.usuarioId} value={u.usuarioId}>{u.nombre}</option>)}
+                </select>
+              </div>
+              <div className="grid grid-cols-[110px_1fr] gap-y-3 text-sm pt-2 border-t border-[#0D2647]">
                 <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Creado</span>
                 <span className="text-[#DCE9FF] font-mono text-xs">{formatFecha(selectedTicket.fecha_creacion)}</span>
                 {selectedTicket.fecha_cierre && (
@@ -412,6 +458,13 @@ export default function TicketsView() {
             <div className="flex items-center justify-end gap-3 p-6 border-t border-[#0D2647] bg-[#040F1E]">
               <button onClick={() => setSelectedTicket(null)} className="px-6 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-colors text-[#7A9EC4] hover:text-white bg-transparent border border-[#1A3A5C] hover:bg-[#0D2647]">
                 Cerrar
+              </button>
+              <button
+                onClick={handleGuardarEdicion}
+                disabled={editando}
+                className="px-6 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-colors bg-[#155EEF] hover:bg-[#1253c4] text-white disabled:opacity-50"
+              >
+                {editando ? 'Guardando...' : 'Guardar cambios'}
               </button>
             </div>
           </div>

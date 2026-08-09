@@ -117,10 +117,32 @@ const eliminarTicketBD = async (id, empresa_id) => {
   });
 };
 
+// 6. Catálogos de estado/prioridad — catalogo_estado_ticket y
+// catalogo_prioridad_ticket son globales (no llevan empresa_id), ya vienen
+// sembrados vía db/merci_schema.sql. Sin orderBy a propósito: no hay columna
+// de orden en el schema, y ordenar por nombre alfabético rompería la
+// secuencia lógica del flujo (Abierto → En Proceso → Pendiente → Resuelto →
+// Cerrado/Cancelado) — se deja el orden natural en el que Postgres las
+// sembró.
+const obtenerCatalogosBD = async () => {
+  const [estados, prioridades] = await Promise.all([
+    prisma.catalogo_estado_ticket.findMany({
+      where: { deleted_at: null },
+      select: { id: true, nombre: true }
+    }),
+    prisma.catalogo_prioridad_ticket.findMany({
+      where: { deleted_at: null },
+      select: { id: true, nombre: true }
+    })
+  ]);
+  return { estados, prioridades };
+};
+
 module.exports = {
   obtenerTicketsPorEmpresaBD,
   obtenerTicketPorIdBD,
   crearTicketBD,
   actualizarTicketBD,
-  eliminarTicketBD
+  eliminarTicketBD,
+  obtenerCatalogosBD
 };

@@ -45,18 +45,15 @@
       "Bash(node -e ' *)"
     ],
     "deny": [
-      "Bash(git push origin main)",
-      "Bash(git push origin main *)",
-      "Bash(git push * main)",
-      "Bash(git push --force*)",
-      "Bash(git reset --hard*)",
-      "Bash(rm -rf*)",
-      "Bash(curl*)",
-      "Bash(wget*)",
-      "Bash(sudo*)",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(**/secrets/**)"
-    ]
+  "Bash(git push --force*)",
+  "Bash(git reset --hard*)",
+  "Bash(rm -rf*)",
+  "Bash(curl*)",
+  "Bash(wget*)",
+  "Bash(sudo*)",
+  "Read(./.env)",
+  "Read(./.env.*)",
+  "Read(**/secrets/**)"
+]
   }
 }

@@ -59,15 +59,26 @@ Antes de escribir el mapeo, se probó en vivo contra el backend real:
 - `src/pages/Configuracion.jsx` (editado — bloque PBX conectado, modal de credenciales real,
   botón "Probar Conexión" real)
 
+## Actualización — prueba con las credenciales reales (completada en una sección posterior)
+Con la contraseña real ya provista por separado (no se registra aquí, nunca en texto plano
+en un archivo del repo), se guardó la configuración real
+(`apiUsuario: merci_dev_inttelec`, `apiUrl: https://0729f8.a.myucm.cloud:8443`) vía el mismo
+`PUT /configuracion/pbx` ya verificado, y se llamó a `POST /probar-conexion` de verdad:
+
+```
+POST /probar-conexion -> 200 { conectado: true, mensaje: "Conexión establecida con CloudUCM exitosamente" }
+```
+
+**Éxito real, no simulado** — el handshake MD5 de dos pasos contra el CloudUCM hosted real
+funcionó al primer intento con las credenciales reales. Se confirmó además, con una consulta
+directa a la tabla (misma vía que Prisma Studio), que la fila real quedó cifrada
+(`{iv, authTag, ciphertext}`) — la contraseña real no aparece en texto plano en ningún lado
+de la BD.
+
 ## Pendiente / riesgos
-- **No se guardaron las credenciales reales que pediste** (usuario `merci_dev_inttelec`,
-  URL `https://0729f8.a.myucm.cloud:8443`) — falta la contraseña, que no vino en el mensaje y
-  no existe en ningún lado de esta sesión ni en la base de datos (se confirmó: la tabla
-  `configuraciones_pbx` sigue vacía). No se inventó ni se asumió una — hace falta que la
-  compartas para completar ese paso y reportar el resultado real de la conexión, tal como
-  pediste explícitamente ("sin asumir éxito ni fallo de antemano").
 - No se pudo verificar visualmente en navegador (sin `chromium-cli`/Playwright en este
-  entorno) — verificado con build limpio + las llamadas HTTP reales de arriba.
+  entorno) — verificado con build limpio + las llamadas HTTP reales, incluida la prueba de
+  conexión real de arriba.
 - El diseño de "solo el modal de credenciales puede crear la fila la primera vez" es una
   decisión propia (el backend no lo exige explícitamente así, solo exige credenciales para
   crear) — documentada aquí por si el equipo prefiere otro flujo, ej. que "Guardar Cambios"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Search,
   ChevronDown,
@@ -7,26 +7,15 @@ import {
   X,
   Radio,
   AlertTriangle,
+  AlertCircle,
   CheckCircle2,
   XCircle,
-  Users,
   UserCheck,
   Phone,
   PhoneOff,
   Trash2,
 } from "lucide-react";
-
-// ── Datos simulados ──────────────────────────────────────────────
-const usuariosDisponibles = ["Fernanda Lazo", "Carlos Martínez", "Ximena Sanchez"];
-
-const extensionesIniciales = [
-  { id: 1, ext: "1001", nombre: "Recepción Principal", usuario: "Fernanda Lazo", handle: "fernanda.l", estado: "Activa", sucursal: "Sucursal CDMX", departamento: "Ventas" },
-  { id: 2, ext: "1002", nombre: "Ventas 01", usuario: "Carlos Martínez", handle: "carlos.m", estado: "Ocupada", sucursal: "Sucursal Guadalajara", departamento: "Ventas" },
-  { id: 3, ext: "1003", nombre: "Ventas 02", usuario: "Ximena Sanchez", handle: "ximena.s", estado: "En Llamada", sucursal: "Sucursal Guadalajara", departamento: "Soporte Técnico" },
-  { id: 4, ext: "1004", nombre: "Soporte 01", usuario: "Iván Rodríguez", handle: "ivan.r", estado: "Suspendida", sucursal: "Sucursal Guadalajara", departamento: "Soporte Técnico" },
-  { id: 5, ext: "1005", nombre: "Soporte 02", usuario: "Francisco López", handle: "francisco.l", estado: "Desconectada", sucursal: "Sucursal Monterrey", departamento: "Soporte Técnico" },
-  { id: 6, ext: "1006", nombre: "Atención Agente Virtual", usuario: "José Ríos", handle: "francisco.l", estado: "No Disponible", sucursal: "Sucursal Monterrey", departamento: "Cobranza" },
-];
+import { extensionesService } from "../services/extensiones.service";
 
 function badgeEstado(estado) {
   const map = {
@@ -41,14 +30,14 @@ function badgeEstado(estado) {
 }
 
 // ── Input reutilizable ────────────────────────────────────────────
-function FormInput({ label, placeholder, value, onChange, note }) {
+function FormInput({ label, placeholder, value, onChange, note, type = "text" }) {
   return (
     <div>
       <label className="block text-[10px] uppercase tracking-[0.18em] text-[#7A9EC4] font-bold mb-1.5">
         {label}
       </label>
       <input
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -57,51 +46,6 @@ function FormInput({ label, placeholder, value, onChange, note }) {
                    focus:outline-none focus:border-[#1667F4] transition-colors"
       />
       {note && <p className="mt-1.5 text-[10px] text-[#2D547E] leading-snug">{note}</p>}
-    </div>
-  );
-}
-
-// ── Select personalizado (Usuario Asignado) ──────────────────────
-function FormSelect({ label, value, onChange, options }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="relative">
-      <label className="block text-[10px] uppercase tracking-[0.18em] text-[#7A9EC4] font-bold mb-1.5">
-        {label}
-      </label>
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between bg-[#040F1E] border border-[#1A3A5C] rounded-lg
-                   px-3 py-2.5 text-sm text-[#EEEEEE] focus:outline-none focus:border-[#1667F4]"
-      >
-        <span className={value ? "text-[#EEEEEE]" : "text-[#5D5D5D]"}>
-          {value || "Selecciona un usuario"}
-        </span>
-        <ChevronDown size={14} className="text-[#7A9EC4]" />
-      </button>
-
-      {open && (
-        <div className="absolute z-10 mt-1 w-full bg-[#040F1E] border border-[#1A3A5C] rounded-lg overflow-hidden">
-          {options.map((opt) => (
-            <div
-              key={opt}
-              onClick={() => {
-                onChange(opt);
-                setOpen(false);
-              }}
-              className={`px-3 py-2 text-sm cursor-pointer ${
-                opt === value
-                  ? "bg-[#1667F4] text-white"
-                  : "text-[#EEEEEE] hover:bg-[#0A1E38]"
-              }`}
-            >
-              {opt}
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
@@ -157,11 +101,6 @@ function FilterDropdown({ label, value, options, onChange }) {
 }
 
 // ── Modal base (Crear / Editar / Eliminar) ────────────────────────
-// iconBoxBg / iconBoxBorder / iconColor: por defecto el set "normal"
-// (0A1E38 / 1A3A5C / DAEBFF). El modal de Eliminar sobreescribe
-// iconBoxBg e iconBoxBorder con la paleta roja (642323).
-// El botón de cerrar (X) SIEMPRE usa el set normal (0A1E38 / 1A3A5C / 7A9EC4),
-// incluso en el modal de Eliminar.
 function ModalBase({
   titulo,
   icon: Icon,
@@ -197,79 +136,90 @@ function ModalBase({
   );
 }
 
-// ── Modal Crear / Editar Extensión ────────────────────────────────
-function ExtensionFormModal({ modo, extension, onClose, onSubmit }) {
-  const esEdicion = modo === "editar";
-
-  const [form, setForm] = useState({
-    ext: extension?.ext || "",
-    nombre: extension?.nombre || "",
-    usuario: extension?.usuario || "",
-    sucursal: extension?.sucursal || "",
-    departamento: extension?.departamento || "",
-    estado: extension?.estado || "",
-    mac: extension?.mac || "",
-  });
-
-  const set = (campo) => (e) =>
-    setForm((f) => ({ ...f, [campo]: e.target ? e.target.value : e }));
+// ── Modal Crear Extensión — conectado a POST /api/extensiones real ──
+// Solo pide lo que el backend de verdad usa (extension/nombre/secret vía
+// CloudUCM addSIPAccountAndUser) — nada de campos que no se envían a
+// ningún lado (a diferencia del modal de Editar, que sigue siendo mock
+// porque no existe PUT /api/extensiones/:id en el backend todavía).
+function CrearExtensionModal({ onClose, onSubmit, enviando }) {
+  const [form, setForm] = useState({ extension: "", nombre: "", secret: "" });
+  const set = (campo) => (e) => setForm((f) => ({ ...f, [campo]: e.target.value }));
 
   return (
-    <ModalBase
-      titulo={esEdicion ? "Editar Extensión" : "Crear Extensión"}
-      icon={esEdicion ? Pencil : Radio}
-      onClose={onClose}
-    >
-      <div className="px-6 py-5 space-y-4">
-        <div className="grid grid-cols-2 gap-4">
-          <FormInput label="Extensión" placeholder="Ej: 1001" value={form.ext} onChange={set("ext")} />
-          <FormInput label="Nombre" placeholder="Ej: Recepción Principal" value={form.nombre} onChange={set("nombre")} />
-        </div>
-
-        <FormSelect
-          label="Usuario Asignado"
-          value={form.usuario}
-          onChange={set("usuario")}
-          options={usuariosDisponibles}
-        />
-
-        <div className="grid grid-cols-2 gap-4">
-          <FormInput label="Sucursal" placeholder="Ej: Sucursal CDMX" value={form.sucursal} onChange={set("sucursal")} />
-          <FormInput label="Departamento" placeholder="Ej: Ventas" value={form.departamento} onChange={set("departamento")} />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <FormInput label="Estado" placeholder="Ej: Activa" value={form.estado} onChange={set("estado")} />
+    <ModalBase titulo="Crear Extensión" icon={Radio} onClose={onClose}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit(form);
+        }}
+      >
+        <div className="px-6 py-5 space-y-4">
+          <FormInput label="Extensión *" placeholder="Ej: 1010" value={form.extension} onChange={set("extension")} note="2-18 dígitos. Obligatorio." />
+          <FormInput label="Nombre" placeholder="Ej: Ventas 03" value={form.nombre} onChange={set("nombre")} />
           <FormInput
-            label="MAC del teléfono (PBX)"
-            placeholder="Ej: C0:74:AD:18:2E:9F"
-            value={form.mac}
-            onChange={set("mac")}
-            note="12 dígitos hexadecimales (0-9, A-F). Opcional."
+            label="Contraseña SIP"
+            placeholder="Se genera una si se deja vacío"
+            value={form.secret}
+            onChange={set("secret")}
+            type="password"
+            note="Contraseña del dispositivo SIP en la central telefónica. Opcional."
           />
         </div>
-      </div>
 
+        <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#0D2647]">
+          <button type="button" onClick={onClose} className="px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#061628] border border-[#2D547E] text-[#2D547E]">
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            disabled={enviando || !form.extension.trim()}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#1667F4] text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <Plus size={14} />
+            {enviando ? "Creando..." : "Crear Extensión"}
+          </button>
+        </div>
+      </form>
+    </ModalBase>
+  );
+}
+
+// ── Modal Editar Extensión — SIGUE SIENDO MOCK a propósito ─────────
+// No existe PUT /api/extensiones/:id en el backend todavía — conectar esto
+// es trabajo aparte, no pedido en esta sección.
+function EditarExtensionModal({ extension, onClose, onSubmit }) {
+  const [form, setForm] = useState({
+    nombre: extension?.nombre || "",
+  });
+  const set = (campo) => (e) => setForm((f) => ({ ...f, [campo]: e.target.value }));
+
+  return (
+    <ModalBase titulo="Editar Extensión" icon={Pencil} onClose={onClose}>
+      <div className="px-6 py-5 space-y-4">
+        <FormInput label="Extensión" value={extension?.extension || ""} onChange={() => {}} note="El número de extensión no se puede cambiar aquí." />
+        <FormInput label="Nombre" placeholder="Ej: Recepción Principal" value={form.nombre} onChange={set("nombre")} />
+        <p className="text-[10px] text-[#2D547E] leading-snug">
+          Editar todavía no está conectado al backend real (no existe endpoint para
+          actualizar una extensión) — este cambio no se guarda.
+        </p>
+      </div>
       <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#0D2647]">
-        <button
-          onClick={onClose}
-          className="px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#061628] border border-[#2D547E] text-[#2D547E]"
-        >
+        <button onClick={onClose} className="px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#061628] border border-[#2D547E] text-[#2D547E]">
           Cancelar
         </button>
         <button
           onClick={() => onSubmit(form)}
           className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#1667F4] text-white"
         >
-          <Plus size={14} />
-          {esEdicion ? "Guardar Cambios" : "Crear Extensión"}
+          Guardar Cambios
         </button>
       </div>
     </ModalBase>
   );
 }
 
-// ── Modal Eliminar Extensión ───────────────────────────────────────
+// ── Modal Eliminar Extensión — SIGUE SIENDO MOCK a propósito ───────
+// No existe DELETE /api/extensiones/:id en el backend todavía.
 function DeleteModal({ onClose, onConfirm }) {
   return (
     <ModalBase
@@ -285,6 +235,10 @@ function DeleteModal({ onClose, onConfirm }) {
         </p>
         <p className="mt-2 text-xs text-[#2D547E] leading-snug font-['Montserrat'] not-italic">
           Esta acción no se puede deshacer. La extensión quedará eliminada.
+        </p>
+        <p className="mt-3 text-[10px] text-[#5D5D5D] leading-snug">
+          Todavía no está conectado al backend real (no existe endpoint para eliminar) —
+          esto solo la quita de la vista.
         </p>
       </div>
 
@@ -308,8 +262,37 @@ function DeleteModal({ onClose, onConfirm }) {
   );
 }
 
+// ── Modal de error puntual (validación / sistema) ───────────────────
+// No bloquea el resto de la vista — se cierra y ya, la lista y el botón de
+// crear siguen funcionando normal.
+function ErrorModal({ categoria, mensaje, onClose }) {
+  const esValidacion = categoria === "validacion";
+  return (
+    <ModalBase
+      titulo={esValidacion ? "Revisa los datos" : "Error de la central telefónica"}
+      icon={AlertTriangle}
+      onClose={onClose}
+      iconBoxBg="rgba(100, 35, 35, 0.2)"
+      iconBoxBorder="#642323"
+      iconColor="#F59E0B"
+    >
+      <div className="px-6 py-5">
+        <p className="text-sm text-[#DCE9FF] leading-relaxed">{mensaje}</p>
+      </div>
+      <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#0D2647]">
+        <button
+          onClick={onClose}
+          className="px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#1667F4] text-white"
+        >
+          Entendido
+        </button>
+      </div>
+    </ModalBase>
+  );
+}
+
 // ── Toast ──────────────────────────────────────────────────────────
-function Toast({ tipo, mensaje, onClose }) {
+function Toast({ tipo, mensaje }) {
   const accent = tipo === "success" ? "#10974D" : "#853333";
   const Icon = tipo === "success" ? CheckCircle2 : XCircle;
 
@@ -327,22 +310,49 @@ function Toast({ tipo, mensaje, onClose }) {
 
 // ── Vista principal ─────────────────────────────────────────────
 export default function Extensiones() {
-  const [extensiones, setExtensiones] = useState(extensionesIniciales);
+  const [extensiones, setExtensiones] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [errorCarga, setErrorCarga] = useState("");
+  const [creando, setCreando] = useState(false);
+
   const [modal, setModal] = useState(null); // { tipo: 'crear' | 'editar' | 'eliminar', data? }
   const [toast, setToast] = useState(null);
+
+  // Error de categoría 'conexion' al crear — persiste como bandera fija
+  // arriba de la tabla y deshabilita el botón de crear hasta que se
+  // reintente con éxito. Error de 'validacion'/'sistema' — modal puntual,
+  // no bloquea nada más (ver errorPuntual abajo).
+  const [errorConexion, setErrorConexion] = useState("");
+  const [errorPuntual, setErrorPuntual] = useState(null); // { categoria, mensaje }
 
   const [busqueda, setBusqueda] = useState("");
   const [filtroSucursal, setFiltroSucursal] = useState(null);
   const [filtroEstado, setFiltroEstado] = useState(null);
 
-  const sucursalesUnicas = [...new Set(extensiones.map((e) => e.sucursal))];
-  const estadosUnicos = [...new Set(extensiones.map((e) => e.estado))];
+  const cargarExtensiones = useCallback(async () => {
+    setCargando(true);
+    setErrorCarga("");
+    try {
+      const res = await extensionesService.listar();
+      setExtensiones(res.data?.extensiones ?? []);
+    } catch (err) {
+      setErrorCarga(err.message || "No se pudieron cargar las extensiones desde el servidor.");
+      setExtensiones([]);
+    } finally {
+      setCargando(false);
+    }
+  }, []);
+
+  useEffect(() => { cargarExtensiones(); }, [cargarExtensiones]);
+
+  const sucursalesUnicas = [...new Set(extensiones.map((e) => e.sucursales?.nombre).filter(Boolean))];
+  const estadosUnicos = [...new Set(extensiones.map((e) => e.catalogo_estado_extension?.nombre).filter(Boolean))];
 
   const extensionesFiltradas = extensiones.filter((e) => {
     const coincideBusqueda =
-      !busqueda || e.sucursal.toLowerCase().includes(busqueda.toLowerCase());
-    const coincideSucursal = !filtroSucursal || e.sucursal === filtroSucursal;
-    const coincideEstado = !filtroEstado || e.estado === filtroEstado;
+      !busqueda || (e.sucursales?.nombre || "").toLowerCase().includes(busqueda.toLowerCase());
+    const coincideSucursal = !filtroSucursal || e.sucursales?.nombre === filtroSucursal;
+    const coincideEstado = !filtroEstado || e.catalogo_estado_extension?.nombre === filtroEstado;
     return coincideBusqueda && coincideSucursal && coincideEstado;
   });
 
@@ -351,36 +361,49 @@ export default function Extensiones() {
     setTimeout(() => setToast(null), 3000);
   };
 
-  const handleCrear = (form) => {
-    setExtensiones((prev) => [
-      ...prev,
-      { id: Date.now(), handle: "", ...form },
-    ]);
-    setModal(null);
-    mostrarToast("success", "Extensión creada correctamente");
+  const handleCrear = async (form) => {
+    setCreando(true);
+    try {
+      await extensionesService.crear({
+        extension: form.extension.trim(),
+        nombre: form.nombre.trim() || undefined,
+        secret: form.secret.trim() || undefined,
+      });
+      setModal(null);
+      setErrorConexion(""); // si había una bandera de conexión previa, ya se resolvió
+      mostrarToast("success", "Extensión creada correctamente");
+      cargarExtensiones();
+    } catch (err) {
+      const categoria = err.data?.categoria;
+      const mensaje = err.message || "No se pudo crear la extensión.";
+
+      if (categoria === "conexion") {
+        // Bandera fija + botón deshabilitado — no se cierra el modal solo,
+        // el usuario ve el problema real antes de reintentar.
+        setErrorConexion(mensaje);
+        mostrarToast("error", mensaje);
+      } else {
+        // 'validacion' | 'sistema' | sin categoría (validación local, ej.
+        // extensión vacía) — modal puntual, no bloquea el resto de la vista.
+        setErrorPuntual({ categoria: categoria || "validacion", mensaje });
+      }
+    } finally {
+      setCreando(false);
+    }
   };
 
   const handleEditar = (form) => {
     setExtensiones((prev) =>
-      prev.map((e) => (e.id === modal.data.id ? { ...e, ...form } : e))
+      prev.map((e) => (e.id === modal.data.id ? { ...e, nombre: form.nombre } : e))
     );
     setModal(null);
-    mostrarToast("success", "Extensión actualizada correctamente");
+    mostrarToast("success", "Extensión actualizada (solo en esta vista, no se guardó)");
   };
 
   const handleEliminar = () => {
-    // Simulación de fallo — reemplazar por la llamada real a la API.
-    const fallo = false;
-
-    if (fallo) {
-      setModal(null);
-      mostrarToast("error", "Error al eliminar extensión");
-      return;
-    }
-
     setExtensiones((prev) => prev.filter((e) => e.id !== modal.data.id));
     setModal(null);
-    mostrarToast("success", "Extensión eliminada correctamente");
+    mostrarToast("success", "Extensión eliminada (solo en esta vista, no se guardó)");
   };
 
   return (
@@ -389,9 +412,9 @@ export default function Extensiones() {
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {[
           { titulo: "Totales", valor: extensiones.length, descripcion: "Registradas", icon: Radio },
-          { titulo: "Activas", valor: extensiones.filter((e) => e.estado === "Activa").length, descripcion: "Disponibles ahora", icon: UserCheck },
-          { titulo: "En Llamada", valor: extensiones.filter((e) => e.estado === "En Llamada").length, descripcion: "En curso", icon: Phone },
-          { titulo: "Suspendidas", valor: extensiones.filter((e) => e.estado === "Suspendida").length, descripcion: "Fuera de servicio", icon: PhoneOff },
+          { titulo: "Activas", valor: extensiones.filter((e) => e.catalogo_estado_extension?.nombre === "Activa").length, descripcion: "Disponibles ahora", icon: UserCheck },
+          { titulo: "En Llamada", valor: extensiones.filter((e) => e.catalogo_estado_extension?.nombre === "En Llamada").length, descripcion: "En curso", icon: Phone },
+          { titulo: "Suspendidas", valor: extensiones.filter((e) => e.catalogo_estado_extension?.nombre === "Suspendida").length, descripcion: "Fuera de servicio", icon: PhoneOff },
         ].map((k) => (
           <div key={k.titulo} className="relative rounded-2xl border border-[#0D2647] bg-[#061628] p-4 overflow-hidden">
             <div className="flex items-start justify-between gap-3">
@@ -403,13 +426,21 @@ export default function Extensiones() {
               </div>
             </div>
             <div className="mt-2">
-              <span className="text-2xl font-bold text-slate-100">{k.valor}</span>
+              <span className="text-2xl font-bold text-slate-100">{cargando ? "—" : k.valor}</span>
             </div>
             <p className="mt-1.5 text-xs font-semibold text-[#7A9EC4]">{k.descripcion}</p>
             <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#155EEF] to-transparent" />
           </div>
         ))}
       </div>
+
+      {/* Bandera fija de error de conexión — solo desaparece al reintentar con éxito */}
+      {errorConexion && (
+        <div className="flex items-center gap-3 px-5 py-3.5 rounded-xl border border-[#E11D48]/30 bg-[#3B0711]/60 text-[#FDA4AF]">
+          <AlertCircle className="w-4 h-4 shrink-0" />
+          <p className="text-sm">{errorConexion}</p>
+        </div>
+      )}
 
       {/* Barra de búsqueda / filtros */}
       <div className="flex flex-wrap items-center gap-3">
@@ -436,44 +467,66 @@ export default function Extensiones() {
         />
         <button
           onClick={() => setModal({ tipo: "crear" })}
-          className="ml-auto flex items-center gap-2 bg-[#1667F4] text-white rounded-lg px-4 py-2.5 text-sm font-semibold"
+          disabled={!!errorConexion}
+          title={errorConexion || undefined}
+          className="ml-auto flex items-center gap-2 bg-[#1667F4] text-white rounded-lg px-4 py-2.5 text-sm font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <Plus size={14} /> NUEVA EXTENSIÓN
         </button>
       </div>
 
+      {errorCarga && (
+        <div className="flex items-center gap-3 px-5 py-3.5 rounded-xl border border-[#E11D48]/30 bg-[#3B0711]/60 text-[#FDA4AF]">
+          <AlertCircle className="w-4 h-4 shrink-0" />
+          <p className="text-sm">{errorCarga}</p>
+          <button
+            onClick={cargarExtensiones}
+            className="ml-auto text-xs font-bold uppercase tracking-wider text-[#FDA4AF] hover:text-white underline underline-offset-2 shrink-0"
+          >
+            Reintentar
+          </button>
+        </div>
+      )}
+
       {/* Tabla */}
       <div className="rounded-2xl border border-[#0D2647] bg-[#061628] overflow-hidden">
-        <div className="grid grid-cols-[70px_1.4fr_1.4fr_1fr_1.2fr_1.2fr_90px] gap-3 px-5 py-3 border-b border-[#0D2647] text-[10px] uppercase tracking-[0.15em] text-[#4A6A8C] font-bold">
+        <div className="grid grid-cols-[70px_1.4fr_1fr_1.2fr_1.2fr_1fr_90px] gap-3 px-5 py-3 border-b border-[#0D2647] text-[10px] uppercase tracking-[0.15em] text-[#4A6A8C] font-bold">
           <span>Ext.</span>
           <span>Nombre</span>
-          <span>Usuario Asignado</span>
           <span>Estado</span>
           <span>Sucursal</span>
           <span>Departamento</span>
+          <span>MAC</span>
           <span>Acciones</span>
         </div>
 
-        {extensionesFiltradas.map((e) => (
+        {cargando && (
+          <div className="px-5 py-10 text-center text-sm text-[#2C4E6D]">Cargando extensiones...</div>
+        )}
+
+        {!cargando && extensionesFiltradas.length === 0 && (
+          <div className="px-5 py-10 text-center text-sm text-[#2C4E6D]">
+            No hay extensiones que coincidan con los filtros seleccionados.
+          </div>
+        )}
+
+        {!cargando && extensionesFiltradas.map((e) => (
           <div
             key={e.id}
-            className="grid grid-cols-[70px_1.4fr_1.4fr_1fr_1.2fr_1.2fr_90px] gap-3 px-5 py-4 items-center"
+            className="grid grid-cols-[70px_1.4fr_1fr_1.2fr_1.2fr_1fr_90px] gap-3 px-5 py-4 items-center"
           >
-            <span className="text-sm text-slate-100">{e.ext}</span>
-            <span className="text-sm text-slate-100">{e.nombre}</span>
-            <div>
-              <p className="text-sm text-slate-100">{e.usuario}</p>
-              <p className="text-[11px] text-[#2C4E6D]">{e.handle}</p>
-            </div>
+            <span className="text-sm text-slate-100">{e.extension}</span>
+            <span className="text-sm text-slate-100">{e.nombre || "—"}</span>
             <span
               className={`inline-flex w-fit px-2 py-1 rounded-md border text-[10px] font-bold ${badgeEstado(
-                e.estado
+                e.catalogo_estado_extension?.nombre
               )}`}
             >
-              {e.estado}
+              {e.catalogo_estado_extension?.nombre || "Sin estado"}
             </span>
-            <span className="text-sm text-[#7A9EC4]">{e.sucursal}</span>
-            <span className="text-sm text-[#7A9EC4]">{e.departamento}</span>
+            <span className="text-sm text-[#7A9EC4]">{e.sucursales?.nombre || "— Sin asignar —"}</span>
+            <span className="text-sm text-[#7A9EC4]">{e.departamentos?.nombre || "— Sin asignar —"}</span>
+            <span className="text-xs text-[#4A6A8C] font-mono">{e.pbx_mac_address || "—"}</span>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setModal({ tipo: "editar", data: e })}
@@ -494,18 +547,20 @@ export default function Extensiones() {
 
       {/* Modales */}
       {modal?.tipo === "crear" && (
-        <ExtensionFormModal modo="crear" onClose={() => setModal(null)} onSubmit={handleCrear} />
+        <CrearExtensionModal onClose={() => setModal(null)} onSubmit={handleCrear} enviando={creando} />
       )}
       {modal?.tipo === "editar" && (
-        <ExtensionFormModal
-          modo="editar"
-          extension={modal.data}
-          onClose={() => setModal(null)}
-          onSubmit={handleEditar}
-        />
+        <EditarExtensionModal extension={modal.data} onClose={() => setModal(null)} onSubmit={handleEditar} />
       )}
       {modal?.tipo === "eliminar" && (
         <DeleteModal onClose={() => setModal(null)} onConfirm={handleEliminar} />
+      )}
+      {errorPuntual && (
+        <ErrorModal
+          categoria={errorPuntual.categoria}
+          mensaje={errorPuntual.mensaje}
+          onClose={() => setErrorPuntual(null)}
+        />
       )}
 
       {toast && <Toast tipo={toast.tipo} mensaje={toast.mensaje} onClose={() => setToast(null)} />}

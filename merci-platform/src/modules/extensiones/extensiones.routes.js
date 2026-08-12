@@ -7,6 +7,7 @@
 // Endpoints resultantes:
 //   GET  /api/extensiones       → listar extensiones de BD
 //   POST /api/extensiones/sync  → sincronizar desde CloudUCM
+//   POST /api/extensiones       → crear extensión (CloudUCM + BD)
 
 'use strict';
 
@@ -35,6 +36,15 @@ router.post(
   '/sync',
   requirePermission('extensiones.sync'),
   extensionesController.sincronizar
+);
+
+// POST /api/extensiones
+// Crea una extensión nueva (CloudUCM primero, BD local después — ver
+// extensiones.service.js#crearExtension)
+router.post(
+  '/',
+  requirePermission('extensiones.crear'),
+  extensionesController.crear
 );
 
 module.exports = router;

@@ -3,11 +3,15 @@ const AppError = require('../errors/AppError')
 // Handler global — debe registrarse ÚLTIMO en app.js
 // Atrapa cualquier error que llegue via next(error)
 const errorHandler = (err, req, res, next) => {
-    // Si es un error operacional conocido, mostrar el mensaje
+    // Si es un error operacional conocido, mostrar el mensaje.
+    // `categoria` solo la traen los errores de cloudUCMErrors.js
+    // ('conexion'|'validacion'|'sistema') — se agrega si está presente, sin
+    // afectar la forma de respuesta de ningún otro AppError existente.
     if (err instanceof AppError) {
         return res.status(err.statusCode).json({
         ok: false,
         mensaje: err.message,
+        ...(err.categoria && { categoria: err.categoria }),
         })
     }
 

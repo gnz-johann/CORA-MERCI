@@ -141,7 +141,56 @@ async function sincronizarExtensiones(empresaId) {
   }
 }
 
+/**
+ * Crea una extensión SIP nueva: primero en CloudUCM
+ * (addSIPAccountAndUser + applyChanges si hace falta), y solo si ambas
+ * terminan bien, refleja el registro en la BD local. Si la conexión con
+ * CloudUCM no está activa, no intenta escribir nada — ni en CloudUCM ni en BD.
+ *
+ * SOBRE la verificación de conexión: se reutiliza cloudUCM.connect()
+ * (el mismo handshake que ya usa pbxService.probarConexion() — ver
+ * pbx.service.js) en vez de reimplementar nada. Si falla, ya viene como
+ * error categorizado (cloudUCMErrors.js) — se deja pasar tal cual.
+ *
+ * @param {string} empresaId
+ * @param {Object} datos - { extension, nombre?, secret?, cidnumber?, permission? }
+ * @returns {Promise<Object>} - la extensión ya reflejada en BD
+ * @throws {AppError} - con .categoria 'conexion'|'validacion'|'sistema' si CloudUCM falla,
+ *                       o AppError genérico (400) si falta el número de extensión
+ */
+async function crearExtension(empresaId, datos) {
+  if (!datos?.extension) {
+    throw new AppError('El número de extensión es obligatorio', 400);
+  }
+
+  // 1. Verificar conexión activa ANTES de intentar escribir nada — mismo
+  // handshake que pbxService.probarConexion(), no se reimplementa.
+  await cloudUCM.connect(empresaId);
+
+  // 2. Crear en CloudUCM
+  const { extension, nombre, secret, cidnumber, permission } = datos;
+  const resultado = await cloudUCM.addSIPAccountAndUser(empresaId, {
+    extension: String(extension),
+    ...(secret && { secret }),
+    ...(cidnumber && { cidnumber }),
+    ...(permission && { permission })
+  });
+
+  // 3. Si CloudUCM pide "apply", aplicarlo de inmediato con la misma sesión
+  if (resultado.needApply) {
+    await cloudUCM.applyChanges(empresaId);
+  }
+
+  // 4. Solo si lo anterior salió bien, reflejar en BD local — mismo upsert
+  // que ya usa el sync, para no duplicar si la extensión ya existía.
+  return extensionesRepository.upsertExtension(empresaId, {
+    extension: String(extension),
+    nombre: nombre || null
+  });
+}
+
 module.exports = {
   listarExtensiones,
-  sincronizarExtensiones
+  sincronizarExtensiones,
+  crearExtension
 };

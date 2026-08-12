@@ -3,6 +3,8 @@ const crypto = require('crypto')
 const https = require('https')
 const IPBXProvider = require('./IPBXProvider')
 const prisma = require('../../config/database')
+const { crearErrorCloudUCM } = require('./cloudUCMErrors')
+const AppError = require('../../core/errors/AppError')
 
 // Agente HTTPS que acepta certificados autofirmados
 // CloudUCM en redes locales usa certificados no verificados
@@ -69,9 +71,14 @@ class CloudUCMProvider extends IPBXProvider {
         },
         })
 
+        // Ambos casos de abajo son fallas de conexión desde la perspectiva de
+        // quien usa este provider (no hay forma de hablar con CloudUCM sin
+        // esto) — se marcan con categoria: 'conexion', igual que los status
+        // numéricos de CloudUCM, aunque no vengan de una respuesta de la API
+        // (todavía no se llegó a llamarla).
         if (!config) {
-        const err = new Error('No existe configuración PBX activa para esta empresa')
-        err.statusCode = 400
+        const err = new AppError('No existe configuración PBX activa para esta empresa. Configúrala en Configuración → PBX.', 502)
+        err.categoria = 'conexion'
         throw err
         }
 
@@ -82,8 +89,8 @@ class CloudUCMProvider extends IPBXProvider {
         const apiPassword = config.credenciales?.password
 
         if (!apiPassword) {
-        const err = new Error('No se encontró la contraseña del UCM en credenciales')
-        err.statusCode = 400
+        const err = new AppError('No se encontró la contraseña de la central telefónica en la configuración. Revísala en Configuración → PBX.', 502)
+        err.categoria = 'conexion'
         throw err
         }
 
@@ -93,6 +100,12 @@ class CloudUCMProvider extends IPBXProvider {
         { request: { action: 'challenge', user: this.usuario, version: API_VERSION } },
         { httpsAgent }
         )
+
+        // Nunca debe llegar un status crudo de CloudUCM hasta el controller —
+        // se traduce a categoría + mensaje en español antes de lanzar.
+        if (challengeRes.data?.status !== 0) {
+        throw crearErrorCloudUCM(challengeRes.data?.status)
+        }
 
         const challenge = challengeRes.data?.response?.challenge
 
@@ -112,9 +125,7 @@ class CloudUCMProvider extends IPBXProvider {
         )
 
         if (loginRes.data?.status !== 0) {
-        throw new Error(
-            `CloudUCM login fallido. Status: ${loginRes.data?.status} — ${JSON.stringify(loginRes.data?.response)}`
-        )
+        throw crearErrorCloudUCM(loginRes.data?.status)
         }
 
         // Guardar cookie y tiempo de expiración
@@ -145,6 +156,13 @@ class CloudUCMProvider extends IPBXProvider {
      * Ejecuta una request autenticada contra CloudUCM — POST + JSON a /api,
      * incluyendo la cookie de sesión dentro del body (formato oficial),
      * no como header.
+     *
+     * Punto único de chequeo de status para todos los métodos que la usan
+     * (getExtensions, getCDR, transferCall, ping, addSIPAccountAndUser,
+     * applyChanges): si CloudUCM responde un status != 0, se traduce a
+     * categoría + mensaje en español (cloudUCMErrors.js) y se lanza — nunca
+     * se devuelve un status crudo de Grandstream a quien llamó.
+     *
      * @param {string} action - acción a ejecutar (ej. 'listAccount', 'cdrapi')
      * @param {Object} params - parámetros adicionales de la acción
      */
@@ -154,6 +172,11 @@ class CloudUCMProvider extends IPBXProvider {
         { request: { action, cookie: this.cookie, ...params } },
         { httpsAgent }
         )
+
+        if (res.data?.status !== 0) {
+        throw crearErrorCloudUCM(res.data?.status)
+        }
+
         return res.data
     }
 
@@ -236,7 +259,60 @@ class CloudUCMProvider extends IPBXProvider {
         { httpsAgent, responseType: 'arraybuffer' }
         )
 
+        // No puede usar _request() porque responseType es 'arraybuffer', no
+        // JSON — pero si algo falla, CloudUCM responde JSON (con status != 0)
+        // en vez del binario del audio. Hay que detectarlo antes de tratar la
+        // respuesta como si fuera audio real.
+        const contentType = res.headers?.['content-type'] || ''
+        if (contentType.includes('application/json')) {
+        const parseado = JSON.parse(Buffer.from(res.data).toString('utf8'))
+        if (parseado?.status !== 0) {
+            throw crearErrorCloudUCM(parseado?.status)
+        }
+        }
+
         return Buffer.from(res.data)
+    }
+
+    /**
+     * Crea una extensión SIP nueva en CloudUCM (Extension → Add
+     * SIPAccountAndUser de la doc oficial). Los parámetros soportados son
+     * los mismos que `updateSIPAccount` — solo `extension` es obligatorio
+     * (2-18 dígitos), el resto se pasa tal cual venga en `datos`.
+     *
+     * OJO: este método NO aplica los cambios — si CloudUCM responde
+     * `need_apply: 'yes'`, hace falta llamar a `applyChanges()` con la misma
+     * sesión para que el cambio tome efecto de verdad. Esa decisión es de
+     * quien llama (ver extensiones.service.js), no de este método.
+     *
+     * @param {string} empresaId
+     * @param {Object} datos - { extension, secret?, cidnumber?, permission?, ... }
+     * @returns {Promise<{needApply: boolean}>}
+     */
+    async addSIPAccountAndUser(empresaId, datos) {
+        await this._ensureSession(empresaId)
+
+        if (!datos?.extension) {
+        throw crearErrorCloudUCM(-1) // Invalid parameters — extension es obligatorio
+        }
+
+        const res = await this._request('addSIPAccountAndUser', datos)
+
+        return { needApply: res?.response?.need_apply === 'yes' }
+    }
+
+    /**
+     * Aplica los cambios pendientes en CloudUCM (equivalente al botón
+     * "Apply" del panel). Necesario después de crear/editar una extensión
+     * cuando la respuesta trae `need_apply: 'yes'` — sin esto el cambio
+     * queda guardado en CloudUCM pero no activo.
+     *
+     * @param {string} empresaId
+     */
+    async applyChanges(empresaId) {
+        await this._ensureSession(empresaId)
+        await this._request('applyChanges')
+        return true
     }
 
     /**

@@ -92,11 +92,28 @@ async function probarConexion(empresaId) {
     };
 
   } catch (errorConexion) {
-    // La conexión falló — devolvemos el error controlado, no el raw de CloudUCM
-    throw new AppError(
+    // El error real SIEMPRE queda en el log del servidor — antes esto no se
+    // logueaba en ningún lado (ni consola del backend ni, por lo tanto,
+    // llegaba nada útil al navegador salvo un mensaje genérico).
+    console.error('Error al conectar con CloudUCM:', errorConexion);
+
+    // Si ya viene categorizado (cloudUCMErrors.js, vía CloudUCMProvider), no
+    // perder esa traducción envolviéndolo en un AppError genérico — se
+    // relanza tal cual, con su categoria y su mensaje específico intactos.
+    if (errorConexion.categoria) {
+      throw errorConexion;
+    }
+
+    // Error crudo sin categoría (ej. axios sin respuesta / problema de red
+    // que nunca llegó a hablar con CloudUCM) — se envuelve como falla de
+    // conexión. El mensaje original de Axios ya quedó en el console.error
+    // de arriba, no solo en este mensaje resumido para el usuario.
+    const error = new AppError(
       `No se pudo conectar con CloudUCM: ${errorConexion.message}`,
       502
     );
+    error.categoria = 'conexion';
+    throw error;
   }
 }
 

@@ -31,12 +31,13 @@ const DEFAULT_CONFIG_IA = {
   proveedorLlmId: null,
 };
 
-// PBX (Central Telefónica) sigue en mock a propósito — no es parte de esta
-// sección (conecta GET/PUT /configuracion/empresa y GET /configuracion/proveedores-ia,
-// no /configuracion/pbx, que es de Bina 3).
-const mockConfigPBX = {
+// PBX (Central Telefónica) — defaults mientras carga o si la empresa nunca
+// configuró nada (GET /configuracion/pbx responde 404 en ese caso, a
+// diferencia de GET /configuracion/empresa que responde data: null).
+// Nombres en snake_case a propósito: así es como los devuelve el GET real.
+const DEFAULT_CONFIG_PBX = {
   api_url: '',
-  api_usuario: 'acme_intte',
+  api_usuario: '',
   auth_tipo: 'md5_token',
 };
 
@@ -55,13 +56,24 @@ const TIPOS_PROVEEDOR = [
 export default function ConfiguracionView() {
   // Estados principales de configuración
   const [configIA, setConfigIA] = useState(DEFAULT_CONFIG_IA);
-  const [configPBX, setConfigPBX] = useState(mockConfigPBX);
+  const [configPBX, setConfigPBX] = useState(DEFAULT_CONFIG_PBX);
   const [proveedores, setProveedores] = useState([]);
 
   // Estados de carga/guardado de Configuración IA (GET/PUT /configuracion/empresa)
   const [cargando, setCargando] = useState(true);
   const [errorCarga, setErrorCarga] = useState('');
   const [guardando, setGuardando] = useState(false);
+
+  // PBX — pbxExiste distingue "todavía no hay fila en configuraciones_pbx"
+  // (GET responde 404) de "sí existe, solo falta actualizar campos". Sin
+  // esto, "Guardar Cambios" podría mandar un PUT sin credenciales sobre una
+  // empresa que nunca configuró nada — el backend exige credenciales para
+  // crear la fila la primera vez, así que ese PUT fallaría. El primer
+  // guardado real siempre pasa por el modal de credenciales (manda todo
+  // junto: URL, usuario y contraseña).
+  const [pbxExiste, setPbxExiste] = useState(false);
+  const [probandoConexion, setProbandoConexion] = useState(false);
+  const [guardandoCredenciales, setGuardandoCredenciales] = useState(false);
 
   // Estados de UI
   const [isVozDropdownOpen, setIsVozDropdownOpen] = useState(false);
@@ -98,6 +110,25 @@ export default function ConfiguracionView() {
     } finally {
       setCargando(false);
     }
+
+    // PBX aparte, con su propio try/catch: GET /configuracion/pbx responde
+    // 404 (no data: null) cuando la empresa nunca configuró nada — eso es
+    // el estado esperado antes del primer guardado, no un error de carga.
+    // No debe activar el banner de error general de arriba.
+    try {
+      const resPbx = await configuracionService.obtenerPbx();
+      if (resPbx.data) {
+        setConfigPBX({
+          api_url: resPbx.data.api_url || '',
+          api_usuario: resPbx.data.api_usuario || '',
+          auth_tipo: resPbx.data.auth_tipo || 'md5_token',
+        });
+        setPbxExiste(true);
+      }
+    } catch {
+      setConfigPBX(DEFAULT_CONFIG_PBX);
+      setPbxExiste(false);
+    }
   }, []);
 
   useEffect(() => { cargarConfiguracion(); }, [cargarConfiguracion]);
@@ -120,8 +151,21 @@ export default function ConfiguracionView() {
   const handleGuardarCambios = async () => {
     setGuardando(true);
     try {
-      const res = await configuracionService.actualizar(configIA);
-      setConfigIA({ ...DEFAULT_CONFIG_IA, ...res.data });
+      const llamadas = [configuracionService.actualizar(configIA)];
+      // Solo se manda el PUT de PBX si ya existe una fila — si nunca se
+      // configuró, el backend exige credenciales para crearla y este botón
+      // no las tiene (esas se mandan juntas desde el modal). Ver nota en
+      // el estado `pbxExiste`.
+      if (pbxExiste) {
+        llamadas.push(configuracionService.guardarPbx({
+          apiUrl: configPBX.api_url,
+          apiUsuario: configPBX.api_usuario,
+          authTipo: configPBX.auth_tipo,
+        }));
+      }
+
+      const [resEmpresa] = await Promise.all(llamadas);
+      setConfigIA({ ...DEFAULT_CONFIG_IA, ...resEmpresa.data });
       showToast('success', 'Configuración guardada exitosamente.');
     } catch (err) {
       showToast('error', err.message || 'No se pudo guardar la configuración.');
@@ -130,19 +174,56 @@ export default function ConfiguracionView() {
     }
   };
 
-  const handleProbarConexion = () => {
-    // La conexión PBX sigue simulada — GET/PUT /configuracion/pbx es de Bina 3,
-    // fuera de esta sección.
-    showToast('error', 'Fallo al conectar con el servidor PBX. Verifica las credenciales.');
+  const handleProbarConexion = async () => {
+    setProbandoConexion(true);
+    try {
+      const res = await configuracionService.probarConexionPbx();
+      showToast('success', res.data?.mensaje || res.mensaje || 'Conexión establecida correctamente.');
+    } catch (err) {
+      // err.message ya trae el mensaje real (categorizado por
+      // cloudUCMErrors.js cuando aplica, ej. usuario/contraseña incorrectos,
+      // timeout, etc.) — no uno genérico inventado aquí.
+      showToast('error', err.message || 'No se pudo conectar con la central telefónica.');
+    } finally {
+      setProbandoConexion(false);
+    }
   };
 
-  const handleGuardarCredenciales = () => {
+  const handleGuardarCredenciales = async () => {
+    if (!configPBX.api_url.trim() || !configPBX.api_usuario.trim()) {
+      showToast('error', 'Completa URL y Usuario API antes de guardar las credenciales.');
+      return;
+    }
+    if (!password) {
+      showToast('error', 'Ingresa una contraseña.');
+      return;
+    }
     if (password !== confirmPassword) {
       showToast('error', 'Las contraseñas no coinciden.');
       return;
     }
-    setIsModalCredencialesOpen(false);
-    showToast('success', 'Credenciales actualizadas localmente.');
+
+    setGuardandoCredenciales(true);
+    try {
+      // Se manda todo junto (URL/usuario/tipo de auth + credenciales) — es
+      // el único camino que sirve tanto para crear la fila la primera vez
+      // como para solo rotar la contraseña después.
+      await configuracionService.guardarPbx({
+        apiUrl: configPBX.api_url,
+        apiUsuario: configPBX.api_usuario,
+        authTipo: configPBX.auth_tipo,
+        credenciales: { password },
+      });
+      setPbxExiste(true);
+      setIsModalCredencialesOpen(false);
+      setPassword('');
+      setConfirmPassword('');
+      showToast('success', 'Credenciales guardadas correctamente.');
+    } catch (err) {
+      showToast('error', err.message || 'No se pudieron guardar las credenciales.');
+    } finally {
+      setGuardandoCredenciales(false);
+    }
   };
 
   return (
@@ -353,6 +434,13 @@ export default function ConfiguracionView() {
             </div>
 
             <div className="space-y-4">
+              {!pbxExiste && !cargando && (
+                <p className="text-[11px] text-amber-400/80 font-mono leading-relaxed -mt-1">
+                  Todavía no hay conexión configurada. Llena URL y Usuario API, y usa
+                  &quot;Configurar Credenciales&quot; para guardar todo junto la primera vez.
+                </p>
+              )}
+
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">URL PBX</label>
                 <input
@@ -360,7 +448,8 @@ export default function ConfiguracionView() {
                   placeholder="Ej: https://cloud_ucm.acme.com"
                   value={configPBX.api_url}
                   onChange={(e) => setConfigPBX({...configPBX, api_url: e.target.value})}
-                  className="w-full bg-[#0B1E36] border border-[#16335C] rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-[#1667F4] transition-colors"
+                  disabled={cargando}
+                  className="w-full bg-[#0B1E36] border border-[#16335C] rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-[#1667F4] transition-colors disabled:opacity-50"
                 />
               </div>
 
@@ -370,7 +459,8 @@ export default function ConfiguracionView() {
                   type="text"
                   value={configPBX.api_usuario}
                   onChange={(e) => setConfigPBX({...configPBX, api_usuario: e.target.value})}
-                  className="w-full bg-[#0B1E36] border border-[#16335C] rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-[#1667F4] transition-colors"
+                  disabled={cargando}
+                  className="w-full bg-[#0B1E36] border border-[#16335C] rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-[#1667F4] transition-colors disabled:opacity-50"
                 />
               </div>
 
@@ -378,7 +468,8 @@ export default function ConfiguracionView() {
                 <label className="block text-xs font-semibold text-slate-300 mb-1.5 uppercase tracking-wider">Tipo de Autenticación</label>
                 <button
                   onClick={() => setIsAuthDropdownOpen(!isAuthDropdownOpen)}
-                  className="w-full flex items-center justify-between bg-[#0B1E36] border border-[#16335C] rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-[#1667F4] transition-colors"
+                  disabled={cargando}
+                  className="w-full flex items-center justify-between bg-[#0B1E36] border border-[#16335C] rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-[#1667F4] transition-colors disabled:opacity-50"
                 >
                   <span>{configPBX.auth_tipo}</span>
                   <ChevronDown className="w-4 h-4 text-slate-400" />
@@ -417,9 +508,11 @@ export default function ConfiguracionView() {
       <div className="flex items-center justify-end gap-4 mt-8">
         <button
           onClick={handleProbarConexion}
-          className="bg-[#0B1E36] hover:bg-[#132A4A] border border-[#16335C] text-slate-300 px-6 py-3 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-colors"
+          disabled={probandoConexion || !pbxExiste}
+          title={!pbxExiste ? 'Configura las credenciales primero' : undefined}
+          className="bg-[#0B1E36] hover:bg-[#132A4A] border border-[#16335C] text-slate-300 px-6 py-3 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Probar Conexión
+          {probandoConexion ? 'Probando...' : 'Probar Conexión'}
         </button>
         <button
           onClick={handleGuardarCambios}
@@ -509,10 +602,11 @@ export default function ConfiguracionView() {
               </button>
               <button
                 onClick={handleGuardarCredenciales}
-                className="flex items-center gap-2 bg-[#1667F4] hover:bg-[#1253c4] text-white px-6 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-all"
+                disabled={guardandoCredenciales}
+                className="flex items-center gap-2 bg-[#1667F4] hover:bg-[#1253c4] text-white px-6 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Save className="w-4 h-4" />
-                Guardar
+                {guardandoCredenciales ? 'Guardando...' : 'Guardar'}
               </button>
             </div>
           </div>

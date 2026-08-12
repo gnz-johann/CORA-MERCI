@@ -2,11 +2,11 @@
 // Cifrado AES-256-GCM real para configuraciones_empresa.credenciales_ia,
 // con el módulo nativo `crypto` de Node — sin librerías externas.
 //
-// A diferencia de configuraciones_pbx.credenciales (ver
-// src/modules/configuracion/pbx.repository.js, Bina 3, NO TOCAR): su
-// comentario dice "las credenciales se guardan encriptadas" pero el código
-// real solo hace `credenciales: datos.credenciales` tal cual llega, sin
-// cifrar nada. No se replica ese patrón aquí.
+// También lo reutiliza configuraciones_pbx.credenciales (ver
+// src/modules/configuracion/pbx.repository.js, Bina 3) — su comentario
+// decía "las credenciales se guardan encriptadas" pero el código real no
+// cifraba nada hasta que se corrigió reusando exactamente esta función, sin
+// escribir un segundo mecanismo de cifrado.
 //
 // Formato guardado en la columna JSONB: { iv, authTag, ciphertext }, los
 // tres en hex. La clave sale de env.CREDENCIALES_IA_ENCRYPTION_KEY (32 bytes

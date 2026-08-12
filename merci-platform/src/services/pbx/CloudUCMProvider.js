@@ -5,6 +5,9 @@ const IPBXProvider = require('./IPBXProvider')
 const prisma = require('../../config/database')
 const { crearErrorCloudUCM } = require('./cloudUCMErrors')
 const AppError = require('../../core/errors/AppError')
+// Mismo mecanismo de cifrado que credenciales_ia — configuraciones_pbx.credenciales
+// se guarda cifrado (ver pbx.repository.js), hay que descifrarlo aquí antes de usarlo.
+const { descifrar } = require('../../core/utils/credencialesIA.crypto')
 
 // Agente HTTPS que acepta certificados autofirmados
 // CloudUCM en redes locales usa certificados no verificados
@@ -85,8 +88,21 @@ class CloudUCMProvider extends IPBXProvider {
         this.baseUrl = config.api_url.replace(/\/$/, '')
         this.usuario = config.api_usuario
 
-        // Obtener password desde el JSONB credenciales
-        const apiPassword = config.credenciales?.password
+        // config.credenciales viene cifrado (AES-256-GCM, ver pbx.repository.js)
+        // — descifrar antes de leer la contraseña. Si el descifrado falla
+        // (dato corrupto o cifrado con una clave distinta a la actual), no se
+        // debe dejar pasar en silencio: se trata como falla de conexión.
+        let credencialesDescifradas
+        try {
+        credencialesDescifradas = descifrar(config.credenciales)
+        } catch {
+        const err = new AppError('No se pudieron leer las credenciales guardadas de la central telefónica. Reconfigura la conexión en Configuración → PBX.', 502)
+        err.categoria = 'conexion'
+        throw err
+        }
+
+        // Obtener password desde las credenciales ya descifradas
+        const apiPassword = credencialesDescifradas?.password
 
         if (!apiPassword) {
         const err = new AppError('No se encontró la contraseña de la central telefónica en la configuración. Revísala en Configuración → PBX.', 502)

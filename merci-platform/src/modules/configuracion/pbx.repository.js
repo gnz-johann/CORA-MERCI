@@ -7,10 +7,19 @@
 //
 // El campo sí se lee internamente (por CloudUCMProvider al hacer el login),
 // pero nunca se devuelve al cliente HTTP.
+//
+// CIFRADO: `credenciales` se guarda cifrado con AES-256-GCM (mismo mecanismo
+// que credenciales_ia, ver core/utils/credencialesIA.crypto.js) — nunca en
+// texto plano en la BD. crearConfigPbx/actualizarConfigPbx cifran antes de
+// guardar; CloudUCMProvider.connect() descifra antes de usar la contraseña.
 
 'use strict';
 
 const prisma = require('../../config/database');
+// Mismo mecanismo de cifrado que ya usa configuraciones_empresa.credenciales_ia
+// (Sección 2.4.3, Bina 4) — AES-256-GCM con crypto nativo. No se escribió una
+// función nueva, se reutiliza esta tal cual.
+const { cifrar } = require('../../core/utils/credencialesIA.crypto');
 
 // Campos seguros para devolver al cliente (sin credenciales)
 const SELECT_SEGURO = {
@@ -60,7 +69,7 @@ async function crearConfigPbx(empresaId, datos) {
       api_url:     datos.apiUrl,
       api_usuario: datos.apiUsuario,
       auth_tipo:   datos.authTipo   || 'md5_token',
-      credenciales: datos.credenciales,
+      credenciales: cifrar(datos.credenciales),
       activo:      true
     }
   });
@@ -86,8 +95,9 @@ async function actualizarConfigPbx(empresaId, id, datos) {
     ...(datos.authTipo    && { auth_tipo:    datos.authTipo    }),
     ...(datos.proveedor   && { proveedor:    datos.proveedor   }),
     ...(datos.activo      !== undefined && { activo: datos.activo }),
-    // Credenciales solo se actualizan si explícitamente se mandan
-    ...(datos.credenciales && { credenciales: datos.credenciales })
+    // Credenciales solo se actualizan si explícitamente se mandan — y
+    // siempre cifradas, nunca tal cual llegan.
+    ...(datos.credenciales && { credenciales: cifrar(datos.credenciales) })
   };
 
   const actualizado = await prisma.configuraciones_pbx.update({

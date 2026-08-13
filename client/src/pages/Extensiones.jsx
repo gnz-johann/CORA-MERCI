@@ -157,12 +157,12 @@ function CrearExtensionModal({ onClose, onSubmit, enviando }) {
           <FormInput label="Extensión *" placeholder="Ej: 1010" value={form.extension} onChange={set("extension")} note="2-18 dígitos. Obligatorio." />
           <FormInput label="Nombre" placeholder="Ej: Ventas 03" value={form.nombre} onChange={set("nombre")} />
           <FormInput
-            label="Contraseña SIP"
-            placeholder="Se genera una si se deja vacío"
+            label="Contraseña SIP *"
+            placeholder="Elige una contraseña"
             value={form.secret}
             onChange={set("secret")}
             type="password"
-            note="Contraseña del dispositivo SIP en la central telefónica. Opcional."
+            note="Obligatoria: CloudUCM nunca devuelve esta contraseña en su respuesta, ni la que se envía ni una generada automáticamente — si se deja en blanco, la extensión queda creada pero nadie puede conocer su contraseña después."
           />
         </div>
 
@@ -172,7 +172,7 @@ function CrearExtensionModal({ onClose, onSubmit, enviando }) {
           </button>
           <button
             type="submit"
-            disabled={enviando || !form.extension.trim()}
+            disabled={enviando || !form.extension.trim() || !form.secret.trim()}
             className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#1667F4] text-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Plus size={14} />

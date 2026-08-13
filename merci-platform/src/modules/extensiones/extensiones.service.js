@@ -153,14 +153,25 @@ async function sincronizarExtensiones(empresaId) {
  * error categorizado (cloudUCMErrors.js) — se deja pasar tal cual.
  *
  * @param {string} empresaId
- * @param {Object} datos - { extension, nombre?, secret?, cidnumber?, permission? }
+ * @param {Object} datos - { extension, secret, nombre?, cidnumber?, permission? }
  * @returns {Promise<Object>} - la extensión ya reflejada en BD
  * @throws {AppError} - con .categoria 'conexion'|'validacion'|'sistema' si CloudUCM falla,
- *                       o AppError genérico (400) si falta el número de extensión
+ *                       o AppError genérico (400) si falta extension o secret
  */
 async function crearExtension(empresaId, datos) {
   if (!datos?.extension) {
     throw new AppError('El número de extensión es obligatorio', 400);
+  }
+
+  // `secret` es obligatorio, no opcional — verificado contra la documentación
+  // oficial de Grandstream (.docs/IPPBX-HTTPS-API-Documentation-Center.pdf):
+  // la respuesta de addSIPAccountAndUser solo trae { need_apply, status },
+  // nunca devuelve el secret (ni el que se mandó ni uno generado por CloudUCM
+  // si se omite). Si se deja que CloudUCM genere uno solo, la extensión queda
+  // creada pero nadie conoce su contraseña — inutilizable. No hay forma de
+  // capturarlo después porque la API nunca lo expone.
+  if (!datos?.secret) {
+    throw new AppError('La contraseña SIP (secret) es obligatoria: CloudUCM no la devuelve en la respuesta, así que si se genera sola no hay forma de conocerla después.', 400);
   }
 
   // 1. Verificar conexión activa ANTES de intentar escribir nada — mismo

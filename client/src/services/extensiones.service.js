@@ -11,4 +11,5 @@ export const extensionesService = {
   listar: () => api.get('/extensiones'),
   crear:  (datos) => api.post('/extensiones', datos),
   sincronizar: () => api.post('/extensiones/sync'),
+  eliminar: (id) => api.delete(`/extensiones/${id}`),
 }

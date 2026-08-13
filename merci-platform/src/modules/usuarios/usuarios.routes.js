@@ -25,6 +25,28 @@ router.get(
   usuariosController.estados
 )
 
+// ── Cuenta propia — sin requirePermission, cualquier usuario autenticado
+// puede ver/editar su propio perfil y cambiar su propia contraseña, sin
+// necesitar el permiso 'usuarios.editar' (ese es para administrar A OTROS).
+// Reusan usuariosService.obtenerPorId/editar/cambiarPassword tal cual —
+// esas funciones ya soportan el caso "uno mismo" (ver cambiarPassword,
+// exige passwordActual cuando adminId === usuarioId). DEBEN ir antes de
+// /:id por la misma razón que /stats y /estados.
+router.get(
+  '/me',
+  usuariosController.obtenerPropio
+)
+
+router.put(
+  '/me',
+  usuariosController.editarPropio
+)
+
+router.patch(
+  '/me/password',
+  usuariosController.cambiarPasswordPropio
+)
+
 // ── CRUD ────────────────────────────────────────────────────────────────────
 
 router.get(

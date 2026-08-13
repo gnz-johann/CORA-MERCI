@@ -81,6 +81,37 @@ async function upsertExtension(empresaId, datos) {
 }
 
 /**
+ * Busca una extensión por id, exigiendo que pertenezca a la empresa.
+ *
+ * @param {string} id
+ * @param {string} empresaId
+ * @returns {Promise<Object|null>}
+ */
+async function obtenerPorId(id, empresaId) {
+  return prisma.extensiones.findFirst({
+    where: {
+      id,
+      empresa_id: empresaId,
+      deleted_at: null
+    },
+    select: SELECT_EXTENSION
+  });
+}
+
+/**
+ * Borrado lógico — mismo patrón que agentesRepository.eliminarLogico.
+ *
+ * @param {string} id
+ * @returns {Promise<Object>}
+ */
+async function eliminarLogico(id) {
+  return prisma.extensiones.update({
+    where: { id },
+    data: { deleted_at: new Date() }
+  });
+}
+
+/**
  * Registra el resultado de una sincronización de extensiones en sincronizaciones_pbx.
  * Se llama tanto si salió bien como si falló, para tener historial completo.
  *
@@ -122,6 +153,8 @@ async function buscarConfigPbxActiva(empresaId) {
 module.exports = {
   listarExtensiones,
   upsertExtension,
+  obtenerPorId,
+  eliminarLogico,
   registrarSincronizacion,
   buscarConfigPbxActiva
 };

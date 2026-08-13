@@ -5,9 +5,10 @@
 //   router.use('/extensiones', extensionesRoutes)
 //
 // Endpoints resultantes:
-//   GET  /api/extensiones       → listar extensiones de BD
-//   POST /api/extensiones/sync  → sincronizar desde CloudUCM
-//   POST /api/extensiones       → crear extensión (CloudUCM + BD)
+//   GET    /api/extensiones       → listar extensiones de BD
+//   POST   /api/extensiones/sync  → sincronizar desde CloudUCM
+//   POST   /api/extensiones       → crear extensión (CloudUCM + BD)
+//   DELETE /api/extensiones/:id   → borrado lógico en BD (no toca CloudUCM)
 
 'use strict';
 
@@ -45,6 +46,14 @@ router.post(
   '/',
   requirePermission('extensiones.crear'),
   extensionesController.crear
+);
+
+// DELETE /api/extensiones/:id
+// Borrado lógico en BD local — no toca CloudUCM (ver extensiones.service.js#eliminarExtension)
+router.delete(
+  '/:id',
+  requirePermission('extensiones.eliminar'),
+  extensionesController.eliminar
 );
 
 module.exports = router;

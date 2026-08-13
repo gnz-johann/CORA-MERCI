@@ -57,6 +57,8 @@ export default function TicketsView() {
   const [form, setForm] = useState(FORM_VACIO);
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [editForm, setEditForm] = useState({ estadoTicketId: '', prioridadTicketId: '', usuarioResponsableId: '' });
+  const [nuevoComentario, setNuevoComentario] = useState('');
+  const [comentando, setComentando] = useState(false);
   const [toast, setToast] = useState({ show: false, type: '', message: '' });
 
   const cargarDatos = useCallback(async () => {
@@ -117,6 +119,28 @@ export default function TicketsView() {
       prioridadTicketId: t.catalogo_prioridad_ticket?.id || '',
       usuarioResponsableId: t.usuario_responsable_id || '',
     });
+    setNuevoComentario('');
+  };
+
+  const handleAgregarComentario = async () => {
+    if (!nuevoComentario.trim()) return;
+    setComentando(true);
+    try {
+      const res = await ticketsService.comentar({
+        ticket_id: selectedTicket.id,
+        comentario: nuevoComentario.trim(),
+      });
+      setSelectedTicket((prev) => ({
+        ...prev,
+        ticket_comentarios: [...(prev.ticket_comentarios || []), res.data],
+      }));
+      setNuevoComentario('');
+      cargarDatos();
+    } catch (err) {
+      showToast('error', err.message || 'No se pudo agregar el comentario.');
+    } finally {
+      setComentando(false);
+    }
   };
 
   const handleGuardarEdicion = async () => {
@@ -450,10 +474,42 @@ export default function TicketsView() {
                   </>
                 )}
               </div>
-              <p className="text-[11px] text-[#2E5070] font-mono leading-relaxed pt-2 border-t border-[#0D2647]">
-                Agregar comentarios todavía no está disponible — el endpoint del backend
-                (POST /tickets/comentarios) es un stub sin lógica real.
-              </p>
+              <div className="pt-2 border-t border-[#0D2647]">
+                <label className="block text-xs font-semibold text-[#7A9EC4] mb-2 uppercase tracking-wider">
+                  Comentarios {selectedTicket.ticket_comentarios?.length ? `(${selectedTicket.ticket_comentarios.length})` : ''}
+                </label>
+                <div className="space-y-2 max-h-40 overflow-y-auto mb-3">
+                  {(!selectedTicket.ticket_comentarios || selectedTicket.ticket_comentarios.length === 0) && (
+                    <p className="text-xs text-[#2E5070]">Todavía no hay comentarios.</p>
+                  )}
+                  {selectedTicket.ticket_comentarios?.map((c) => (
+                    <div key={c.id} className="bg-[#0A1E38] border border-[#1A3A5C] rounded-lg px-3 py-2">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-semibold text-[#DCE9FF]">{c.usuarios?.nombre ?? 'Usuario'}</span>
+                        <span className="text-[10px] text-[#2E5070] font-mono">{formatFecha(c.fecha_registro)}</span>
+                      </div>
+                      <p className="text-sm text-[#DCE9FF]">{c.comentario}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-start gap-2">
+                  <textarea
+                    rows={2}
+                    value={nuevoComentario}
+                    onChange={(e) => setNuevoComentario(e.target.value)}
+                    placeholder="Escribe un comentario..."
+                    className="flex-1 bg-[#0A1E38] border border-[#1A3A5C] rounded-lg px-3 py-2 text-sm text-[#DCE9FF] focus:outline-none focus:border-[#155EEF] transition-colors resize-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleAgregarComentario}
+                    disabled={comentando || !nuevoComentario.trim()}
+                    className="px-4 py-2.5 rounded-lg font-mono text-xs font-bold tracking-wider uppercase bg-[#155EEF] hover:bg-[#1253c4] text-white disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                  >
+                    {comentando ? '...' : 'Enviar'}
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="flex items-center justify-end gap-3 p-6 border-t border-[#0D2647] bg-[#040F1E]">
               <button onClick={() => setSelectedTicket(null)} className="px-6 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-colors text-[#7A9EC4] hover:text-white bg-transparent border border-[#1A3A5C] hover:bg-[#0D2647]">

@@ -16,4 +16,5 @@ export const llamadasService = {
     return api.get(`/llamadas${q}`)
   },
   obtenerDetalle: (id) => api.get(`/llamadas/${id}`),
+  sincronizarCDR: (filtros = {}) => api.post('/llamadas/sync-cdr', filtros),
 }

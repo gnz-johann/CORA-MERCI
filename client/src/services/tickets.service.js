@@ -14,12 +14,6 @@ export const ticketsService = {
   crear:    (datos) => api.post('/tickets', datos),
   editar:   (id, datos) => api.put(`/tickets/${id}`, datos),
   eliminar: (id) => api.delete(`/tickets/${id}`),
-  // GET /tickets/catalogos existe y responde 200, pero su controller
-  // (obtenerCatalogos) es un stub — hoy siempre devuelve
-  // `{ ok: true, mensaje: 'Pendiente lógica catálogos' }` sin `data`. Se deja
-  // conectado para que, el día que Bina 3 lo implemente, Tickets.jsx recoja el
-  // catálogo completo sin tocar código — mientras tanto Tickets.jsx arma el
-  // catálogo disponible a partir de lo que ya trae la lista de tickets (ver
-  // informe A.1.3 para el detalle de esa limitación).
   catalogos: () => api.get('/tickets/catalogos'),
+  comentar: (datos) => api.post('/tickets/comentarios', datos),
 }

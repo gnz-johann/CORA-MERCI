@@ -16,6 +16,7 @@ import Departamentos       from '../pages/Departamentos'
 import Sucursales          from '../pages/Sucursales'
 import Auditoria           from '../pages/Auditoria'
 import Configuracion       from '../pages/Configuracion'
+import MiCuenta            from '../pages/MiCuenta'
 import Tickets             from '../pages/Tickets'
 import LlamadasActivas     from '../pages/LlamadasActivas'
 import NotFoundPage        from '../pages/NotFoundPage'
@@ -133,6 +134,12 @@ function AppRoutes() {
         <Route path="/departamentos"
           element={<RutaConPermiso permiso="departamentos.ver"><Departamentos /></RutaConPermiso>}
         />
+
+        {/* Sin RutaConPermiso a propósito — es la cuenta del propio usuario
+            logueado, no un recurso de negocio; cualquiera con sesión activa
+            puede entrar, sin importar sus permisos (ya está protegida por el
+            RutaProtegida de más arriba, que exige login). */}
+        <Route path="/mi-cuenta" element={<MiCuenta />} />
 
         {/* 404 — cualquier ruta desconocida se muestra DENTRO del AppLayout
             (Rail/Sidebar/Header visibles) para no expulsar al usuario. */}

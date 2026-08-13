@@ -59,6 +59,13 @@ export const menuSections = [
     title: 'SISTEMA',
     pinBottom: true,
     items: [
+      // Primero a propósito: el ícono de engranaje del Rail navega siempre
+      // al PRIMER item de la sección (ver Rail.jsx#onSectionChange) — antes
+      // "Auditoría" estaba primero, así que el engranaje (que visualmente
+      // se lee como "cuenta/ajustes") mandaba ahí en vez de a la cuenta del
+      // usuario. Sin `permission`: cualquier usuario logueado la ve, no es
+      // un recurso de negocio con permiso propio.
+      { name: 'Mi Cuenta', path: '/mi-cuenta', icon: 'Users', permission: null },
       { name: 'Auditoría', path: '/auditoria', icon: 'Audit', permission: 'auditoria.ver' },
       { name: 'Configuración', path: '/configuracion', icon: 'Settings', permission: 'empresa.configurar' },
     ],

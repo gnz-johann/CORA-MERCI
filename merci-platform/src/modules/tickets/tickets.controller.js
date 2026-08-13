@@ -4,6 +4,7 @@ const {
   crearTicketBD,
   actualizarTicketBD,
   eliminarTicketBD,
+  crearComentarioBD,
   obtenerCatalogosBD
 } = require('./tickets.repository');
 
@@ -69,7 +70,30 @@ const eliminarTicket = async (req, res) => {
 };
 
 const agregarComentario = async (req, res) => {
-  res.json({ ok: true, mensaje: 'Pendiente lógica comentario' });
+  try {
+    const { ticket_id, comentario } = req.body;
+    if (!ticket_id || !comentario) {
+      return res.status(400).json({ ok: false, mensaje: 'ticket_id y comentario son obligatorios' });
+    }
+
+    // ticket_comentarios no lleva empresa_id propio (ver schema.prisma) —
+    // se valida pertenencia consultando el ticket con el mismo filtro de
+    // empresa que ya usan actualizarTicket/eliminarTicket, para no permitir
+    // comentar un ticket de otra empresa aunque se conozca su id.
+    const ticket = await obtenerTicketPorIdBD(ticket_id, req.empresaId);
+    if (!ticket) {
+      return res.status(404).json({ ok: false, mensaje: 'Ticket no encontrado' });
+    }
+
+    const comentarioNuevo = await crearComentarioBD({
+      ticket_id,
+      usuario_id: req.user.usuarioId,
+      comentario
+    });
+    res.status(201).json({ ok: true, mensaje: 'Comentario agregado correctamente', data: comentarioNuevo });
+  } catch (error) {
+    res.status(500).json({ ok: false, mensaje: error.message });
+  }
 };
 
 const obtenerCatalogos = async (req, res) => {

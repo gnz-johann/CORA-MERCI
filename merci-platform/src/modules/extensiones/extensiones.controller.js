@@ -75,4 +75,30 @@ async function crear(req, res, next) {
   }
 }
 
-module.exports = { listar, sincronizar, crear };
+/**
+ * DELETE /api/extensiones/:id
+ * Borra (lógicamente) una extensión de la BD local de MERCI.
+ * Permiso requerido: extensiones.eliminar
+ *
+ * No toca CloudUCM — ver nota en extensiones.service.js#eliminarExtension.
+ */
+async function eliminar(req, res, next) {
+  try {
+    const { id } = req.params;
+    const eliminada = await extensionesService.eliminarExtension(id, req.empresaId);
+
+    if (!eliminada) {
+      return res.status(404).json({ ok: false, mensaje: 'Extensión no encontrada', data: null });
+    }
+
+    return res.status(200).json({
+      ok:      true,
+      mensaje: 'Extensión eliminada correctamente',
+      data:    eliminada
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { listar, sincronizar, crear, eliminar };

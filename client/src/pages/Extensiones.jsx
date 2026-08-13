@@ -218,9 +218,10 @@ function EditarExtensionModal({ extension, onClose, onSubmit }) {
   );
 }
 
-// ── Modal Eliminar Extensión — SIGUE SIENDO MOCK a propósito ───────
-// No existe DELETE /api/extensiones/:id en el backend todavía.
-function DeleteModal({ onClose, onConfirm }) {
+// ── Modal Eliminar Extensión — conectado a DELETE /api/extensiones/:id real ──
+// Borrado lógico solo en BD de MERCI — no toca la cuenta SIP en CloudUCM
+// (ver nota en extensiones.service.js#eliminarExtension del backend).
+function DeleteModal({ onClose, onConfirm, eliminando }) {
   return (
     <ModalBase
       titulo="Eliminar Extensión"
@@ -234,28 +235,27 @@ function DeleteModal({ onClose, onConfirm }) {
           ¿Estás seguro de que deseas eliminar esta extensión?
         </p>
         <p className="mt-2 text-xs text-[#2D547E] leading-snug font-['Montserrat'] not-italic">
-          Esta acción no se puede deshacer. La extensión quedará eliminada.
-        </p>
-        <p className="mt-3 text-[10px] text-[#5D5D5D] leading-snug">
-          Todavía no está conectado al backend real (no existe endpoint para eliminar) —
-          esto solo la quita de la vista.
+          Esta acción no se puede deshacer. La extensión quedará eliminada de MERCI —
+          la cuenta SIP en la central telefónica no se toca desde aquí.
         </p>
       </div>
 
       <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-[#0D2647]">
         <button
           onClick={onClose}
-          className="px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#061628] border border-[#2D547E] text-[#2D547E]"
+          disabled={eliminando}
+          className="px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#061628] border border-[#2D547E] text-[#2D547E] disabled:opacity-50"
         >
           Cancelar
         </button>
         <button
           onClick={onConfirm}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-white"
+          disabled={eliminando}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-white disabled:opacity-50 disabled:cursor-not-allowed"
           style={{ backgroundColor: "#642323" }}
         >
           <Trash2 size={14} className="text-white" />
-          Eliminar Extensión
+          {eliminando ? "Eliminando..." : "Eliminar Extensión"}
         </button>
       </div>
     </ModalBase>
@@ -314,6 +314,7 @@ export default function Extensiones() {
   const [cargando, setCargando] = useState(true);
   const [errorCarga, setErrorCarga] = useState("");
   const [creando, setCreando] = useState(false);
+  const [eliminando, setEliminando] = useState(false);
 
   const [modal, setModal] = useState(null); // { tipo: 'crear' | 'editar' | 'eliminar', data? }
   const [toast, setToast] = useState(null);
@@ -400,10 +401,18 @@ export default function Extensiones() {
     mostrarToast("success", "Extensión actualizada (solo en esta vista, no se guardó)");
   };
 
-  const handleEliminar = () => {
-    setExtensiones((prev) => prev.filter((e) => e.id !== modal.data.id));
-    setModal(null);
-    mostrarToast("success", "Extensión eliminada (solo en esta vista, no se guardó)");
+  const handleEliminar = async () => {
+    setEliminando(true);
+    try {
+      await extensionesService.eliminar(modal.data.id);
+      setModal(null);
+      mostrarToast("success", "Extensión eliminada correctamente");
+      cargarExtensiones();
+    } catch (err) {
+      mostrarToast("error", err.message || "No se pudo eliminar la extensión.");
+    } finally {
+      setEliminando(false);
+    }
   };
 
   return (
@@ -553,7 +562,7 @@ export default function Extensiones() {
         <EditarExtensionModal extension={modal.data} onClose={() => setModal(null)} onSubmit={handleEditar} />
       )}
       {modal?.tipo === "eliminar" && (
-        <DeleteModal onClose={() => setModal(null)} onConfirm={handleEliminar} />
+        <DeleteModal onClose={() => setModal(null)} onConfirm={handleEliminar} eliminando={eliminando} />
       )}
       {errorPuntual && (
         <ErrorModal

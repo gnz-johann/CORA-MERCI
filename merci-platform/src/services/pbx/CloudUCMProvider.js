@@ -203,6 +203,8 @@ class CloudUCMProvider extends IPBXProvider {
         throw crearErrorCloudUCM(res.data?.status)
         }
 
+        console.log('CloudUCM respondió status 0 (éxito):', { action, response: res.data })
+
         return res.data
     }
 

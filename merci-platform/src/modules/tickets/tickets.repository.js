@@ -138,11 +138,28 @@ const obtenerCatalogosBD = async () => {
   return { estados, prioridades };
 };
 
+// 7. Agregar comentario a un ticket — ticket_comentarios no tiene empresa_id
+// propio (ver schema.prisma), la pertenencia a la empresa se valida en el
+// controller antes de llamar acá, reusando obtenerTicketPorIdBD.
+const crearComentarioBD = async (datos) => {
+  return await prisma.ticket_comentarios.create({
+    data: {
+      ticket_id: String(datos.ticket_id),
+      usuario_id: String(datos.usuario_id),
+      comentario: datos.comentario
+    },
+    include: {
+      usuarios: { select: { id: true, nombre: true } }
+    }
+  });
+};
+
 module.exports = {
   obtenerTicketsPorEmpresaBD,
   obtenerTicketPorIdBD,
   crearTicketBD,
   actualizarTicketBD,
   eliminarTicketBD,
+  crearComentarioBD,
   obtenerCatalogosBD
 };

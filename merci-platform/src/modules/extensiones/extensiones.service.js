@@ -188,8 +188,10 @@ async function crearExtension(empresaId, datos) {
   });
 
   // 3. Si CloudUCM pide "apply", aplicarlo de inmediato con la misma sesión
+  console.log('addSIPAccountAndUser needApply:', resultado.needApply);
   if (resultado.needApply) {
-    await cloudUCM.applyChanges(empresaId);
+    const resultadoApply = await cloudUCM.applyChanges(empresaId);
+    console.log('applyChanges resultado:', resultadoApply);
   }
 
   // 4. Solo si lo anterior salió bien, reflejar en BD local — mismo upsert
@@ -200,8 +202,30 @@ async function crearExtension(empresaId, datos) {
   });
 }
 
+/**
+ * Elimina (borrado lógico) una extensión de la BD local de MERCI.
+ *
+ * A propósito, esto NO toca CloudUCM — solo quita el registro de MERCI.
+ * `CloudUCMProvider.js` no implementa `deleteUser` todavía (ver
+ * `.docs/informes/extension-secret-obligatorio.md`), y borrar la cuenta SIP
+ * real en la central telefónica es una decisión aparte que no se pidió acá.
+ *
+ * @param {string} id
+ * @param {string} empresaId
+ * @returns {Promise<Object|null>} - null si no existe o no pertenece a la empresa
+ */
+async function eliminarExtension(id, empresaId) {
+  const existente = await extensionesRepository.obtenerPorId(id, empresaId);
+  if (!existente) {
+    return null;
+  }
+
+  return extensionesRepository.eliminarLogico(id);
+}
+
 module.exports = {
   listarExtensiones,
   sincronizarExtensiones,
-  crearExtension
+  crearExtension,
+  eliminarExtension
 };

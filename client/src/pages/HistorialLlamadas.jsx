@@ -1,98 +1,21 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   Phone, PhoneIncoming, Clock, UserCheck, Download, Eye, X, FileText,
-  ChevronLeft, ChevronRight, ChevronDown, CheckCircle2, XCircle,
+  ChevronLeft, ChevronRight, ChevronDown, CheckCircle2, XCircle, AlertCircle, RefreshCw,
 } from 'lucide-react';
 import StatCard from '../components/StatCard';
+import { llamadasService } from '../services/llamadas.service';
 
-// === DATOS SIMULADOS — forma alineada al modelo real `llamadas` de Prisma ===
-// (numero_origen, numero_destino, fecha_inicio, duracion_seg, agente/estado/resultado
-// vienen de catálogos relacionados: catalogo_estado_llamada, catalogo_resultado_llamada).
-// Reconstrucción del Bloque 1.0 — Sección 1.0.3. Sigue en mock a propósito: se conecta al
-// backend real (GET /api/llamadas) en el Bloque 2.3, cuando también se agregue el export a
-// CSV real y los filtros por teléfono/agente del lado del servidor.
-const mockLlamadas = [
-  {
-    id: 1,
-    numero_origen: '3312345678',
-    numero_destino: '1000',
-    agente_nombre: 'Agente Virtual Recepción',
-    fecha_inicio: '2026-07-24T09:12:03',
-    duracion_seg: 184,
-    estado: 'Finalizada',
-    resultado: 'Exitosa',
-    clasificacion_ia: 'Consulta de disponibilidad',
-    sentimiento: 'Positivo',
-    transcripcion: 'Cliente pregunta por disponibilidad de habitaciones para el fin de semana. Se le confirma disponibilidad y se transfiere a reservaciones.',
-  },
-  {
-    id: 2,
-    numero_origen: '5522334455',
-    numero_destino: '1000',
-    agente_nombre: 'Agente Virtual Recepción',
-    fecha_inicio: '2026-07-24T08:47:21',
-    duracion_seg: 46,
-    estado: 'Perdida',
-    resultado: 'Sin Respuesta',
-    clasificacion_ia: null,
-    sentimiento: null,
-    transcripcion: null,
-  },
-  {
-    id: 3,
-    numero_origen: '3319988776',
-    numero_destino: '7099',
-    agente_nombre: 'IVR Ventas',
-    fecha_inicio: '2026-07-23T18:30:55',
-    duracion_seg: 312,
-    estado: 'Escalada',
-    resultado: 'Escalada a Humano',
-    clasificacion_ia: 'Reclamo de facturación',
-    sentimiento: 'Negativo',
-    transcripcion: 'Cliente reporta cobro duplicado. El agente virtual no logra resolverlo y escala a un supervisor humano.',
-  },
-  {
-    id: 4,
-    numero_origen: '3312345678',
-    numero_destino: '1000',
-    agente_nombre: 'Agente Virtual Recepción',
-    fecha_inicio: '2026-07-23T14:05:10',
-    duracion_seg: 97,
-    estado: 'Finalizada',
-    resultado: 'Exitosa',
-    clasificacion_ia: 'Confirmación de reserva',
-    sentimiento: 'Positivo',
-    transcripcion: 'Cliente confirma su reserva del día 30. Se le envía confirmación por correo.',
-  },
-  {
-    id: 5,
-    numero_origen: '5588776655',
-    numero_destino: '7099',
-    agente_nombre: 'IVR Ventas',
-    fecha_inicio: '2026-07-22T11:20:40',
-    duracion_seg: 0,
-    estado: 'Cancelada',
-    resultado: 'Cancelada por Usuario',
-    clasificacion_ia: null,
-    sentimiento: null,
-    transcripcion: null,
-  },
-  {
-    id: 6,
-    numero_origen: '3315566778',
-    numero_destino: '1000',
-    agente_nombre: 'Agente Virtual Recepción',
-    fecha_inicio: '2026-07-22T10:02:17',
-    duracion_seg: 205,
-    estado: 'Transferida',
-    resultado: 'Transferida',
-    clasificacion_ia: 'Solicitud de late check-out',
-    sentimiento: 'Neutral',
-    transcripcion: 'Cliente solicita salida tardía. Se transfiere a recepción humana para autorizar.',
-  },
-];
-
+// Bloque 2.3 — conectado a GET /api/llamadas (carga) y POST /api/llamadas/sync-cdr
+// (botón Actualizar). El backend hoy solo filtra server-side por desde/hasta/estado
+// (ver llamadas.repository.js#listarLlamadas) — no tiene filtro de teléfono/agente
+// ni export CSV real todavía. Por eso: desde/estado van al servidor, y
+// teléfono/agente + paginación siguen siendo client-side sobre el lote ya
+// cargado (limite alto, ver LIMITE_CARGA), igual que ya hace LlamadasActivas.jsx
+// con `listar({ limite: 100 })`. El CSV exporta ese mismo lote ya cargado, no
+// "todas las llamadas que existan" — es una limitación real, no un bug.
 const PAGE_SIZE = 5;
+const LIMITE_CARGA = 200;
 
 function formatFecha(iso) {
   if (!iso) return '—';
@@ -112,8 +35,8 @@ function formatDuracion(seg) {
 function exportarCSV(filas) {
   const headers = ['Teléfono', 'Agente', 'Fecha y Hora', 'Duración', 'Estado', 'Resultado'];
   const rows = filas.map((l) => [
-    l.numero_origen, l.agente_nombre, formatFecha(l.fecha_inicio),
-    formatDuracion(l.duracion_seg), l.estado, l.resultado,
+    l.numero_origen, l.agentes_virtuales?.nombre, formatFecha(l.fecha_inicio),
+    formatDuracion(l.duracion_seg), l.catalogo_estado_llamada?.nombre, l.catalogo_resultado_llamada?.nombre,
   ]);
   const csv = [headers, ...rows]
     .map((r) => r.map((v) => `"${String(v ?? '').replace(/"/g, '""')}"`).join(','))
@@ -128,8 +51,13 @@ function exportarCSV(filas) {
 }
 
 export default function HistorialLlamadas() {
-  const [llamadas] = useState(mockLlamadas);
+  const [llamadas, setLlamadas] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [errorCarga, setErrorCarga] = useState('');
+  const [sincronizando, setSincronizando] = useState(false);
+
   const [selectedLlamada, setSelectedLlamada] = useState(null);
+  const [cargandoDetalle, setCargandoDetalle] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [toast, setToast] = useState({ show: false, type: '', message: '' });
   const [page, setPage] = useState(1);
@@ -139,47 +67,94 @@ export default function HistorialLlamadas() {
   const [filtroTelefono, setFiltroTelefono] = useState('');
   const [filtroAgente, setFiltroAgente] = useState('');
 
+  const showToast = useCallback((type, message) => {
+    setToast({ show: true, type, message });
+    setTimeout(() => setToast({ show: false, type: '', message: '' }), 3000);
+  }, []);
+
+  const cargarLlamadas = useCallback(async () => {
+    setCargando(true);
+    setErrorCarga('');
+    try {
+      const res = await llamadasService.listar({
+        limite: LIMITE_CARGA,
+        desde: filtroFecha || undefined,
+        estado: filtroEstado || undefined,
+      });
+      setLlamadas(res.data?.llamadas ?? []);
+    } catch (err) {
+      setErrorCarga(err.message || 'No se pudo cargar el historial de llamadas desde el servidor.');
+      setLlamadas([]);
+    } finally {
+      setCargando(false);
+    }
+  }, [filtroFecha, filtroEstado]);
+
+  useEffect(() => { cargarLlamadas(); }, [cargarLlamadas]);
+
+  const handleActualizar = async () => {
+    setSincronizando(true);
+    try {
+      const res = await llamadasService.sincronizarCDR();
+      showToast('success', `Sincronización ${res.data?.status}: ${res.data?.registrosSincronizados} registros procesados.`);
+      await cargarLlamadas();
+    } catch (err) {
+      showToast('error', err.message || 'No se pudo sincronizar el CDR desde CloudUCM.');
+    } finally {
+      setSincronizando(false);
+    }
+  };
+
+  // estado/agente disponibles para los selects — derivados del lote ya
+  // cargado (mismo criterio que ya usaba la versión mock, no hay catálogo
+  // dedicado de agentes/estados de llamada expuesto por el backend todavía).
   const agentesDisponibles = useMemo(
-    () => [...new Set(llamadas.map((l) => l.agente_nombre))], [llamadas]
+    () => [...new Set(llamadas.map((l) => l.agentes_virtuales?.nombre).filter(Boolean))], [llamadas]
   );
   const estadosDisponibles = useMemo(
-    () => [...new Set(llamadas.map((l) => l.estado))], [llamadas]
+    () => [...new Set(llamadas.map((l) => l.catalogo_estado_llamada?.nombre).filter(Boolean))], [llamadas]
   );
 
+  // Teléfono y agente: client-side sobre el lote ya cargado (ver nota de
+  // arriba) — fecha y estado ya vienen filtrados desde el servidor.
   const llamadasFiltradas = useMemo(() => {
     return llamadas.filter((l) => {
-      if (filtroFecha && !l.fecha_inicio?.startsWith(filtroFecha)) return false;
-      if (filtroEstado && l.estado !== filtroEstado) return false;
       if (filtroTelefono && !l.numero_origen?.includes(filtroTelefono.trim())) return false;
-      if (filtroAgente && l.agente_nombre !== filtroAgente) return false;
+      if (filtroAgente && l.agentes_virtuales?.nombre !== filtroAgente) return false;
       return true;
     });
-  }, [llamadas, filtroFecha, filtroEstado, filtroTelefono, filtroAgente]);
+  }, [llamadas, filtroTelefono, filtroAgente]);
 
   const totalPaginas = Math.max(1, Math.ceil(llamadasFiltradas.length / PAGE_SIZE));
   const paginaActual = Math.min(page, totalPaginas);
   const llamadasPagina = llamadasFiltradas.slice((paginaActual - 1) * PAGE_SIZE, paginaActual * PAGE_SIZE);
 
   const totalLlamadas = llamadas.length;
-  const totalExitosas = llamadas.filter((l) => l.resultado === 'Exitosa').length;
-  const totalEscaladas = llamadas.filter((l) => l.estado === 'Escalada').length;
+  const totalExitosas = llamadas.filter((l) => l.catalogo_resultado_llamada?.nombre === 'Exitosa').length;
+  const totalEscaladas = llamadas.filter((l) => l.catalogo_estado_llamada?.nombre === 'Escalada').length;
   const duracionPromedio = Math.round(
     llamadas.reduce((acc, l) => acc + (l.duracion_seg || 0), 0) / (llamadas.length || 1)
   );
-
-  const showToast = (type, message) => {
-    setToast({ show: true, type, message });
-    setTimeout(() => setToast({ show: false, type: '', message: '' }), 3000);
-  };
 
   const handleExportar = () => {
     exportarCSV(llamadasFiltradas);
     showToast('success', 'Archivo CSV exportado correctamente.');
   };
 
-  const abrirDetalles = (llamada) => {
-    setSelectedLlamada(llamada);
+  const abrirDetalles = async (llamada) => {
     setIsModalOpen(true);
+    setSelectedLlamada(llamada);
+    setCargandoDetalle(true);
+    try {
+      // El listado no trae transcripción/sentimiento — hay que pedir el
+      // detalle completo (GET /api/llamadas/:id) por separado.
+      const res = await llamadasService.obtenerDetalle(llamada.id);
+      setSelectedLlamada(res.data);
+    } catch (err) {
+      showToast('error', err.message || 'No se pudo cargar el detalle de la llamada.');
+    } finally {
+      setCargandoDetalle(false);
+    }
   };
 
   const getBadgeStyle = (estado) => {
@@ -200,11 +175,24 @@ export default function HistorialLlamadas() {
 
       {/* TARJETAS DE MÉTRICAS */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <StatCard titulo="Total Llamadas" valor={totalLlamadas} descripcion="Registradas" icon={Phone} />
-        <StatCard titulo="Exitosas" valor={totalExitosas} descripcion="Resultado exitoso" icon={CheckCircle2} />
-        <StatCard titulo="Escaladas" valor={totalEscaladas} descripcion="Requirieron humano" icon={UserCheck} />
-        <StatCard titulo="Duración Promedio" valor={formatDuracion(duracionPromedio)} descripcion="Minutos:segundos" icon={Clock} />
+        <StatCard titulo="Total Llamadas" valor={totalLlamadas} descripcion="Cargadas" icon={Phone} cargando={cargando} />
+        <StatCard titulo="Exitosas" valor={totalExitosas} descripcion="Resultado exitoso" icon={CheckCircle2} cargando={cargando} />
+        <StatCard titulo="Escaladas" valor={totalEscaladas} descripcion="Requirieron humano" icon={UserCheck} cargando={cargando} />
+        <StatCard titulo="Duración Promedio" valor={formatDuracion(duracionPromedio)} descripcion="Minutos:segundos" icon={Clock} cargando={cargando} />
       </div>
+
+      {errorCarga && (
+        <div className="flex items-center gap-3 mb-6 px-5 py-3.5 rounded-xl border border-[#E11D48]/30 bg-[#3B0711]/60 text-[#FDA4AF]">
+          <AlertCircle className="w-4 h-4 shrink-0" />
+          <p className="text-sm">{errorCarga}</p>
+          <button
+            onClick={cargarLlamadas}
+            className="ml-auto text-xs font-bold uppercase tracking-wider text-[#FDA4AF] hover:text-white underline underline-offset-2 shrink-0"
+          >
+            Reintentar
+          </button>
+        </div>
+      )}
 
       {/* BARRA DE FILTROS */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
@@ -255,13 +243,23 @@ export default function HistorialLlamadas() {
           </div>
         </div>
 
-        <button
-          onClick={handleExportar}
-          className="flex items-center gap-2 bg-[#061628] hover:bg-[#0D2647] border border-[#1A3A5C] text-[#7A9EC4] px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-colors"
-        >
-          <Download className="w-4 h-4" />
-          Exportar CSV
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleActualizar}
+            disabled={sincronizando}
+            className="flex items-center gap-2 bg-[#061628] hover:bg-[#0D2647] border border-[#1A3A5C] text-[#7A9EC4] px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <RefreshCw className={`w-4 h-4 ${sincronizando ? 'animate-spin' : ''}`} />
+            {sincronizando ? 'Actualizando...' : 'Actualizar'}
+          </button>
+          <button
+            onClick={handleExportar}
+            className="flex items-center gap-2 bg-[#061628] hover:bg-[#0D2647] border border-[#1A3A5C] text-[#7A9EC4] px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Exportar CSV
+          </button>
+        </div>
       </div>
 
       {/* TABLA DE LLAMADAS */}
@@ -279,23 +277,33 @@ export default function HistorialLlamadas() {
               </tr>
             </thead>
             <tbody className="divide-y divide-[#0D2647]/50">
-              {llamadasPagina.length === 0 && (
+              {cargando && (
+                <tr>
+                  <td colSpan={6} className="px-6 py-10 text-center">
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="w-4 h-4 rounded-full border-2 border-[#155EEF] border-t-transparent animate-spin" />
+                      <span className="text-sm text-[#2E5070]">Cargando historial de llamadas...</span>
+                    </div>
+                  </td>
+                </tr>
+              )}
+              {!cargando && llamadasPagina.length === 0 && (
                 <tr>
                   <td colSpan={6} className="px-6 py-10 text-center text-sm text-[#2E5070]">
                     No hay llamadas que coincidan con los filtros seleccionados.
                   </td>
                 </tr>
               )}
-              {llamadasPagina.map((llamada) => (
+              {!cargando && llamadasPagina.map((llamada) => (
                 <tr key={llamada.id} className="hover:bg-[#0D2647]/30 transition-colors">
-                  <td className="px-6 py-4"><span className="text-sm font-mono text-[#DCE9FF]">{llamada.numero_origen}</span></td>
-                  <td className="px-6 py-4"><span className="text-sm text-[#DCE9FF]">{llamada.agente_nombre}</span></td>
+                  <td className="px-6 py-4"><span className="text-sm font-mono text-[#DCE9FF]">{llamada.numero_origen ?? '—'}</span></td>
+                  <td className="px-6 py-4"><span className="text-sm text-[#DCE9FF]">{llamada.agentes_virtuales?.nombre ?? '— Sin asignar —'}</span></td>
                   <td className="px-6 py-4"><span className="text-xs font-mono text-[#7A9EC4]">{formatFecha(llamada.fecha_inicio)}</span></td>
                   <td className="px-6 py-4"><span className="text-xs font-mono text-[#7A9EC4]">{formatDuracion(llamada.duracion_seg)}</span></td>
                   <td className="px-6 py-4">
-                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-[11px] font-medium tracking-wide ${getBadgeStyle(llamada.estado)}`}>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-[11px] font-medium tracking-wide ${getBadgeStyle(llamada.catalogo_estado_llamada?.nombre)}`}>
                       <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
-                      {llamada.estado}
+                      {llamada.catalogo_estado_llamada?.nombre ?? 'Sin estado'}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-center">
@@ -357,12 +365,19 @@ export default function HistorialLlamadas() {
             </div>
 
             <div className="p-8 space-y-6">
+              {cargandoDetalle && (
+                <div className="flex items-center justify-center gap-2 py-6">
+                  <div className="w-4 h-4 rounded-full border-2 border-[#155EEF] border-t-transparent animate-spin" />
+                  <span className="text-sm text-[#2E5070]">Cargando detalle...</span>
+                </div>
+              )}
+
               <div className="grid grid-cols-[140px_1fr] gap-y-4 text-sm">
                 <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Teléfono</span>
-                <span className="text-[#DCE9FF] font-mono">{selectedLlamada.numero_origen}</span>
+                <span className="text-[#DCE9FF] font-mono">{selectedLlamada.numero_origen ?? '—'}</span>
 
                 <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Agente</span>
-                <span className="text-[#DCE9FF] font-medium">{selectedLlamada.agente_nombre}</span>
+                <span className="text-[#DCE9FF] font-medium">{selectedLlamada.agentes_virtuales?.nombre ?? '— Sin asignar —'}</span>
 
                 <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Fecha</span>
                 <span className="text-[#DCE9FF] font-mono text-xs">{formatFecha(selectedLlamada.fecha_inicio)}</span>
@@ -371,15 +386,15 @@ export default function HistorialLlamadas() {
                 <span className="text-[#DCE9FF] font-mono text-xs">{formatDuracion(selectedLlamada.duracion_seg)}</span>
 
                 <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Estado</span>
-                <span className="text-[#DCE9FF] font-medium">{selectedLlamada.estado}</span>
+                <span className="text-[#DCE9FF] font-medium">{selectedLlamada.catalogo_estado_llamada?.nombre ?? '—'}</span>
 
                 <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Resultado</span>
-                <span className="text-[#DCE9FF] font-medium">{selectedLlamada.resultado}</span>
+                <span className="text-[#DCE9FF] font-medium">{selectedLlamada.catalogo_resultado_llamada?.nombre ?? '—'}</span>
 
-                {selectedLlamada.sentimiento && (
+                {selectedLlamada.catalogo_sentimientos?.nombre && (
                   <>
                     <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Sentimiento</span>
-                    <span className="text-[#DCE9FF] font-medium">{selectedLlamada.sentimiento}</span>
+                    <span className="text-[#DCE9FF] font-medium">{selectedLlamada.catalogo_sentimientos.nombre}</span>
                   </>
                 )}
               </div>

@@ -17,6 +17,10 @@ export const usuariosService = {
   stats:          () => api.get('/usuarios/stats'),
   // Catálogo global de estados (Activo, Inactivo, Suspendido, Bloqueado…)
   estados:        () => api.get('/usuarios/estados'),
+  // Cuenta propia — el id sale del token en el backend, no de la URL.
+  propio:                 () => api.get('/usuarios/me'),
+  editarPropio:           (datos) => api.put('/usuarios/me', datos),
+  cambiarPasswordPropio:  (datos) => api.patch('/usuarios/me/password', datos),
 }
 
 // Roles 

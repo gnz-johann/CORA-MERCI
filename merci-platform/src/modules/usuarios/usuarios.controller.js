@@ -145,6 +145,75 @@ const cambiarPassword = async (req, res, next) => {
   }
 }
 
+// ── Cuenta propia ────────────────────────────────────────────────────────────
+// Mismo servicio que ya usan los endpoints de administración (obtenerPorId/
+// editar/cambiarPassword), pero forzando el id al del propio usuario del
+// token — nunca a req.params, para que nadie pueda editar la cuenta de otro
+// pasando un id distinto en la URL.
+
+const obtenerPropio = async (req, res, next) => {
+  try {
+    const usuario = await usuariosService.obtenerPorId({
+      usuarioId:  req.user.usuarioId,
+      empresaId:  req.empresaId,
+      sucursalId: req.sucursalId,
+    })
+    res.json({ ok: true, mensaje: 'Perfil obtenido', data: { usuario } })
+  } catch (err) {
+    next(err)
+  }
+}
+
+const editarPropio = async (req, res, next) => {
+  try {
+    const { nombre, correo, usuario } = req.body
+
+    const usuarioEditado = await usuariosService.editar(
+      {
+        usuarioId: req.user.usuarioId,
+        empresaId: req.empresaId,
+        nombre,
+        correo,
+        usuario,
+        // sucursalId/estadoUsuarioId no se exponen acá — cambiarse a sí mismo
+        // de sucursal o de estado no es una acción de "mi cuenta"
+      },
+      { usuarioId: req.user.usuarioId, ip: req.ip }
+    )
+
+    res.json({ ok: true, mensaje: 'Perfil actualizado', data: { usuario: usuarioEditado } })
+  } catch (err) {
+    next(err)
+  }
+}
+
+const cambiarPasswordPropio = async (req, res, next) => {
+  try {
+    const { passwordActual, passwordNueva } = req.body
+
+    if (!passwordNueva) {
+      return res.status(400).json({
+        ok:      false,
+        mensaje: 'passwordNueva es requerido',
+      })
+    }
+
+    await usuariosService.cambiarPassword(
+      {
+        usuarioId:      req.user.usuarioId,
+        empresaId:      req.empresaId,
+        passwordActual,
+        passwordNueva,
+      },
+      { usuarioId: req.user.usuarioId, ip: req.ip }
+    )
+
+    res.json({ ok: true, mensaje: 'Contraseña actualizada correctamente' })
+  } catch (err) {
+    next(err)
+  }
+}
+
 const stats = async (req, res, next) => {
   try {
     const data = await usuariosService.obtenerStats({
@@ -181,4 +250,7 @@ module.exports = {
   cambiarPassword,
   stats,
   estados,
+  obtenerPropio,
+  editarPropio,
+  cambiarPasswordPropio,
 }

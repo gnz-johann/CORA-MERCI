@@ -343,8 +343,8 @@ export default function AuditoriaView() {
       {/* === MODAL: DETALLE DE LA ACTIVIDAD (soporta N campos cambiados) === */}
       {isModalOpen && selectedLog && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#020C18]/80 backdrop-blur-sm p-4">
-          <div className="bg-[#061628] border border-[#0D2647] rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden">
-            <div className="flex items-center justify-between p-6 border-b border-[#0D2647]">
+          <div className="bg-[#061628] border border-[#0D2647] rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
+            <div className="flex items-center justify-between p-6 border-b border-[#0D2647] shrink-0">
               <div className="flex items-center gap-4">
                 <div className="bg-[#0A1E38] p-3 rounded-xl border border-[#1A3A5C]">
                   <List className="w-6 h-6 text-white" />
@@ -359,7 +359,7 @@ export default function AuditoriaView() {
               </button>
             </div>
 
-            <div className="p-8 space-y-6">
+            <div className="p-8 space-y-6 overflow-y-auto flex-1 min-h-0">
               <div className="grid grid-cols-[120px_1fr] gap-y-4 text-sm">
                 <span className="text-[#2E5070] font-bold uppercase tracking-widest text-xs mt-0.5">Usuario</span>
                 <span className="text-[#DCE9FF] font-medium">{selectedLog.usuarioNombre ?? '— (evento automático del sistema)'}</span>
@@ -407,7 +407,7 @@ export default function AuditoriaView() {
               )}
             </div>
 
-            <div className="flex items-center justify-end gap-3 p-6 border-t border-[#0D2647] bg-[#040F1E]">
+            <div className="flex items-center justify-end gap-3 p-6 border-t border-[#0D2647] bg-[#040F1E] shrink-0">
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="px-6 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wider uppercase transition-colors text-[#7A9EC4] hover:text-white bg-transparent border border-[#1A3A5C] hover:bg-[#0D2647]"

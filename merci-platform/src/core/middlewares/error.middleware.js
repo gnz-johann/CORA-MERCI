@@ -8,6 +8,16 @@ const errorHandler = (err, req, res, next) => {
     // ('conexion'|'validacion'|'sistema') — se agrega si está presente, sin
     // afectar la forma de respuesta de ningún otro AppError existente.
     if (err instanceof AppError) {
+        // Antes solo se logueaban los 500 no controlados de más abajo — un
+        // AppError categorizado (ej. falla de conexión con CloudUCM) nunca
+        // dejaba rastro en la terminal del servidor, aunque sí llegara bien
+        // al cliente. Se loguea aparte de los AppError "normales" (404, 400
+        // de validación, etc.) para no llenar la terminal de ruido en casos
+        // esperados del día a día — solo los que ya vienen categorizados.
+        if (err.categoria) {
+        console.error(`Error categorizado (${err.categoria}):`, err.message, err)
+        }
+
         return res.status(err.statusCode).json({
         ok: false,
         mensaje: err.message,

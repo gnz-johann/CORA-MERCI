@@ -190,6 +190,16 @@ class CloudUCMProvider extends IPBXProvider {
         )
 
         if (res.data?.status !== 0) {
+        // El error ya categorizado (cloudUCMErrors.js) es lo que se lanza,
+        // pero antes de eso el dato crudo completo (acción, status, response)
+        // siempre queda en el log del servidor — sin esto no había forma de
+        // saber, viendo solo el mensaje traducido, qué mandó CloudUCM de
+        // verdad.
+        console.error('CloudUCM respondió status != 0:', {
+            action,
+            status:   res.data?.status,
+            response: res.data?.response,
+        })
         throw crearErrorCloudUCM(res.data?.status)
         }
 

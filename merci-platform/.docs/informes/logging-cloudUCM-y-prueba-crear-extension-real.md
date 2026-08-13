@@ -46,6 +46,31 @@ de CloudUCM sobre el formato de `secret` u otro campo no evidente desde la docum
   restringida**, mismo aviso que en secciones anteriores)
 - `src/core/middlewares/error.middleware.js` (editado — logging de `AppError` con `categoria`)
 
+## Actualización — reintento con `extension: '1099'` (dentro del rango 1000-6299 confirmado)
+Mismo resultado exacto que con `9999`. HTTP `502`, `categoria: "sistema"`:
+```
+{"ok":false,"mensaje":"No se pudo completar la operación en la central telefónica. Intenta de nuevo.","categoria":"sistema"}
+```
+
+Terminal del backend (mismo detalle que la vez pasada, gracias al logging ya agregado):
+```
+CloudUCM respondió status != 0: {
+  action: 'addSIPAccountAndUser',
+  status: -25,
+  response: { error_msg: 'Failed to update data.' }
+}
+```
+
+**El rango de numeración queda descartado como causa** — `1099` está claramente dentro de
+`1000-6299` (User Extensions, confirmado en `CloudUCM-User-Manual.pdf`) y el error es
+idéntico, carácter por carácter, al de `9999`. Sigue sin crearse nada ni en CloudUCM ni en BD
+local (confirmado de nuevo con consulta directa: 0 filas). La causa real del `-25` sigue sin
+identificarse — no se investigó más a fondo en esta ronda porque no se pidió, pero con el
+rango descartado, las hipótesis que quedan en pie son: permiso del usuario de API distinto
+entre "login/getSystemStatus" y "crear cuentas SIP", algún campo adicional que
+`addSIPAccountAndUser` exige y que este payload mínimo (`extension` + `secret`) no manda, o
+una restricción propia de esta central que no está documentada en la guía de la API.
+
 ## Pendiente / riesgos
 - **No se implementó borrado**, tal como se pidió explícitamente — no hizo falta de todos
   modos, porque la creación falló y no quedó nada que borrar, ni en CloudUCM ni en BD local.

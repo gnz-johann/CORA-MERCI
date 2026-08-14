@@ -56,6 +56,14 @@ const envSchema = z.object({
   // Cifrado de configuraciones_empresa.credenciales_ia (AES-256-GCM)
     CREDENCIALES_IA_ENCRYPTION_KEY: z.string()
       .regex(/^[0-9a-fA-F]{64}$/, 'CREDENCIALES_IA_ENCRYPTION_KEY debe ser hexadecimal de 64 caracteres (32 bytes)'),
+
+  // API interna (src/modules/internal/) — consumida por el puente de voz
+  // (referencia-voz-bina12/voz-en-vivo/sip-b2bua.js), autenticada con
+  // x-internal-api-key en vez de JWT. Opcional a propósito: si no está
+  // configurada, internalAuth.middleware.js rechaza todo con 503 en vez de
+  // tumbar el arranque del servidor completo (a diferencia de las demás
+  // variables de este archivo, esta feature todavía no está desplegada).
+    INTERNAL_API_KEY: z.string().min(1).optional(),
 })
 
 const parsed = envSchema.safeParse(process.env)

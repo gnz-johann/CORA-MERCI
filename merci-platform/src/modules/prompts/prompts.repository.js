@@ -72,9 +72,22 @@ const restaurarVersion = async (agenteId, versionId) => {
     });
 };
 
+// Usado por la API interna (src/modules/internal/) para resolver las
+// instrucciones que se le pasan al modelo en una llamada de voz en vivo.
+const obtenerPromptActivo = async (agenteId) => {
+    return await prisma.versiones_prompt.findFirst({
+        where: {
+            agente_virtual_id: agenteId,
+            es_activa: true
+        },
+        select: { prompt: true }
+    });
+};
+
 module.exports = {
     obtenerUltimaVersion,
     crearVersion,
     obtenerVersiones,
-    restaurarVersion
+    restaurarVersion,
+    obtenerPromptActivo
 };

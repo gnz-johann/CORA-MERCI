@@ -161,9 +161,32 @@ async function registrarSincronizacion({ empresaId, pbxId, endpoint, status, dur
   });
 }
 
+/**
+ * Marca una llamada como finalizada (fecha_fin = ahora), por id — usada por
+ * la API interna (src/modules/internal/) cuando el puente de voz avisa que
+ * colgó. Idempotente: si ya tenía fecha_fin, no la pisa.
+ *
+ * No filtra por empresa_id porque quien llama (internalAuth) no tiene JWT de
+ * empresa — el llamada_id (UUID) ya es la única referencia que el puente
+ * conoce, entregada por esta misma API en /internal/llamadas/iniciar.
+ *
+ * @param {string} llamadaId
+ * @returns {Promise<Object|null>} - null si no existe
+ */
+async function finalizarLlamada(llamadaId) {
+  const existente = await prisma.llamadas.findUnique({ where: { id: llamadaId } });
+  if (!existente) return null;
+
+  return prisma.llamadas.update({
+    where: { id: llamadaId },
+    data: { fecha_fin: existente.fecha_fin ?? new Date() }
+  });
+}
+
 module.exports = {
   listarLlamadas,
   obtenerLlamadaPorId,
   upsertLlamada,
-  registrarSincronizacion
+  registrarSincronizacion,
+  finalizarLlamada
 };

@@ -154,6 +154,16 @@ const crearComentarioBD = async (datos) => {
   });
 };
 
+// Usado por la API interna (src/modules/internal/) para traducir la
+// `prioridad` en texto que manda el puente de voz ('Baja'/'Media'/'Alta'/
+// 'Crítica') al prioridad_ticket_id (UUID) que espera crearTicketBD.
+const buscarPrioridadPorNombre = async (nombre) => {
+  return prisma.catalogo_prioridad_ticket.findFirst({
+    where: { nombre, deleted_at: null },
+    select: { id: true }
+  });
+};
+
 module.exports = {
   obtenerTicketsPorEmpresaBD,
   obtenerTicketPorIdBD,
@@ -161,5 +171,6 @@ module.exports = {
   actualizarTicketBD,
   eliminarTicketBD,
   crearComentarioBD,
-  obtenerCatalogosBD
+  obtenerCatalogosBD,
+  buscarPrioridadPorNombre
 };

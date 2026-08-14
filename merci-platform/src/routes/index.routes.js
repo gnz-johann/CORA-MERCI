@@ -27,6 +27,9 @@ const configuracionIARoutes = require('../modules/configuracion/configuracionIA.
 // ─── Complementarios
 const ticketsRoutes       = require('../modules/tickets/tickets.routes')
 const dashboardRoutes     = require('../modules/dashboard/dashboard.routes')
+// API interna (x-internal-api-key, sin JWT) — consumida por procesos de
+// sistema, hoy solo el puente de voz sin conectar (ver internal.routes.js).
+const internalRoutes      = require('../modules/internal/internal.routes')
 // const conocimientoRoutes  = require('../modules/conocimiento/conocimiento.routes')
 // const sucursalesRoutes    = require('../modules/sucursales/sucursales.routes')
 // const pmsRoutes           = require('../modules/pms/pms.routes')
@@ -50,6 +53,7 @@ router.use('/configuracion', configuracionIARoutes)
 router.use('/auditoria',     auditoriaRoutes)
 router.use('/tickets',        ticketsRoutes)
 router.use('/dashboard',      dashboardRoutes)
+router.use('/internal',       internalRoutes)
 // router.use('/documentos',     conocimientoRoutes)
 // router.use('/sucursales',     sucursalesRoutes)
 // router.use('/api/v1',         pmsRoutes)
